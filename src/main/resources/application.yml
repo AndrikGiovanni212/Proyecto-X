@@ -1,0 +1,34 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: nesjua016@gmail.com
+    password: ukisxwlojzbamjsv  
+    properties:
+      mail:
+        smtp:
+         auth: true
+         starttls:
+            enable: true
+            required: true
+         ssl:
+          protocols: TLSv1.2
+ 
+  main:
+    allow-circular-references: true
+    
+  datasource:
+    
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+      
+server:
+  port: 8080
