@@ -191,6 +191,14 @@ public class VistaEnviarCorreos extends JFrame {
 					emailSende.send(message);
 					System.out.println("Mail Send...");				
 				}
+				numeroAltas=0;
+				btnEnviar.setEnabled(false);
+				
+				controlEnviarCorreos.mensajeEnviado(listAlumno,listDocente);
+				for (int i = 0; i < tableCorreos.getRowCount(); i++) {
+					model.removeRow(i);
+					i-=1;
+				}
 					
 			}
 		});
@@ -290,7 +298,10 @@ public class VistaEnviarCorreos extends JFrame {
 			this.altas[numeroAltas]=act.getCorreo();
 			numeroAltas++;
 			model.addRow(fila);
-		}	
+		}
+		if(numeroAltas>0 && (!(textArea.getText().equals("")))) {
+			btnEnviar.setEnabled(true);
+		}
 	}
 	
 	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {
