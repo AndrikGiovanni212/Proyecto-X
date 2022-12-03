@@ -301,6 +301,7 @@ public class VistaEnviarCorreos extends JFrame {
 		if(numeroAltas>0 && (!(textArea.getText().equals("")))) {
 			btnEnviar.setEnabled(true);
 		}
+		//prueba
 	}
 	
 	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {
