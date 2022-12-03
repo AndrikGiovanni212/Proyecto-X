@@ -12,7 +12,7 @@ public interface RepositoryAlumno extends CrudRepository <Alumno, Long> {
 	public Alumno findByIdAlumno(String contraseña);
 	
 	public List<Alumno> findAll();
-	
+	public List<Alumno> findAllByCorreoEnviado(boolean correo);
 	
 	//proceso1 Mensaje
 	public Alumno findByCorreo(String correo);

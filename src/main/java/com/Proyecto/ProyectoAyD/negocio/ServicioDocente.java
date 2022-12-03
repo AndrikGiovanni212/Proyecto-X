@@ -107,10 +107,18 @@ public class ServicioDocente {
 		 return id;	
 	}
 	
-	//proc4
+	//proc4.4
+	/**
+	 * recupera una lista de todos los docente que tenga el atributo de correo enviado false
+	 * si el atributo es true regresa una lista vacia
+	 * 
+	 * @return List<Docente> si es false
+	 * @return vacio si es true
+	 *   
+	 */
 	public List<Docente> recuperaListaDocent(){
 		List <Docente> list = new ArrayList();
-		list = repositoryDocente.findAll();
+		list = repositoryDocente.findAllByCorreoEnviado(false);
 		return list;
 	}
 	
@@ -124,6 +132,25 @@ public class ServicioDocente {
 		act.setFecha(newFecha);
 		repositoryActividad.save(act);
 	}
+	
+	//proc4.4
+	/**
+	 * cambia en la base de datos el valor del atributo correo enviado de false a true
+	 * 
+	 * @param list<Docente>
+	 *   
+	 */
+		public boolean mensajeEnviado(List<Docente> list) {
+			if(list.isEmpty()) {
+				return false;
+			}
+			
+			for(Docente doc:list) {
+				doc.setCorreoEnviado(true);
+				repositoryDocente.save(doc);
+			}
+			return true;
+		}
 	
 	
 

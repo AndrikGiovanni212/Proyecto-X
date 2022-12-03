@@ -72,23 +72,28 @@ public class ProyectoAyDApplication {
 		controlPrincipal.inicia();
 	}
 	public void inicializaBD() {
+		
+		Docente docente = new Docente();
+		docente.setIdDocente("36541");
+		docente.setNombre("manuel");
+		docente.setCorreo("manuelmartinezv13@gmail.com");
+		docente.setCorreoEnviado(true);
+		repositorioDocente.save(docente);
+		
+		
 		Docente docente1 = new Docente();
 		docente1.setIdDocente("12345");
 		docente1.setNombre("nabeel");
 		docente1.setCorreo("bob1nabeel@gmail.com");
 		repositorioDocente.save(docente1);
 	
-		Docente docente = new Docente();
+		docente = new Docente();
 		docente.setIdDocente("78965");
 		docente.setNombre("armando");
 		docente.setCorreo("armaarzolape@gmail.com");
 		repositorioDocente.save(docente);
 		
-		docente = new Docente();
-		docente.setIdDocente("36541");
-		docente.setNombre("manuel");
-		docente.setCorreo("manuelmartinezv13@gmail.com");
-		repositorioDocente.save(docente);
+		
 		
 		Alumno alumno = new Alumno();
 		alumno.setIdAlumno("75321");

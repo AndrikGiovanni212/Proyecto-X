@@ -42,7 +42,7 @@ public class ServicioAlumno
 	//proc4
 	public List<Alumno> recuperaListaAlumno(){
 		List <Alumno> list = new ArrayList();
-		list = repositoryAlumno.findAll();
+		list = repositoryAlumno.findAllByCorreoEnviado(false);
 		return list;
 	
 	}
@@ -65,28 +65,17 @@ public class ServicioAlumno
 	
 	
 	//proceso 1 EleccionDocente
-//	public Alumno agregarAlumno(String eva, Alumno alu){
-//		Evaluador evaluador= repositoryEvaluador.findBynombre(eva);
-//		Alumno alum=alu;
-//		evaluador.setAlumno(alum);
-//		evaluador.setStatus(false);
-//		if(evaluador.getTipoRevisor()=="Coordionar") {
-//			repositoryEvaluador.save(evaluador);	
-//			System.out.println(evaluador.getTipoRevisor());
-//		}
-//		if(evaluador.getTipoRevisor()=="Director") {
-//			repositoryEvaluador.save(evaluador);
-//			System.out.println(evaluador.getTipoRevisor());
-//		}
-//		if(evaluador.getTipoRevisor()=="Revisor") {
-//			repositoryEvaluador.save(evaluador);	
-//			System.out.println(evaluador.getTipoRevisor());
-//		}
-//		return alum;
-//	}
 	public void guardaEvaluador(List<Evaluador> evaluadores) {
 		alumnoLocal.setEvaluador(evaluadores);
 		repositoryAlumno.save(alumnoLocal);
+	}
+	
+	//proce4.4
+	public void mensajeEnviado(List<Alumno> list) {
+		for(Alumno alum:list) {
+			alum.setCorreoEnviado(true);
+			repositoryAlumno.save(alum);
+		}
 	}
 	
 	

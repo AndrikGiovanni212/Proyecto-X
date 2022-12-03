@@ -1,6 +1,7 @@
 package com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos;
 
 import java.io.File;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Component;
 import com.Proyecto.ProyectoAyD.ProyectoAyDApplication;
 import com.Proyecto.ProyectoAyD.negocio.ServicioAlumno;
 import com.Proyecto.ProyectoAyD.negocio.ServicioDocente;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.presentacion.principal.ControlPrincipal;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 
@@ -48,6 +51,11 @@ public class ControlEnviarCorreos {
 	
 	public void regresaInicio() {
 		controlPrincipal.inicioAdministrador(nombre, contraseñaAdm);
+	}
+	
+	public void mensajeEnviado(List<Alumno> listAlumno,List<Docente> listDocente) {
+		servicioAlumno.mensajeEnviado(listAlumno);
+		servicioDocente.mensajeEnviado(listDocente);
 	}
 	
 	
