@@ -60,6 +60,12 @@ public class ProyectoAyDApplication {
 	private RepositoryEvaluador repositoryEvalaudor;
 
 	public static void main(String[] args) {
+		System.out.println("Primer Commit AAP");
+		System.out.println("Prueba 1");
+		System.out.println("Rama AAP_HU1-7_ElegirFecha");
+
+		
+		
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ProyectoAyDApplication.class);
 
 		builder.headless(false);
