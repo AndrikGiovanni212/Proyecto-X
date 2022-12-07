@@ -1,21 +1,11 @@
 package com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.File.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,38 +14,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JCheckBox;
 
-import org.springframework.stereotype.Component;
+public class vistaSubirAct2 extends JFrame {
 
-import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
-@SuppressWarnings("serial")
-@Component 
-public class VistaSubirActividades extends JFrame {
-
-	public VistaSubirActividades() {
-	}
-
-	
-	private ControlSubirActividades controlSubirActividades;
 	private JPanel contentPane;
 	private JTextField textNombreArchivo;
-	String ruta_archivo;
 	private JTable tableActividades;
-	private JButton btnSubir;
 	private JTextField textFecha;
-
-
-
-
-	private DefaultTableModel dt;
 
 	/**
 	 * Launch the application.
@@ -64,7 +41,7 @@ public class VistaSubirActividades extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VistaSubirActividades frame = new VistaSubirActividades();
+					vistaSubirAct2 frame = new vistaSubirAct2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -76,7 +53,7 @@ public class VistaSubirActividades extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public void vistaSubirActividades(ControlSubirActividades controlSubirActividades, String nombreDocente, String contraseña) {
+	public vistaSubirAct2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 431, 369);
 		contentPane = new JPanel();
@@ -113,7 +90,7 @@ public class VistaSubirActividades extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
+		panel_1.setBackground(new Color(0, 255, 255));
 		panel_1.setBounds(10, 11, 236, 236);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
@@ -126,64 +103,53 @@ public class VistaSubirActividades extends JFrame {
 		scrollPane.setBounds(0, 30, 236, 206);
 		panel_1.add(scrollPane);
 		
-
 		tableActividades = new JTable();
-		
-		tableActividades.setDefaultRenderer(Object.class, new RenderizaTabla());
-		dt = new DefaultTableModel() {
-			@Override
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-		};
-		
 		tableActividades.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				int column = tableActividades.getColumnModel().getColumnIndexAtX(evt.getX());
-				int row = evt.getY() / tableActividades.getRowHeight();
-				if(row < tableActividades.getRowCount() && row>=0  && column<tableActividades.getColumnCount() && (column == 1)) {
-					String val = String.valueOf( tableActividades.getValueAt(row, 0));
-					long id = Long.parseLong(val);
-					Object value = tableActividades.getValueAt(row, column);
-					if(value instanceof JButton) {
-						((JButton) value).doClick();
-						JButton boton = (JButton) value;					
-						controlSubirActividades.abrePdf(id);
-						try {
-							Desktop.getDesktop().open(new File("new.pdf"));
-						} catch (IOException e) {
-							e.printStackTrace();
-						
-						}
-					}					
-				}
-				if(row < tableActividades.getRowCount() && row>=0  && column<tableActividades.getColumnCount() && (column == 2)) {
-					String val = String.valueOf( tableActividades.getValueAt(row, 0));
-					long id = Long.parseLong(val);
-					Object value = tableActividades.getValueAt(row, column);
-					if(value instanceof JButton) {
-						((JButton) value).doClick();
-						JButton boton = (JButton) value;
-						controlSubirActividades.modifica(id);
-						
-					}					
-				}
+			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		tableActividades.setModel(dt);
-		dt.addColumn("Id");
-		dt.addColumn("Nombre del Archivo");
-		dt.addColumn("fecha de entrega");
-		
+		tableActividades.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+			},
+			new String[] {
+				"Id", "Nombre del Archivo"
+			}
+		));
 		tableActividades.getColumnModel().getColumn(0).setPreferredWidth(36);
 		scrollPane.setViewportView(tableActividades);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("");
+		scrollPane.setColumnHeaderView(chckbxNewCheckBox);
+		chckbxNewCheckBox.setSelected(true);
 		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setBackground(new Color(135, 206, 250));
 		panel_1_2.setBounds(256, 11, 149, 236);
 		panel.add(panel_1_2);
-		panel_1_2.setLayout(null);	
+		panel_1_2.setLayout(null);
 		
 		JButton btnSeleccionarArchivo = new JButton("SeleccionarArchivo");
 		btnSeleccionarArchivo.addActionListener(new ActionListener() {
@@ -193,8 +159,10 @@ public class VistaSubirActividades extends JFrame {
 				j.setFileFilter(fi);
 				int se = j.showOpenDialog(btnSeleccionarArchivo);
 				if(se == 0) {
-					textNombreArchivo.setText(""+ j.getSelectedFile().getName());
-					ruta_archivo = j.getSelectedFile().getAbsolutePath();
+					textNombreArchivo.setText("" + j.getSelectedFile().getName());
+				//	ruta_archivo = j.getSelectedFile().getAbsolutePath();
+				}else {
+					
 				}
 			}
 		});
@@ -202,33 +170,10 @@ public class VistaSubirActividades extends JFrame {
 		btnSeleccionarArchivo.setBounds(10, 149, 137, 23);
 		panel_1_2.add(btnSeleccionarArchivo);
 		
-		btnSubir = new JButton("Subir");
+		JButton btnSubir = new JButton("Subir");
 		btnSubir.setEnabled(false);
 		btnSubir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < tableActividades.getRowCount(); i++) {
-					dt.removeRow(i);
-					i-=1;
-				}
-				String nombre = textNombreArchivo.getText();
-				File archivo = new File(ruta_archivo);
-				if(nombre.trim().length() !=0 && ruta_archivo.trim().length() != 0) {
-					try {
-						byte[] pdf = new byte[(int) archivo.length()];
-						InputStream input = new FileInputStream(archivo);
-						input.read(pdf);
-						controlSubirActividades.guardaPdf(nombre, pdf ,contraseña,textFecha.getText().toString());
-						textNombreArchivo.setText("");
-						textFecha.setText("");
-						btnSubir.setEnabled(false);
-					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();				
-					} catch (IOException e1) {
-						e1.printStackTrace();
-						
-					}
-					
-				}		
 			}
 		});
 		btnSubir.setBackground(new Color(176, 224, 230));
@@ -252,10 +197,6 @@ public class VistaSubirActividades extends JFrame {
 		textFecha = new JTextField();
 		textFecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textNombreArchivo.getText().equals("") || textFecha.getText().equals("") ) {
-				}else {
-					btnSubir.setEnabled(true);
-				}
 			}
 		});
 		textFecha.setColumns(10);
@@ -267,7 +208,7 @@ public class VistaSubirActividades extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
+		JLabel lblNewLabel_1 = new JLabel();
 		lblNewLabel_1.setBounds(326, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
@@ -278,15 +219,6 @@ public class VistaSubirActividades extends JFrame {
 
 		JMenu mnInicio = new JMenu("Inicio");
 		menuBar.add(mnInicio);
-		
-		JButton btnInicio = new JButton("Inicio");
-		btnInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlSubirActividades.regresaInicio();
-				termina();
-			}
-		});
-		mnInicio.add(btnInicio);
 
 
 		JMenu mnDocente = new JMenu("Docente\r\n");
@@ -308,44 +240,15 @@ public class VistaSubirActividades extends JFrame {
 		JButton btnActividades = new JButton("Actividades");
 		btnActividades.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlSubirActividades.muestraSubirActividades(nombreDocente, contraseña);
+				//controlPrincipal.muestraSubirActividades();
 			}
 		});
 		mnDocente.add(btnActividades);
 		
 		JButton btnHorarioDisponibilidad = new JButton("Horario Disponibilidad\r\n");
-		btnHorarioDisponibilidad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlSubirActividades.ventanaHorarioDisponibilidad(nombreDocente, contraseña);		//pestaña de eleccion de horario de disponibilida pasandole el idDocente
-				termina();
-			}
-		});
 		mnDocente.add(btnHorarioDisponibilidad);
 
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
-		
-		this.controlSubirActividades = controlSubirActividades;
-		setVisible(true);
-	}
-	
-	public void llenaTabla(List<Actividad> list) {
-		
-		for(Actividad act: list) {
-			Object[] fila=new Object[3];
-			fila[0] = act.getIdActividad(); // act.getIdActividad();
-			fila[1] = new JButton(act.getNombreArchivo());
-			fila[2] = new JButton(act.getFecha().toString());
-			dt.addRow(fila);
-		}
-		
-	}
-	
-	public void muestraDialogoConMensaje(String mensaje ) {
-		JOptionPane.showMessageDialog(this , mensaje);
-	}
-	
-	public void termina() {
-		setVisible(false);
 	}
 }

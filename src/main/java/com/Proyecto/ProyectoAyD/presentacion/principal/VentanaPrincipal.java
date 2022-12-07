@@ -519,7 +519,7 @@ public class VentanaPrincipal extends JFrame {
 				controlPrincipal.ElegirTema(nombreAlumno);
 			}
 		});
-		mnNewMenu_1.add(btnTesina);
+			mnNewMenu_1.add(btnTesina);
 		JButton btnElegirDocente = new JButton("Elegir Docente");
 		btnElegirDocente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -44,5 +44,10 @@ public class ServicioTesina
 		repositoryAlumno.save(al);
 		repositoryTesina.save(tesina);	
 				return tesina;
+
+		//tesina.setAutor(al.getNombre());
+		//tesina.setTema(tema1);		
+		//repositoryTesina.save(tesina);	
+		//return tesina;
 	}//Fin de tesina
 }//fin de clase ServicioTesina

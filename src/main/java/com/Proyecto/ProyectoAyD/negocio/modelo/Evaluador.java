@@ -39,5 +39,5 @@ public class Evaluador {
 	
 	@OneToMany(targetEntity = Archivo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List <Archivo> archivo;
-	
+
 }

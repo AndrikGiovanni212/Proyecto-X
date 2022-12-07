@@ -166,8 +166,7 @@ public class ProyectoAyDApplication {
 		repositoryTema.save(tema4);
 		Tema tema5= new Tema();
 		tema5.setNombre("Redes");
-		repositoryTema.save(tema5);
-		
+		repositoryTema.save(tema5);		
 	}
 	
 	

@@ -122,6 +122,7 @@ public class ControlPrincipal {
 	public void EleccionDocente(String nombreAlumno,String contraseña) 
 	{//inicio método EleccionDocente
 			//controlEleccionDocente.inicia(nombreAlumno, contraseña);	
+
 	}//fin de ElecicónDocente
 	
 	
