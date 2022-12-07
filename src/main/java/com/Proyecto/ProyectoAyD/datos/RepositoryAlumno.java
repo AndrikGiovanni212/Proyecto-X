@@ -1,0 +1,20 @@
+package com.Proyecto.ProyectoAyD.datos;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+
+public interface RepositoryAlumno extends CrudRepository <Alumno, Long> {	
+	public Alumno findByIdAlumno(String contraseña);
+	
+	public List<Alumno> findAll();
+	
+	
+	//proceso1 Mensaje
+	public Alumno findByCorreo(String correo);
+	public Alumno findByNombre(String nombre);
+	public Alumno findByEvaluadorIdEvaluador(int id);
+
+}
