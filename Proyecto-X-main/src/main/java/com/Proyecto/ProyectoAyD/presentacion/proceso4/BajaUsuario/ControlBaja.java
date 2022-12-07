@@ -91,4 +91,5 @@ public class ControlBaja {
 	public void regresaInicio(String nombre) {
 		controlPrincipal.inicioAdministrador(nombre, contraseñaAdm);
 	}
+	
 }

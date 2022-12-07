@@ -22,4 +22,5 @@ public interface RepositoryAlumno extends CrudRepository <Alumno, Long> {
 	//proc4.2
 	public Alumno findByMatricula(String matricula);
 
+	
 }

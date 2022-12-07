@@ -254,10 +254,10 @@ public class VistaBaja extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(controlBaja.darBaja(textFieldMatricula.getText())) {
-					muestraDialogoConMensaje("Docente eliminado");
+					muestraDialogoConMensaje("Docente eliminado exitosamente");
 					limpiarCampos(); 
 				}else {
-					muestraDialogoConMensaje("Alumno eliminado");
+					muestraDialogoConMensaje("Alumno eliminado exitosamente");
 					limpiarCampos();
 					
 				}

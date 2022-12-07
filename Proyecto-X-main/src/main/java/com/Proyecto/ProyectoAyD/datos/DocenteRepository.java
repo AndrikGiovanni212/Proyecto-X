@@ -19,5 +19,4 @@ public interface DocenteRepository extends CrudRepository <Docente, String> {
 	
 	//proc4.2
 	public Docente findByMatricula(String matricula);
-	
 }
