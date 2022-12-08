@@ -1,4 +1,4 @@
-package com.Proyecto.ProyectoAyD;
+	package com.Proyecto.ProyectoAyD;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -58,8 +58,16 @@ public class ProyectoAyDApplication {
 	private RepositoryAlumno repositorioAlumno;
 	@Autowired
 	private RepositoryEvaluador repositoryEvalaudor;
+	@Autowired
+	RepositoryTema repositoryTema;
 
 	public static void main(String[] args) {
+		System.out.println("Primer Commit AAP");
+		System.out.println("Prueba 1");
+		System.out.println("Rama AAP_HU1-7_ElegirFecha");
+
+		
+		
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ProyectoAyDApplication.class);
 
 		builder.headless(false);
@@ -157,8 +165,21 @@ public class ProyectoAyDApplication {
 		Notificacion1.setMensaje("Le falta mejorar a la tesis");
 		Notificacion1.setDocente(docente1);
 		repositorioNotificacion.save(Notificacion1);
-		
-		
+		Tema tema1= new Tema();
+		tema1.setNombre("Inteligencia Artificial");
+		repositoryTema.save(tema1);
+		Tema tema2= new Tema();
+		tema2.setNombre("Ingenieria de Software");
+		repositoryTema.save(tema2);
+		Tema tema3= new Tema();
+		tema3.setNombre("Base de datos");
+		repositoryTema.save(tema3);
+		Tema tema4= new Tema();
+		tema4.setNombre("Programación Orientada a Objetos");
+		repositoryTema.save(tema4);
+		Tema tema5= new Tema();
+		tema5.setNombre("Redes");
+		repositoryTema.save(tema5);		
 	}
 	
 	

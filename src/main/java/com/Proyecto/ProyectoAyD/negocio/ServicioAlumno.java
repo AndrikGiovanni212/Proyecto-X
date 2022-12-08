@@ -68,6 +68,7 @@ public class ServicioAlumno
 		alumnoLocal.setEvaluador(evaluadores);
 		repositoryAlumno.save(alumnoLocal);
 	}
+
 	
 	//proce4.4
 	public boolean mensajeEnviado(List<Alumno> list) {
@@ -84,6 +85,9 @@ public class ServicioAlumno
 	
 	//proc4.2
 	
-	
+	public Alumno recuperaByNombre(String nombre) {
+		return repositoryAlumno.findByNombre(nombre);
+	}
+
 	
 }

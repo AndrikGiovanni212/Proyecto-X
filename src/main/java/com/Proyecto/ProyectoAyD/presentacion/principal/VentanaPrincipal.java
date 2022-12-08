@@ -33,6 +33,8 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component 
 public class VentanaPrincipal extends JFrame {
+	public VentanaPrincipal() {
+	}
 	
 	private JPanel contentPane;
 	private ControlPrincipal controlPrincipal;	
@@ -516,8 +518,13 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mnNewMenu_1);
 
 		JButton btnTesina = new JButton("Tesina");
-		mnNewMenu_1.add(btnTesina);
-
+		
+		btnTesina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.ElegirTema(nombreAlumno);
+			}
+		});
+			mnNewMenu_1.add(btnTesina);
 		JButton btnElegirDocente = new JButton("Elegir Docente");
 		btnElegirDocente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -533,6 +540,14 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(btnDisponibilidad);
+		
+		JButton btnHorarioTesina = new JButton("Horario de Tesina");
+		btnHorarioTesina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.seleccionHorarioAlumno(nombreAlumno);
+			}
+		});
+		mnNewMenu_1.add( btnHorarioTesina);
 
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
