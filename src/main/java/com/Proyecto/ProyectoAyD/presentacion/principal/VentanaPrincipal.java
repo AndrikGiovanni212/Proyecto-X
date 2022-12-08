@@ -33,8 +33,6 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component 
 public class VentanaPrincipal extends JFrame {
-	public VentanaPrincipal() {
-	}
 	
 	private JPanel contentPane;
 	private ControlPrincipal controlPrincipal;	
@@ -416,8 +414,17 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNewMenu_1.add(btnAltas);
 		
+		
+		//proceso 4-2
 		JButton btnBajas = new JButton("Bajas");
+		btnBajas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.darBajas(nombreAdm,contraseña);
+				
+			}
+		});
 		mnNewMenu_1.add(btnBajas);
+		
 		
 		JButton btnCorreos = new JButton("Correos ");
 		btnCorreos.addActionListener(new ActionListener() {
@@ -561,7 +568,6 @@ public class VentanaPrincipal extends JFrame {
 		this.controlPrincipal = controlPrincipal;
 		setVisible(true);
 	}
-	
 	//ventana principal docente
 	public void docente(ControlPrincipal controlPrincipal, String nombreDocente,String contraseña) {
 		
@@ -664,7 +670,15 @@ public class VentanaPrincipal extends JFrame {
 				controlPrincipal.eleccionHorario(nombreDocente,contraseña);		//pestaña de eleccion de horario de disponibilida pasandole el idDocente
 			}
 		});
-		mnDocente.add(btnHorarioDisponibilidad);
+		JButton btnCambiarContraseña = new JButton("Cambiar Contraseña");
+		btnCambiarContraseña.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(contraseña+ " "+ nombreDocente+"Ventana principal");
+				controlPrincipal.cambiarContraseña( nombreDocente,contraseña);
+			}
+		});
+		mnDocente.add(btnCambiarContraseña);
+		
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 		

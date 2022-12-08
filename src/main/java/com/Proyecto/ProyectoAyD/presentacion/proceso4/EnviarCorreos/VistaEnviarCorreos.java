@@ -196,13 +196,11 @@ public class VistaEnviarCorreos extends JFrame {
 				numeroAltas=0;
 				btnEnviar.setEnabled(false);
 				
-				//controlEnviarCorreos.mensajeEnviado(listAlumno,listDocente);
+
 				for (int i = 0; i < tableCorreos.getRowCount(); i++) {
 					model.removeRow(i);
 					i-=1;
-				}
-				
-					
+				}					
 			}
 		});
 		
@@ -307,7 +305,6 @@ public class VistaEnviarCorreos extends JFrame {
 		if(numeroAltas>0 && (!(textArea.getText().equals("")))) {
 			btnEnviar.setEnabled(true);
 		}
-		
 	}
 	
 	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {

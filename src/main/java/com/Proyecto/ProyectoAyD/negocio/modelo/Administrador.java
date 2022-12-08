@@ -20,6 +20,9 @@ import lombok.Data;
 
 public class Administrador {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idAdm;
+	private String contraseñaAdm;
 	private String idAdministrador;
 	private String nombre;
 	

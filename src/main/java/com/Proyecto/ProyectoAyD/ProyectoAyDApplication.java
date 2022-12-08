@@ -1,3 +1,4 @@
+
 	package com.Proyecto.ProyectoAyD;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,32 +81,40 @@ public class ProyectoAyDApplication {
 		controlPrincipal.inicia();
 	}
 	public void inicializaBD() {
+		
+		Docente docente = new Docente();
+		docente.setContraseñaDocente("36541");
+		docente.setNombre("manuel");
+		docente.setCorreo("manuelmartinezv13@gmail.com");
+		docente.setMatricula("5566644");
+		docente.setCorreoEnviado(true);
+		repositorioDocente.save(docente);
+		
+		
 		Docente docente1 = new Docente();
-		docente1.setIdDocente("12345");
+		docente1.setContraseñaDocente("12345");
 		docente1.setNombre("nabeel");
 		docente1.setCorreo("bob1nabeel@gmail.com");
+		docente1.setMatricula("54321");
 		repositorioDocente.save(docente1);
 	
-		Docente docente = new Docente();
-		docente.setIdDocente("78965");
+		docente = new Docente();
+		docente.setContraseñaDocente("78965");
 		docente.setNombre("armando");
 		docente.setCorreo("armaarzolape@gmail.com");
 		repositorioDocente.save(docente);
 		
-		docente = new Docente();
-		docente.setIdDocente("36541");
-		docente.setNombre("manuel");
-		docente.setCorreo("manuelmartinezv13@gmail.com");
-		repositorioDocente.save(docente);
+		
 		
 		Alumno alumno = new Alumno();
-		alumno.setIdAlumno("75321");
+		alumno.setContraseñaAlumno("75321");
+		alumno.setMatricula("77777");
 		alumno.setNombre("andrik");
 		alumno.setCorreo("gabg2116@gmail.com");
 		repositorioAlumno.save(alumno);
 		
 		Administrador adm = new Administrador();
-		adm.setIdAdministrador("14785");
+		adm.setContraseñaAdm("14785");
 		adm.setNombre("yesica");
 		repositorioAdm.save(adm);
 		

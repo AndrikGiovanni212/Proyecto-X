@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
-import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Tema;
 
@@ -26,7 +25,7 @@ public class ServicioAlumno
 	Alumno alumnoLocal;
 	//pro3
 	public boolean buscaAlumno(String contraseña, String nombre) {
-		alumnoLocal = repositoryAlumno.findByIdAlumno(contraseña);
+		alumnoLocal = repositoryAlumno.findByContraseñaAlumno(contraseña);
 		if(alumnoLocal != null) {
 			if(alumnoLocal.getNombre().equals(nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
 				return true;
@@ -42,7 +41,7 @@ public class ServicioAlumno
 	//proc4
 	public List<Alumno> recuperaListaAlumno(){
 		List <Alumno> list = new ArrayList();
-		list = repositoryAlumno.findAll();
+		list = repositoryAlumno.findAllByCorreoEnviado(false);
 		return list;
 	
 	}
@@ -65,31 +64,29 @@ public class ServicioAlumno
 	
 	
 	//proceso 1 EleccionDocente
-//	public Alumno agregarAlumno(String eva, Alumno alu){
-//		Evaluador evaluador= repositoryEvaluador.findBynombre(eva);
-//		Alumno alum=alu;
-//		evaluador.setAlumno(alum);
-//		evaluador.setStatus(false);
-//		if(evaluador.getTipoRevisor()=="Coordionar") {
-//			repositoryEvaluador.save(evaluador);	
-//			System.out.println(evaluador.getTipoRevisor());
-//		}
-//		if(evaluador.getTipoRevisor()=="Director") {
-//			repositoryEvaluador.save(evaluador);
-//			System.out.println(evaluador.getTipoRevisor());
-//		}
-//		if(evaluador.getTipoRevisor()=="Revisor") {
-//			repositoryEvaluador.save(evaluador);	
-//			System.out.println(evaluador.getTipoRevisor());
-//		}
-//		return alum;
-//	}
 	public void guardaEvaluador(List<Evaluador> evaluadores) {
 		alumnoLocal.setEvaluador(evaluadores);
 		repositoryAlumno.save(alumnoLocal);
 	}
+
+	
+	//proce4.4
+	public boolean mensajeEnviado(List<Alumno> list) {
+		if(list.isEmpty()) {
+			return false;
+		}
+		
+		for(Alumno alum:list) {
+			alum.setCorreoEnviado(true);
+			repositoryAlumno.save(alum);
+		}
+		return true;
+	}
+	
+	//proc4.2
+	
 	public Alumno recuperaByNombre(String nombre) {
 		return repositoryAlumno.findByNombre(nombre);
 	}
-	
+
 }

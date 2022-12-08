@@ -8,6 +8,7 @@ import com.Proyecto.ProyectoAyD.negocio.ServicioDocente;
 import com.Proyecto.ProyectoAyD.negocio.ServicioEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
+
 //import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
@@ -16,6 +17,8 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSu
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.VisualizarEstatus.ControlVisualizarEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.AltaUsuario.ControlAlta;
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.BajaUsuario.ControlBaja;
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.CambiarPassword.ControlCambiarPassword;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnviarCorreos;
 
 
@@ -47,9 +50,20 @@ public class ControlPrincipal {
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
+
+	//proc4.2
+	@Autowired
+	private ControlBaja controlVisualizarBaja;
+	//proc4.3
+	@Autowired
+	private ControlCambiarPassword controlPassword;
+	
+	
+
 	//proceso1.3
 	@Autowired
 	ControlElegirTema controlElegirTema;
+
 	public void inicia() {
 		ventanaPrincipal.login(this);
 		
@@ -139,5 +153,14 @@ public class ControlPrincipal {
 	public void darAltas(String nombreAdmin, String contraseña) {
 		controlVisualizarAlta.inicia(nombreAdmin, contraseña);
 	}
-
+	
+	//proc 4.2
+	public void darBajas(String nombreAdmin, String contraseña) {
+		controlVisualizarBaja.inicia(nombreAdmin, contraseña);
+	}
+	
+	//proc 4.3
+	public void cambiarContraseña( String nombre,String contraseña) {
+		controlPassword.inicia(nombre,contraseña);
+	}
 }
