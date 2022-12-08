@@ -107,6 +107,7 @@ public class ProyectoAyDApplication {
 		
 		Alumno alumno = new Alumno();
 		alumno.setContraseñaAlumno("75321");
+		alumno.setMatricula("77777");
 		alumno.setNombre("andrik");
 		alumno.setCorreo("gabg2116@gmail.com");
 		repositorioAlumno.save(alumno);

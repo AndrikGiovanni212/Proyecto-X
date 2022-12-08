@@ -30,6 +30,7 @@ import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLayeredPane;
 @SuppressWarnings("serial")
 
 /**
@@ -61,10 +62,7 @@ public class VistaSeleccionHorario extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	JComboBox comboBoxAño;
 	JComboBox comboBoxMes;
 	JComboBox comboBoxDia;
@@ -74,56 +72,43 @@ public class VistaSeleccionHorario extends JFrame {
 	
 	public VistaSeleccionHorario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 332);
+		setBounds(100, 100, 450, 372);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(new Color(0, 255, 0));
+
+		JLabel lblLogoFacebook = new JLabel("New label");
+		lblLogoFacebook.setBounds(288, 305, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+		contentPane.add(lblLogoFacebook);
+
+		JLabel lblLogoTwitter = new JLabel("New label");
+		lblLogoTwitter.setBounds(318, 308, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
+		contentPane.add(lblLogoTwitter);
+
+		JLabel lblInstagram = new JLabel("New label");
+		lblInstagram.setBounds(369, 305, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
+		contentPane.add(lblInstagram);
+
+		JLabel lblNombreSistema = new JLabel("New label");
+		lblNombreSistema.setBounds(-30, 302, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		contentPane.add(lblNombreSistema);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("D:\\UAM Izt\\TRIMESTRES\\Sexto-Trimestre22P\\SistemasYDiseñoComputacional\\ProyectoFinalAAP\\Imagenes\\LYMBUS2.png"));
-		lblNewLabel.setBounds(272, -4, 46, 39);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Nombre Alumno");
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 434, 33);
-		contentPane.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
-		
-		JButton btnNewButton = new JButton("");
-		mnNewMenu.add(btnNewButton);
-		
-		JMenu mnNewMenu_1 = new JMenu("Alumno");
-		menuBar.add(mnNewMenu_1);
-		
-		JButton btnTesina = new JButton("Tesina");
-		mnNewMenu_1.add(btnTesina);
-		
-		JButton btnElegirDocente = new JButton("Elegir Docente");
-		mnNewMenu_1.add(btnElegirDocente);
-		
-		JButton btnDisponibilidad = new JButton("Disponibilidad de docente");
-		mnNewMenu_1.add(btnDisponibilidad);
-		
-		JButton btnHorarioTesina = new JButton("Horario de Tesina");
-		mnNewMenu_1.add( btnHorarioTesina);
-		
-		JMenu mnNewMenu_2 = new JMenu("Clase");
-		menuBar.add(mnNewMenu_2);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(34, 139, 34));
+		panel_1.setBounds(0, 39, 434, 258);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 38, 414, 244);
-		contentPane.add(tabbedPane);
+		tabbedPane.setBounds(10, 11, 414, 244);
+		panel_1.add(tabbedPane);
 		
 		JPanel PanelHorario = new JPanel();
 		PanelHorario.setBackground(new Color(255, 255, 255));
@@ -154,7 +139,7 @@ public class VistaSeleccionHorario extends JFrame {
 		
 		comboBoxHora= new JComboBox<>();
 		comboBoxHora.setModel(new DefaultComboBoxModel(new String[] {"Hora", "10", "11", "12", "13", "14", "15", "16", "17"}));
-		comboBoxHora.setBounds(221, 62, 125, 22);
+		comboBoxHora.setBounds(221, 50, 125, 22);
 		PanelHorario.add(comboBoxHora);
 		
 		comboBoxModo= new JComboBox<>();
@@ -206,7 +191,7 @@ public class VistaSeleccionHorario extends JFrame {
 		
 		JLabel lblNewLabel_2_1_1_1_2 = new JLabel("Hora");
 		lblNewLabel_2_1_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1_2.setBounds(221, 50, 38, 14);
+		lblNewLabel_2_1_1_1_2.setBounds(221, 36, 38, 14);
 		PanelHorario.add(lblNewLabel_2_1_1_1_2);
 		
 		JLabel lblNewLabel_2_1_1_1_2_1 = new JLabel("Modo");
@@ -252,6 +237,102 @@ public class VistaSeleccionHorario extends JFrame {
 		JLabel lblNewLabel_2_1 = new JLabel("NOTIFICACIONES");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2_1.setBounds(162, 11, 99, 14);
+		//PanelMensaje.add(lblNewLabel_2_1);
+
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(249, 0, 77, 62);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("nombreAlumno");
+		lblNewLabel_1.setBounds(328, 11, 119, 22);
+		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel_1);
+
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(10, 0, 190, 28);
+		contentPane.add(menuBar);
+
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+
+
+		JMenu mnNewMenu_1 = new JMenu("Alumno");
+		menuBar.add(mnNewMenu_1);
+
+		JButton btnTesina = new JButton("Tesina");
+		
+		btnTesina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//controlPrincipal.ElegirTema(nombreAlumno);
+			}
+		});
+			mnNewMenu_1.add(btnTesina);
+		JButton btnElegirDocente = new JButton("Elegir Docente");
+		btnElegirDocente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//controlPrincipal.EleccionDocente(nombreAlumno, contraseña);
+			}
+		});
+		mnNewMenu_1.add(btnElegirDocente);
+
+		JButton btnDisponibilidad = new JButton("Disponibilidad de docente");
+		btnDisponibilidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//controlPrincipal.eleccionHorarioAlumno(nombreAlumno);
+			}
+		});
+		mnNewMenu_1.add(btnDisponibilidad);
+		
+		JButton btnHorarioTesina = new JButton("Horario de Tesina");
+		btnHorarioTesina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//controlPrincipal.seleccionHorarioAlumno(nombreAlumno);
+			}
+		});
+		mnNewMenu_1.add( btnHorarioTesina);
+
+		JMenu mnNewMenu_2 = new JMenu("Clase");
+		menuBar.add(mnNewMenu_2);
+		/*
+		JPanel PanelAvance = new JPanel();
+		tabbedPane.addTab("Avance", null, PanelAvance, null);
+		
+		JPanel PanelTema = new JPanel();
+		tabbedPane.addTab("Tema", null, PanelTema, null);
+		
+		JPanel PanelMensaje = new JPanel();
+		tabbedPane.addTab("Mensaje", null, PanelMensaje, null);
+		PanelMensaje.setLayout(null);
+		*/
+		JPanel panel3 = new JPanel();
+		panel3.setBackground(new Color(255, 255, 255));
+		panel3.setBounds(29, 25, 348, 180);
+		//PanelMensaje.add(panel);
+		panel3.setLayout(null);
+		
+		JButton btnNewButton_1_2 = new JButton("REGRESAR");
+		btnNewButton_1_2.setToolTipText("");
+		btnNewButton_1_2.setBounds(221, 146, 89, 23);
+		panel.add(btnNewButton_1_2);
+		
+		JButton btnNewButton_1_1_3 = new JButton("LIMPIAR BUZON");
+		btnNewButton_1_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1_1_3.setToolTipText("");
+		btnNewButton_1_1_3.setBounds(27, 146, 111, 23);
+		panel.add(btnNewButton_1_1_3);
+		
+		JList list1 = new JList();
+		list1.setBackground(new Color(175, 238, 238));
+		list1.setBounds(49, 11, 238, 124);
+		panel.add(list1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("NOTIFICACIONES");
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2_2.setBounds(162, 11, 99, 14);
 		//PanelMensaje.add(lblNewLabel_2_1);
 	}
 	

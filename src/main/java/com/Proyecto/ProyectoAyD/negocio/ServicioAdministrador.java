@@ -167,4 +167,22 @@ public class ServicioAdministrador {
 		}
 	}
 	
+	//proc4.3
+
+	/**
+	 * Eliminar del repositorio
+	 * @param matricula
+	 */
+	public boolean bajaPorMatricula(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(docenteLocal != null) {
+			repositoryDocen.delete(docenteLocal);
+			return true;
+		}else {
+			repositoryAlum.delete(alumnoLocal);
+			return false;
+		}
+	}
+	
 }

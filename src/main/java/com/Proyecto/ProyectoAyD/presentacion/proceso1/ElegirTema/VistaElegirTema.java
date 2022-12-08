@@ -136,33 +136,33 @@ public class VistaElegirTema extends JFrame
 	tabbedPane.addTab("Horario", null, PanelHorario, null);
 	JLabel lblFondoVerde = new JLabel("New label");
 	lblFondoVerde.setBounds(0, 33, 434, 198);
-	lblFondoVerde.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\FondoVerde.jpeg"));
+	lblFondoVerde.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
 	contentPane.add(lblFondoVerde);
 	
 	JLabel lblLogoFacebook = new JLabel("New label");
 	lblLogoFacebook.setBounds(291, 226, 58, 38);
-	lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\facebook.png"));
+	lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 	contentPane.add(lblLogoFacebook);
 	
 	JLabel lblLogoTwitter = new JLabel("New label");
 	lblLogoTwitter.setBounds(315, 229, 77, 33);
-	lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\twitter.png"));
+	lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 	contentPane.add(lblLogoTwitter);
 	
 	JLabel lblInstagram = new JLabel("New label");
 	lblInstagram.setBounds(356, 231, 78, 28);
-	lblInstagram.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\instagram.png"));
+	lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 	contentPane.add(lblInstagram);
 	
 	JLabel lblNombreSistema = new JLabel("New label");
 	lblNombreSistema.setBounds(-24, 229, 184, 44);
-	lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\NombreSistema.png"));
+	lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 	contentPane.add(lblNombreSistema);
 	
-	JLabel lblNewLabel = new JLabel("New label");
-	lblNewLabel.setBounds(249, 0, 77, 62);
-	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\usuario.png"));
-	contentPane.add(lblNewLabel);
+//	JLabel lblNewLabel = new JLabel("New label");
+//	lblNewLabel.setBounds(249, 0, 77, 62);
+//	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\usuario.png"));
+//	contentPane.add(lblNewLabel);
 	
 	JLabel lblNewLabel_1 = new JLabel("Nombre Alumno");
 	lblNewLabel_1.setBounds(328, 11, 119, 22);
