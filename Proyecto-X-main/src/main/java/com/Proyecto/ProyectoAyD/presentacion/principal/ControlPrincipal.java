@@ -134,6 +134,4 @@ public class ControlPrincipal {
 	public void darBajas(String nombreAdmin, String contraseña) {
 		controlVisualizarBaja.inicia(nombreAdmin, contraseña);
 	}
-	
-	
 }
