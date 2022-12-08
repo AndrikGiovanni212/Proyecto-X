@@ -15,6 +15,7 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSu
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.VisualizarEstatus.ControlVisualizarEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.AltaUsuario.ControlAlta;
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.CambiarPassword.ControlCambiarPassword;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnviarCorreos;
 
 
@@ -45,6 +46,8 @@ public class ControlPrincipal {
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
+	@Autowired
+	private ControlCambiarPassword controlPassword;
 	
 	
 	public void inicia() {
@@ -106,7 +109,10 @@ public class ControlPrincipal {
 	public void enviarCorreos(String nombre,String contraseña) {
 		controlEnviarCorreos.muestra(nombre,contraseña);
 	}
-	
+	public void cambiarContraseña( String nombre,String id) {
+		System.out.println("Soy control");
+		controlPassword.inicia(nombre,id);
+	}
 	//proceso1 Mensaje
 	public void mensaje(String contraseña, String nombreDocente) {		
 		controlMensaje.inicia(contraseña, nombreDocente);

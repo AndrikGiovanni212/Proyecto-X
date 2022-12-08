@@ -14,7 +14,7 @@ public interface DocenteRepository extends CrudRepository <Docente, String> {
 	public Docente findByIdDocente(String contraseña);
 	
 	public List<Docente> findAll();
-	
+	public Docente findBynombre(String nombre);
 	//public List<Actividad> findByActividadesDocenteIdDocente(String contraseña);
 	
 }

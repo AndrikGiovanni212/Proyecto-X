@@ -38,10 +38,10 @@ public class Docente {
 	
 	private String Usuario;
 	
-	@OneToMany(targetEntity = Actividad.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List <Actividad> actividades;
+	/*@OneToMany(targetEntity = Actividad.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List <Actividad> actividades;*/
 	
-	@OneToMany(targetEntity = Notificacion.class)
-	private List <Notificacion> notificacion;
+	/*@OneToMany(targetEntity = Notificacion.class)
+	private List <Notificacion> notificacion;*/
 	
 }

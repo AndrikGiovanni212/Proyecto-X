@@ -1,6 +1,5 @@
 package com.Proyecto.ProyectoAyD.presentacion.principal;
 
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -27,20 +26,24 @@ import org.springframework.stereotype.Component;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
-
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.CambiarPassword.ControlCambiarPassword;
 
 import javax.swing.JButton;
+
 @SuppressWarnings("serial")
-@Component 
+@Component
 public class VentanaPrincipal extends JFrame {
-	
 	private JPanel contentPane;
-	private ControlPrincipal controlPrincipal;	
+	private ControlPrincipal controlPrincipal;
 	private JTextField textNombre;
 	private JTextField textNombreAlumno;
 	private JTextField textContraseñaAlumno;
 	private JTextField textContraseña;
-	
+
+	public VentanaPrincipal() {
+
+	}
+
 	public void login(ControlPrincipal controlPrincipal) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 242, 176);
@@ -88,7 +91,7 @@ public class VentanaPrincipal extends JFrame {
 	public void loginAdministrador(ControlPrincipal controlPrincipal) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 291, 226);
-		contentPane = new JPanel();
+				contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 128, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -338,9 +341,97 @@ public class VentanaPrincipal extends JFrame {
 		setVisible(true);
 	}
 	
-	//ventana Principal Adm
-	public void administrador(ControlPrincipal controlPrincipal, String nombreAdm,String contraseña) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	  //ventana Principal Adm 
+	public void administrador(ControlPrincipal
+	  controlPrincipal, String nombreAdm,String contraseña) {
+	 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); setBounds(100, 100, 450,
+	  300); contentPane = new JPanel(); contentPane.setBackground(Color.WHITE);
+	  contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	  
+	  setContentPane(contentPane); contentPane.setLayout(null);
+	  
+	  JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
+	  lblNombreEscuela.setBounds(131, 54, 184, 34); lblNombreEscuela.setFont(new
+	  Font("Sylfaen", Font.BOLD, 20)); lblNombreEscuela.setForeground(Color.WHITE);
+	  contentPane.add(lblNombreEscuela);
+	  
+	   JLabel lblNewLabel_2 = new JLabel("New label"); lblNewLabel_2.setBounds(191,
+	  99, 51, 82); lblNewLabel_2.setIcon(new ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\LYMBUS2.png"));
+	  contentPane.add(lblNewLabel_2);
+	  
+	  JLabel lblFondoVerde = new JLabel("New label"); lblFondoVerde.setBounds(0,
+	  33, 434, 198); lblFondoVerde.setIcon(new ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"))
+	  ; contentPane.add(lblFondoVerde);
+	  
+	  JLabel lblLogoFacebook = new JLabel("New label");
+	  lblLogoFacebook.setBounds(291, 226, 58, 38); lblLogoFacebook.setIcon(new
+	  ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+	  contentPane.add(lblLogoFacebook);
+	  
+	  JLabel lblLogoTwitter = new JLabel("New label");
+	  lblLogoTwitter.setBounds(315, 229, 77, 33); lblLogoTwitter.setIcon(new
+	  ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
+	  contentPane.add(lblLogoTwitter);
+	  
+	  JLabel lblInstagram = new JLabel("New label"); lblInstagram.setBounds(356,
+	  231, 78, 28); lblInstagram.setIcon(new ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
+	  contentPane.add(lblInstagram);
+	  
+	  JLabel lblNombreSistema = new JLabel("New label");
+	  lblNombreSistema.setBounds(-24, 223, 184, 44); lblNombreSistema.setIcon(new
+	  ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"
+	  )); contentPane.add(lblNombreSistema);
+	  
+	  JLabel lblNewLabel = new JLabel("New label"); lblNewLabel.setBounds(249, 0,
+	  77, 62); lblNewLabel.setIcon(new ImageIcon(
+	  "C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+	  contentPane.add(lblNewLabel);
+	  
+	 
+	  JLabel lblNewLabel_1 = new JLabel(nombreAdm); lblNewLabel_1.setBounds(328,
+	  11, 119, 22); lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+	  contentPane.add(lblNewLabel_1);
+	  
+	  JMenuBar menuBar = new JMenuBar(); menuBar.setBounds(73, 0, 190, 28);
+	  contentPane.add(menuBar);
+	  
+	  JMenu mnNewMenu = new JMenu("Inicio"); menuBar.add(mnNewMenu);
+	  
+	  
+	  JMenu mnNewMenu_1 = new JMenu("Adminstrador"); menuBar.add(mnNewMenu_1);
+	  
+	  JButton btnAltas = new JButton("Altas"); btnAltas.addActionListener(new
+	  ActionListener() { public void actionPerformed(ActionEvent e) {
+	  controlPrincipal.darAltas(nombreAdm,contraseña); } });
+	  mnNewMenu_1.add(btnAltas);
+	  
+	  JButton btnBajas = new JButton("Bajas"); mnNewMenu_1.add(btnBajas);
+	  
+	  JButton btnCorreos = new JButton("Correos ");
+	  btnCorreos.addActionListener(new ActionListener() { public void
+	  actionPerformed(ActionEvent e) {
+	  controlPrincipal.enviarCorreos(nombreAdm,contraseña); } });
+	  mnNewMenu_1.add(btnCorreos);
+	  
+	  JButton btnRegresa = new JButton(""); btnRegresa.addActionListener(new
+	  ActionListener() { public void actionPerformed(ActionEvent e) {
+	  controlPrincipal.inicia(); } });
+	  btnRegresa.setVerticalAlignment(SwingConstants.TOP); btnRegresa.setIcon(new
+	  ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"
+	  )); btnRegresa.setBounds(0, 0, 53, 44); contentPane.add(btnRegresa);
+	  
+	  this.controlPrincipal = controlPrincipal; setVisible(true); }
+	 
+	// ventana principal alumno
+public void alumno(ControlPrincipal controlPrincipal, String nombreAlumno, String contraseña) {
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -362,12 +453,14 @@ public class VentanaPrincipal extends JFrame {
 
 		JLabel lblFondoVerde = new JLabel("New label");
 		lblFondoVerde.setBounds(0, 33, 434, 198);
-		lblFondoVerde.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
+		lblFondoVerde
+				.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
 		contentPane.add(lblFondoVerde);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
 		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+		lblLogoFacebook
+				.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
@@ -382,111 +475,8 @@ public class VentanaPrincipal extends JFrame {
 
 		JLabel lblNombreSistema = new JLabel("New label");
 		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
-		contentPane.add(lblNombreSistema);
-
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel(nombreAdm);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
-
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(73, 0, 190, 28);
-		contentPane.add(menuBar);
-
-		JMenu mnNewMenu = new JMenu("Inicio");
-		menuBar.add(mnNewMenu);
-
-
-		JMenu mnNewMenu_1 = new JMenu("Adminstrador");
-		menuBar.add(mnNewMenu_1);
-		
-		JButton btnAltas = new JButton("Altas");
-		btnAltas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.darAltas(nombreAdm,contraseña);
-			}
-		});
-		mnNewMenu_1.add(btnAltas);
-		
-		JButton btnBajas = new JButton("Bajas");
-		mnNewMenu_1.add(btnBajas);
-		
-		JButton btnCorreos = new JButton("Correos ");
-		btnCorreos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.enviarCorreos(nombreAdm,contraseña);
-			}
-		});
-		mnNewMenu_1.add(btnCorreos);
-		
-		JButton btnRegresa = new JButton("");
-		btnRegresa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.inicia();
-			}
-		});
-		btnRegresa.setVerticalAlignment(SwingConstants.TOP);
-		btnRegresa.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
-		btnRegresa.setBounds(0, 0, 53, 44);
-		contentPane.add(btnRegresa);
-		
-		this.controlPrincipal = controlPrincipal;
-		setVisible(true);
-	}
-	
-	
-	
-	//ventana principal alumno
-	public  void alumno(ControlPrincipal controlPrincipal, String nombreAlumno,String contraseña) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-
-		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
-		lblNombreEscuela.setBounds(131, 54, 184, 34);
-		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 20));
-		lblNombreEscuela.setForeground(Color.WHITE);
-		contentPane.add(lblNombreEscuela);
-
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(191, 99, 51, 82);
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\LYMBUS2.png"));
-		contentPane.add(lblNewLabel_2);
-
-		JLabel lblFondoVerde = new JLabel("New label");
-		lblFondoVerde.setBounds(0, 33, 434, 198);
-		lblFondoVerde.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
-		contentPane.add(lblFondoVerde);
-
-		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
-		contentPane.add(lblLogoFacebook);
-
-		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(315, 229, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
-		contentPane.add(lblLogoTwitter);
-
-		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(356, 231, 78, 28);
-		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
-		contentPane.add(lblInstagram);
-
-		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema
+				.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 
 		JLabel lblNewLabel = new JLabel("New label");
@@ -505,7 +495,6 @@ public class VentanaPrincipal extends JFrame {
 
 		JMenu mnNewMenu = new JMenu("Inicio");
 		menuBar.add(mnNewMenu);
-
 
 		JMenu mnNewMenu_1 = new JMenu("Alumno");
 		menuBar.add(mnNewMenu_1);
@@ -529,9 +518,12 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNewMenu_1.add(btnDisponibilidad);
 
+		JButton BtnCambiarContraseña = new JButton("Cambiar Contraseña");
+		mnNewMenu_1.add(BtnCambiarContraseña);
+
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
-		
+
 		JButton btnRegresa = new JButton("");
 		btnRegresa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -539,17 +531,19 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		btnRegresa.setVerticalAlignment(SwingConstants.TOP);
-		btnRegresa.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
+		btnRegresa.setIcon(
+				new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
 		btnRegresa.setBounds(0, 0, 53, 44);
 		contentPane.add(btnRegresa);
-		
+
 		this.controlPrincipal = controlPrincipal;
 		setVisible(true);
+
 	}
-	
-	//ventana principal docente
-	public void docente(ControlPrincipal controlPrincipal, String nombreDocente,String contraseña) {
-		
+
+	// ventana principal docente
+	public void docente(ControlPrincipal controlPrincipal, String nombreDocente, String contraseña) {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -572,12 +566,14 @@ public class VentanaPrincipal extends JFrame {
 
 		JLabel lblFondoVerde = new JLabel("New label");
 		lblFondoVerde.setBounds(0, 33, 434, 198);
-		lblFondoVerde.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
+		lblFondoVerde
+				.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
 		contentPane.add(lblFondoVerde);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
 		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+		lblLogoFacebook
+				.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
@@ -592,7 +588,8 @@ public class VentanaPrincipal extends JFrame {
 
 		JLabel lblNombreSistema = new JLabel("New label");
 		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema
+				.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 
 		JLabel lblNewLabel = new JLabel("New label");
@@ -612,7 +609,6 @@ public class VentanaPrincipal extends JFrame {
 		JMenu mnInicio = new JMenu("Inicio");
 		menuBar.add(mnInicio);
 
-
 		JMenu mnDocente = new JMenu("Docente\r\n");
 		menuBar.add(mnDocente);
 
@@ -625,34 +621,44 @@ public class VentanaPrincipal extends JFrame {
 
 		JButton btnTema = new JButton("Tema");
 		mnDocente.add(btnTema);
-		//proceso1
+		// proceso1
 		JButton btnMensaje = new JButton("Mensaje\r\n");
 		btnMensaje.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.mensaje(contraseña,nombreDocente);
+				controlPrincipal.mensaje(contraseña, nombreDocente);
 			}
-		});	
+		});
 		mnDocente.add(btnMensaje);
-		
-		//proc2
+
+		// proc2
 		JButton btnActividades = new JButton("Actividades");
 		btnActividades.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.muestraSubirActividades(nombreDocente,contraseña);
+				controlPrincipal.muestraSubirActividades(nombreDocente, contraseña);
 			}
 		});
 		mnDocente.add(btnActividades);
-		
+
 		JButton btnHorarioDisponibilidad = new JButton("Horario Disponibilidad\r\n");
 		btnHorarioDisponibilidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.eleccionHorario(nombreDocente,contraseña);		//pestaña de eleccion de horario de disponibilida pasandole el idDocente
+				controlPrincipal.eleccionHorario(nombreDocente, contraseña); // pestaña de eleccion de horario de
+																				// disponibilida pasandole el idDocente
 			}
 		});
 		mnDocente.add(btnHorarioDisponibilidad);
+
+		JButton btnCambiarContraseña = new JButton("Cambiar Contraseña");
+		btnCambiarContraseña.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(contraseña+ " "+ nombreDocente+"Ventana principal");
+				controlPrincipal.cambiarContraseña( nombreDocente,contraseña);
+			}
+		});
+		mnDocente.add(btnCambiarContraseña);
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
-		
+
 		JButton btnRegresa = new JButton("");
 		btnRegresa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -660,19 +666,21 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		btnRegresa.setVerticalAlignment(SwingConstants.TOP);
-		btnRegresa.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
+		btnRegresa.setIcon(
+				new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
 		btnRegresa.setBounds(0, 0, 53, 44);
 		contentPane.add(btnRegresa);
-		
+
 		this.controlPrincipal = controlPrincipal;
 		setVisible(true);
 	}
-	
-	public void muestraDialogoConMensaje(String mensaje ) {
-		JOptionPane.showMessageDialog(this , mensaje);
+
+	public void muestraDialogoConMensaje(String mensaje) {
+		JOptionPane.showMessageDialog(this, mensaje);
 	}
-	
+
 	public void termina() {
 		setVisible(false);
 	}
+
 }

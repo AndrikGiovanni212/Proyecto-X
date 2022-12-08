@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
 
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.ModificarFechaEntrega.ControlModificarFechaEntrega;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.ModificarFechaEntrega.VistaModificarFechaEntrega;
 
@@ -37,7 +38,8 @@ public class VistaCambiarPassword extends JFrame {
 	private JPanel contentPane;
 	ControlCambiarPassword controlCambiarPassword;
 	private JTextField textField_1 = new JTextField();
-	private JTextField textField_2 =new JTextField();;
+	private JTextField textField_2= new JTextField();
+	private String oldcontraseña;
 	
 
 	/**
@@ -59,6 +61,7 @@ public class VistaCambiarPassword extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	private String nombre;
 	public VistaCambiarPassword() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 367, 293);
@@ -103,25 +106,22 @@ public class VistaCambiarPassword extends JFrame {
 		panel_1_2.setLayout(null);
 		
 		JButton buttonActualizar = new JButton("Actualizar");
-		buttonActualizar.setEnabled(false);
+	/*	buttonActualizar.setEnabled(false);
 		buttonActualizar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 				if(textField_2.getText().equals("")) {
 					buttonActualizar.setEnabled(false);
 				}
 			}
-		});	
+		});*/	
 		buttonActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(textField_2.getText());
-				try {
-					ControlCambiarPassword.cambiaPassword(textField_2.getText());
-					muestraDialogoConMensaje("Contraseña Actualizada");
-					termina();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				//System.out.println(textField_2.getText()+" Ola");
+				
+					controlCambiarPassword.cambiarContraseña(textField_2.getText(), nombre,oldcontraseña);
+					System.out.println("BotonActualizar"); 
 			}
 		});
 		buttonActualizar.setBackground(new Color(176, 224, 230));
@@ -217,10 +217,15 @@ public class VistaCambiarPassword extends JFrame {
 		
 	}
 
-	public void muestra(ControlCambiarPassword control, String newPassword, String passwordActual) {
+	public void muestra(ControlCambiarPassword control,String nombre,String Id) {
 		controlCambiarPassword=control;
-		textField_1.setText(passwordActual);
-		textField_2.setText(newPassword);	
+		//Docente doce=controlCambiarPassword.recuperaDocente(nombre);
+		System.out.println("a");
+		this.nombre=nombre;
+		oldcontraseña=Id;
+		//String pass=doce.getIdDocente();
+		//System.out.println(pass+" Spy pass");
+//		textField_1.setText(pass);	
 		setVisible(true);
 		
 	}

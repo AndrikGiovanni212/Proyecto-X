@@ -72,7 +72,7 @@ public class ServicioDocente {
 		vo.setDocente(dos);
 		repositoryActividad.save(vo);	
 		this.list.add(vo);	
-		dos.setActividades(list);
+		//dos.setActividades(list);
 		//falata que si se guarda bien me regrese un true
 		repositoryDocente.save(dos);
 
@@ -124,13 +124,43 @@ public class ServicioDocente {
 		act.setFecha(newFecha);
 		repositoryActividad.save(act);
 	}
-	public void cambiaPassword(String password) {
-		String contraseña;
-		Docente docente = repositoryDocente.findByIdDocente(password);
+	public Docente cambiaPasswo(String password, String nombre) {
 		
+		Docente docente =new Docente();
+		docente= repositoryDocente.findBynombre(nombre);
+		docente.setIdDocente(password);
+		System.out.println(docente);
+		repositoryDocente.save(docente);
+		return docente;
+		
+	}
+	public Docente cambioContraseña(String contraseña,String nombre, String oldcontraseña) {
+		Docente newdocente =new Docente();
+		Docente olddocente =new Docente();
+		olddocente= repositoryDocente.findByIdDocente(oldcontraseña);
+		newdocente.setIdDocente(contraseña);
+		
+		newdocente.setIdDocente(contraseña);
+		newdocente.setUsuario(olddocente.getUsuario());
+	//	newdocente.setActividades(olddocente.getActividades());
+		newdocente.setCorreo(olddocente.getCorreo());
+		newdocente.setEdad(olddocente.getEdad());
+		newdocente.setMatricula(olddocente.getMatricula());
+	//	docente.setNotificacion(aux.getNotificacion());
+		newdocente.setTelefono(olddocente.getTelefono());
+		newdocente.setUsuario(olddocente.getUsuario());
+		newdocente.setCorreoEnviado(olddocente.isCorreoEnviado());
+	//	System.out.println(newdocente);
+	//	System.out.println(olddocente.getIdDocente()+" id");
+		
+		repositoryDocente.save(newdocente);
+		repositoryDocente.delete(olddocente);
+		return newdocente;
 	}
 	public Docente recuperaContraseña (String contraseña) {
 		return repositoryDocente.findByIdDocente(contraseña);
 	}
-
+	public Docente recuperDocente (String nombre) {
+		return repositoryDocente.findByIdDocente(nombre);
+	}
 }
