@@ -681,4 +681,5 @@ public class VentanaPrincipal extends JFrame {
 	public void termina() {
 		setVisible(false);
 	}
+	
 }
