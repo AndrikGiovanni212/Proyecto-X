@@ -9,6 +9,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 
 public interface RepositoryAlumno extends CrudRepository <Alumno, Long> {	
+
 	public Alumno findByContraseñaAlumno(String contraseña);
 	
 	public List<Alumno> findAll();

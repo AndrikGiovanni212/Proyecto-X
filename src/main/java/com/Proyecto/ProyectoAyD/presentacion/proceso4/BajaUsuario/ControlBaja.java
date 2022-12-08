@@ -79,8 +79,22 @@ public class ControlBaja {
 		return servicioAdm.verificaExistencia(matricula);
 	}
 	
+
 	
 	public void regresaInicio(String nombre) {
 		controlPrincipal.inicioAdministrador(nombre, contraseñaAdm);
 	}
+
+	/**
+	 * Se contacta con el servicio para dar de baja a un usuario con el dato de la matricula
+	 * @param matricula
+	 */
+	public boolean darBaja(String matricula){
+		return servicioAdm.bajaPorMatricula(matricula);
+	}
+	
+	
+
+	
+
 }

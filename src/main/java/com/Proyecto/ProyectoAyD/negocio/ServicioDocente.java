@@ -40,6 +40,7 @@ public class ServicioDocente {
 	Docente docenteLocal;
 	
 	public boolean buscaDocente(String Contraseña, String Nombre) {
+
 		Docente docenteLocal = repositoryDocente.findByContraseñaDocente(Contraseña);
 		if(docenteLocal != null) {
 			if(docenteLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
@@ -158,7 +159,4 @@ public class ServicioDocente {
 			repositoryDocente.save(docente);
 			return docente;
 		}
-	
-	
-
 }

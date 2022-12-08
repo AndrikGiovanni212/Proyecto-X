@@ -24,7 +24,9 @@ public interface HorarioDisponibilidadRepository extends CrudRepository <Horario
 	
 	public Optional<HorarioDisponibilidad> findByContraseñaDocente(String contraseña);
 	
+
 	public List<HorarioDisponibilidad> findAllByDocenteContraseñaDocente(String docente);
+
 	
 }
 

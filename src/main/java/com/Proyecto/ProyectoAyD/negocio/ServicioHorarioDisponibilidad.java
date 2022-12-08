@@ -41,6 +41,7 @@ public class ServicioHorarioDisponibilidad {
 	 */
 	public ArrayList<HorarioDisponibilidad> verificaExistenciaHorario(String idDocent) {	
 		ArrayList <HorarioDisponibilidad> HD = new ArrayList<>();
+
 		for(HorarioDisponibilidad HDs:disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocent)) { //crea el nuevo arreglo si existe un horario ya creado
 			HD.add(HDs);
 		}

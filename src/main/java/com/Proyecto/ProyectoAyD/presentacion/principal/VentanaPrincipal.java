@@ -33,8 +33,6 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component 
 public class VentanaPrincipal extends JFrame {
-	public VentanaPrincipal() {
-	}
 	
 	private JPanel contentPane;
 	private ControlPrincipal controlPrincipal;	
@@ -416,13 +414,17 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNewMenu_1.add(btnAltas);
 		
+		
+		//proceso 4-2
 		JButton btnBajas = new JButton("Bajas");
 		btnBajas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlPrincipal.darBajas(nombreAdm,contraseña);
+				
 			}
 		});
 		mnNewMenu_1.add(btnBajas);
+		
 		
 		JButton btnCorreos = new JButton("Correos ");
 		btnCorreos.addActionListener(new ActionListener() {
@@ -518,13 +520,8 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mnNewMenu_1);
 
 		JButton btnTesina = new JButton("Tesina");
-		
-		btnTesina.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.ElegirTema(nombreAlumno);
-			}
-		});
-			mnNewMenu_1.add(btnTesina);
+		mnNewMenu_1.add(btnTesina);
+
 		JButton btnElegirDocente = new JButton("Elegir Docente");
 		btnElegirDocente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -540,14 +537,6 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(btnDisponibilidad);
-		
-		JButton btnHorarioTesina = new JButton("Horario de Tesina");
-		btnHorarioTesina.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.seleccionHorarioAlumno(nombreAlumno);
-			}
-		});
-		mnNewMenu_1.add( btnHorarioTesina);
 
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
@@ -670,16 +659,6 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnDocente.add(btnHorarioDisponibilidad);
-		
-		JButton btnCambiarContraseña = new JButton("Cambiar Contraseña");
-		btnCambiarContraseña.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(contraseña+ " "+ nombreDocente+"Ventana principal");
-				controlPrincipal.cambiarContraseña( nombreDocente,contraseña);
-			}
-		});
-		mnDocente.add(btnCambiarContraseña);
-		
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 		
@@ -705,4 +684,6 @@ public class VentanaPrincipal extends JFrame {
 	public void termina() {
 		setVisible(false);
 	}
+	
+
 }

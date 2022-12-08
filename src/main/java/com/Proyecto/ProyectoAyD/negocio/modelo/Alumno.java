@@ -48,6 +48,8 @@ public class Alumno {
 	@ManyToOne(targetEntity = Tesina.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Tesina tesina;	
 
+	
+
 }
 
 

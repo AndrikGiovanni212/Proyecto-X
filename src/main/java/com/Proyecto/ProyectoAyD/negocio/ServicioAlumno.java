@@ -89,5 +89,4 @@ public class ServicioAlumno
 		return repositoryAlumno.findByNombre(nombre);
 	}
 
-	
 }

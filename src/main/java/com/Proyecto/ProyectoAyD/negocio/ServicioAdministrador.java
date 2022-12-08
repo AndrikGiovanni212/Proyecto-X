@@ -28,6 +28,7 @@ public class ServicioAdministrador {
 	
 	
 	public boolean buscaAdministrador(String Contraseña, String Nombre) {
+
 		Administrador admLocal = repositoryAdm.findByContraseñaAdm(Contraseña);
 		if(admLocal != null) {
 			if(admLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
@@ -167,4 +168,19 @@ public class ServicioAdministrador {
 		}
 	}
 	
+	/**
+	 * Eliminar del repositorio
+	 * @param matricula
+	 */
+	public boolean bajaPorMatricula(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(docenteLocal != null) {
+			repositoryDocen.delete(docenteLocal);
+			return true;
+		}else {
+			repositoryAlum.delete(alumnoLocal);
+			return false;
+		}
+	}
 }

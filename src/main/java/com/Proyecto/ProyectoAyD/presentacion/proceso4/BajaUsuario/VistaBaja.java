@@ -251,6 +251,14 @@ public class VistaBaja extends JFrame {
 		
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(controlBaja.darBaja(textFieldMatricula.getText())) {
+					muestraDialogoConMensaje("Docente eliminado exitosamente");
+					limpiarCampos(); 
+				}else {
+					muestraDialogoConMensaje("Alumno eliminado exitosamente");
+					limpiarCampos();
+					
+				}
 				
 			}
 		});
@@ -300,14 +308,15 @@ public class VistaBaja extends JFrame {
 		mnAdministrador.add(btnCorreos);
 	}
 	
-//	public void limpiarCampos() {
-//		textFieldMatricula.setText("");
-//		textFieldNombre.setText("");
-//		textFieldCorreo.setText("");
-//		textFieldTelefono.setText("");
-//		textFieldEdad.setText("");
-//		textFieldRolMuestra.setText("");
-//	}
+		public void limpiarCampos() {
+			textFieldMatricula.setText("");
+			textFieldNombre.setText("");
+			textFieldCorreo.setText("");
+			textFieldTelefono.setText("");
+			textFieldEdad.setText("");
+			textFieldRolMuestra.setText("");
+			textFieldMatricula.setEditable(true);
+		}
 	
 	public void muestra(ControlBaja controlBaja,String nombre) {
 		this.controlBaja = controlBaja;

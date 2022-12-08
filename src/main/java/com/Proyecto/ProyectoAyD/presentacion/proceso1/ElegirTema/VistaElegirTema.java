@@ -223,4 +223,5 @@ public void verificarVacia()
 public void muestraDialogoConMensaje(String mensaje ) {
 	JOptionPane.showMessageDialog(this , mensaje);
 }
+
 }//fin de la clase vistaElegirTema
