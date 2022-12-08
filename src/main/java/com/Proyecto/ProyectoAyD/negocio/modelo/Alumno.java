@@ -26,7 +26,10 @@ import lombok.Setter;
 @Getter
 public class Alumno {
 	@Id
-	private String idAlumno;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idAlumno;
+
+	private String contraseñaAlumno;
 	
 	private String correo;
 	
@@ -36,7 +39,7 @@ public class Alumno {
 	
 	private int telefono;
 	
-	private String Matricula;
+	private String matricula;
 	
 	private boolean correoEnviado=false;
 	

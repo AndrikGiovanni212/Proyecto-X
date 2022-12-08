@@ -46,13 +46,13 @@ class ServicioDocenteTest {
 		//caso1: que existan usuario con el atributo (enviar correo) false	
 		ArrayList<Docente> listDocente = new ArrayList<>();
 		Docente docente = new Docente();
-		docente.setIdDocente("12345");
+		docente.setContraseñaDocente("12345");
 		docente.setNombre("yesenia");
 		docente.setCorreo("minimbre@gmail.com");
 		docenteRepositorio.save(docente);
 		
 		Docente docente2 = new Docente();
-		docente2.setIdDocente("12385");
+		docente2.setContraseñaDocente("12385");
 		docente2.setCorreo("minimbre@gmail.com");
 		docente2.setNombre("yesi");
 		docenteRepositorio.save(docente2);
@@ -87,13 +87,13 @@ class ServicioDocenteTest {
 		//caso1: cambiar el valor de false a true del atributo envia correo
 		ArrayList<Docente> listDocente = new ArrayList<>();
 		Docente docente = new Docente();
-		docente.setIdDocente("12345");
+		docente.setContraseñaDocente("12345");
 		docente.setNombre("yesenia");
 		docente.setCorreo("minimbre@gmail.com");
 		docenteRepositorio.save(docente);
 		
 		Docente docente2 = new Docente();
-		docente2.setIdDocente("12385");
+		docente2.setContraseñaDocente("12385");
 		docente2.setCorreo("minimbre@gmail.com");
 		docente2.setNombre("yesi");
 		docenteRepositorio.save(docente2);

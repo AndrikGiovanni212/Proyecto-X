@@ -15,6 +15,7 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSu
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.VisualizarEstatus.ControlVisualizarEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.AltaUsuario.ControlAlta;
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.BajaUsuario.ControlBaja;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnviarCorreos;
 
 
@@ -45,6 +46,9 @@ public class ControlPrincipal {
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
+	//proc4.2
+	@Autowired
+	private ControlBaja controlVisualizarBaja;
 	
 	
 	public void inicia() {
@@ -124,6 +128,11 @@ public class ControlPrincipal {
 	//proceso 4.1 Dar de Alta
 	public void darAltas(String nombreAdmin, String contraseña) {
 		controlVisualizarAlta.inicia(nombreAdmin, contraseña);
+	}
+	
+	//proc 4.2
+	public void darBajas(String nombreAdmin, String contraseña) {
+		controlVisualizarBaja.inicia(nombreAdmin, contraseña);
 	}
 
 }

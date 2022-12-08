@@ -415,6 +415,11 @@ public class VentanaPrincipal extends JFrame {
 		mnNewMenu_1.add(btnAltas);
 		
 		JButton btnBajas = new JButton("Bajas");
+		btnBajas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.darBajas(nombreAdm,contraseña);
+			}
+		});
 		mnNewMenu_1.add(btnBajas);
 		
 		JButton btnCorreos = new JButton("Correos ");

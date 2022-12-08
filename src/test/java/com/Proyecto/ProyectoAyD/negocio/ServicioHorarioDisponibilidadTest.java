@@ -58,7 +58,7 @@ class ServicioHorarioDisponibilidadTest {
 		LinkedList<HorarioDisponibilidad> HDs = new LinkedList<>();
 		
 		Docente docente = new Docente();
-		docente.setIdDocente("12345");
+		docente.setContraseñaDocente("12345");
 		docente.setNombre("nabeel");
 		docenteRepositorio.save(docente);
 		
@@ -89,7 +89,7 @@ class ServicioHorarioDisponibilidadTest {
 		HDs.add(disponibilidad);
 		HDs.add(disponibilidad1);
 		
-		when(disponibilidadRepositorio.findAllByDocenteIdDocente(idDocente)).thenReturn(HDs);
+		when(disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocente)).thenReturn(HDs);
 		
 		HD = HDServicio.verificaExistenciaHorario(idDocente);
 		
@@ -183,7 +183,7 @@ class ServicioHorarioDisponibilidadTest {
 		
 		//se crear el el docente en la base
 		Docente docente = new Docente();
-		docente.setIdDocente("12345");
+		docente.setContraseñaDocente("12345");
 		docente.setNombre("nabeel");
 		docenteRepositorio.save(docente);
 		//se crea el areglo de estatus donde tendran los nuevos elementos 
@@ -205,12 +205,12 @@ class ServicioHorarioDisponibilidadTest {
 		HDs.add(disponibilidad);
 		
 		//se obtiene el id del docente
-		idDocente = docente.getIdDocente();
+		idDocente = docente.getContraseñaDocente();
 		//se introduce los nuevos datos 
 		estatus[0][0] = false;
 		estatus[0][1] = true;		
 		//cuando ocupemos a disponibilidadRepositorio.findAllByDocenteIdDocente(idDocente) en el metodo obtendremos los nuevos objetos creados
-		when(disponibilidadRepositorio.findAllByDocenteIdDocente(idDocente)).thenReturn(HDs);	
+		when(disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocente)).thenReturn(HDs);	
 		boolean actualiza = HDServicio.actualiza(estatus, idDocente);
 		//verifica prueba
 		assertEquals(true,actualiza);
@@ -238,13 +238,13 @@ class ServicioHorarioDisponibilidadTest {
 		
 		//creamos el docente que ya estara en la base
 		Docente docente = new Docente();
-		docente.setIdDocente("12345");
+		docente.setContraseñaDocente("12345");
 		docente.setNombre("nabeel");
 		docenteRepositorio.save(docente);
 	
 		// al usar docenteRepositorio.findByIdDocente(contraseña) al llamar HDServicio.buscaDocente(contraseña, nombre)
 		//ocupamos a docente como nuestra base creada 
-		when(docenteRepositorio.findByIdDocente(contraseña)).thenReturn(docente);
+		when(docenteRepositorio.findByContraseñaDocente(contraseña)).thenReturn(docente);
 		
 		 dos = HDServicio.buscaDocente(contraseña, nombre);
 		//vemos si obtenemos los valores deseados

@@ -40,7 +40,7 @@ public class ServicioDocente {
 	Docente docenteLocal;
 	
 	public boolean buscaDocente(String Contraseña, String Nombre) {
-		Docente docenteLocal = repositoryDocente.findByIdDocente(Contraseña);
+		Docente docenteLocal = repositoryDocente.findByContraseñaDocente(Contraseña);
 		if(docenteLocal != null) {
 			if(docenteLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
 				return true;
@@ -66,9 +66,8 @@ public class ServicioDocente {
 		this.vo = new Actividad();
 		vo.setNombreArchivo(nombre);	
 		vo.setArchivoPdf(pdf);
-		System.out.println(pdf);
 		vo.setFecha(fecha);
-		Docente dos = repositoryDocente.findByIdDocente(contraseña);
+		Docente dos = repositoryDocente.findByContraseñaDocente(contraseña);
 		vo.setDocente(dos);
 		repositoryActividad.save(vo);	
 		this.list.add(vo);	
@@ -102,7 +101,7 @@ public class ServicioDocente {
 	public String traeId() {
 		String id = null;
 		for(Docente docente:repositoryDocente.findAll()) {
-			id = docente.getIdDocente();
+			id = docente.getContraseñaDocente();
 		}
 		 return id;	
 	}

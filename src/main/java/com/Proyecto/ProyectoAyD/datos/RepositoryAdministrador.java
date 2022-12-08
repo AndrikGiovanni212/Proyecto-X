@@ -17,9 +17,9 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Administrador;
  * @author humbertocervantes
  *
  */
-public interface RepositoryAdministrador extends CrudRepository <Administrador, String> {
+public interface RepositoryAdministrador extends CrudRepository <Administrador, Long> {
 	
-	public Administrador findByIdAdministrador(String contraseña);
+	public Administrador findByContraseñaAdm(String contraseña);
 	
 
 

@@ -20,7 +20,10 @@ import lombok.Data;
 
 public class Administrador {
 	@Id
-	private String idAdministrador;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idAdm;
+	
+	private String contraseñaAdm;
 	private String nombre;
 	
 	//Proceso 4-1 Altas

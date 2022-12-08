@@ -28,7 +28,7 @@ public class ServicioAdministrador {
 	
 	
 	public boolean buscaAdministrador(String Contraseña, String Nombre) {
-		Administrador admLocal = repositoryAdm.findByIdAdministrador(Contraseña);
+		Administrador admLocal = repositoryAdm.findByContraseñaAdm(Contraseña);
 		if(admLocal != null) {
 			if(admLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
 				return true;
@@ -48,7 +48,7 @@ public class ServicioAdministrador {
 		alumnoLocal.setMatricula(matricula);
 		alumnoLocal.setEdad(edad);
 		alumnoLocal.setCorreo(correo);
-		alumnoLocal.setIdAlumno(contraseña);
+		alumnoLocal.setContraseñaAlumno(contraseña);
 		repositoryAlum.save(alumnoLocal);
 		return true;
 	}
@@ -63,7 +63,7 @@ public class ServicioAdministrador {
 			docenteLocal.setUsuario(usuario);
 			docenteLocal.setEdad(edad);
 			docenteLocal.setNombre(nombre);
-			docenteLocal.setIdDocente(contraseña);
+			docenteLocal.setContraseñaDocente(contraseña);
 			docenteLocal.setMatricula(matricula);
 			docenteLocal.setTelefono(telefono);
 			repositoryDocen.save(docenteLocal);
@@ -90,7 +90,7 @@ public class ServicioAdministrador {
 	 * @param contraseña y nombre
 	 */
 	public boolean verificaAlumno(String Contraseña, String Nombre) {
-		Alumno alumnoLocal = repositoryAlum.findByIdAlumno(Contraseña);
+		Alumno alumnoLocal = repositoryAlum.findByContraseñaAlumno(Contraseña);
 		if(alumnoLocal != null) {
 			if(alumnoLocal.getNombre().equals(Nombre)) { 
 				return true;
@@ -103,13 +103,68 @@ public class ServicioAdministrador {
 	 * @param contraseña y nombre
 	 */
 	public boolean verificaDocente(String contraseña, String nombre) {
-		Docente docenteLocal = repositoryDocen.findByIdDocente(contraseña);
+		Docente docenteLocal = repositoryDocen.findByContraseñaDocente(contraseña);
 		if(docenteLocal != null) {
 			if(docenteLocal.getNombre().equals(nombre)) { 
 				return true;
 			}
 		}	
 		return false;
+	}
+	
+	//proc4.2
+	/**
+	 * Verifica en el repositorio para pasar la referencia al Alumno buscado
+	 * @param matricula
+	 */
+	public Alumno verificaAlumnoParaBaja(String matricula) {
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(alumnoLocal != null) {
+			return alumnoLocal;
+		}else {
+			return null;
+		}
+		
+	}
+	/**
+	 * Verifica en el repositorio para pasar la referencia al Docente buscado
+	 * @param matricula
+	 */
+	public Docente verificaDocenteParaBaja(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		if(docenteLocal != null) {
+			return docenteLocal;
+		}else {
+			return null;
+		}
+	}
+	
+	/**
+	 * Verifica en el repositorio para pasar la referencia al Docente buscado
+	 * @param matricula
+	 */
+	public boolean verificaExistencia(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(docenteLocal != null||alumnoLocal != null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Eliminar del repositorio
+	 * @param matricula
+	 */
+	public boolean verificaExistenciaBaja(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(docenteLocal != null||alumnoLocal != null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 }

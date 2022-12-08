@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
-import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Tema;
 
@@ -26,7 +25,7 @@ public class ServicioAlumno
 	Alumno alumnoLocal;
 	//pro3
 	public boolean buscaAlumno(String contraseña, String nombre) {
-		alumnoLocal = repositoryAlumno.findByIdAlumno(contraseña);
+		alumnoLocal = repositoryAlumno.findByContraseñaAlumno(contraseña);
 		if(alumnoLocal != null) {
 			if(alumnoLocal.getNombre().equals(nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
 				return true;
@@ -71,12 +70,20 @@ public class ServicioAlumno
 	}
 	
 	//proce4.4
-	public void mensajeEnviado(List<Alumno> list) {
+	public boolean mensajeEnviado(List<Alumno> list) {
+		if(list.isEmpty()) {
+			return false;
+		}
+		
 		for(Alumno alum:list) {
 			alum.setCorreoEnviado(true);
 			repositoryAlumno.save(alum);
 		}
+		return true;
 	}
+	
+	//proc4.2
+	
 	
 	
 }
