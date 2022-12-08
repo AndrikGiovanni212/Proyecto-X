@@ -150,6 +150,14 @@ public class ServicioDocente {
 			}
 			return true;
 		}
+		
+	//proc4.3
+		public Docente cambioContraseña(String contraseña,String nombre, String oldcontraseña) {
+			Docente docente = repositoryDocente.findByContraseñaDocente(oldcontraseña);
+			docente.setContraseñaDocente(contraseña);
+			repositoryDocente.save(docente);
+			return docente;
+		}
 	
 	
 

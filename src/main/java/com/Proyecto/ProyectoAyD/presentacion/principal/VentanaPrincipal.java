@@ -655,6 +655,16 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnDocente.add(btnHorarioDisponibilidad);
+		
+		JButton btnCambiarContraseña = new JButton("Cambiar Contraseña");
+		btnCambiarContraseña.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(contraseña+ " "+ nombreDocente+"Ventana principal");
+				controlPrincipal.cambiarContraseña( nombreDocente,contraseña);
+			}
+		});
+		mnDocente.add(btnCambiarContraseña);
+		
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 		
