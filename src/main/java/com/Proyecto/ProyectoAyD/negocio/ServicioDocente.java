@@ -124,7 +124,6 @@ public class ServicioDocente {
 		act.setFecha(newFecha);
 		repositoryActividad.save(act);
 	}
-
 	public void cambiaPassword(String password) {
 		String contraseña;
 		Docente docente = repositoryDocente.findByIdDocente(password);
@@ -133,6 +132,5 @@ public class ServicioDocente {
 	public Docente recuperaContraseña (String contraseña) {
 		return repositoryDocente.findByIdDocente(contraseña);
 	}
-	
 
 }

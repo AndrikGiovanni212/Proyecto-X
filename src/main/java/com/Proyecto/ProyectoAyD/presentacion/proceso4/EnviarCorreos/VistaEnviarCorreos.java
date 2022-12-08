@@ -84,9 +84,6 @@ public class VistaEnviarCorreos extends JFrame {
 	private String altas[]= new String[100];
 	@Autowired
 	private JavaMailSender emailSende;
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -290,9 +287,7 @@ public class VistaEnviarCorreos extends JFrame {
 			this.altas[numeroAltas]=act.getCorreo();
 			numeroAltas++;
 			model.addRow(fila);
-		}	
-	}
-	
+		}}
 	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {
 		this.controlEnviarCorreos = controlEnviarCorreos;
 		this.nombre=nombre;
