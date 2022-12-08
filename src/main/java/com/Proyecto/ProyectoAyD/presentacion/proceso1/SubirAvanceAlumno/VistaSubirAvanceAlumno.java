@@ -1,4 +1,5 @@
 package com.Proyecto.ProyectoAyD.presentacion.proceso1.SubirAvanceAlumno;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -237,3 +238,4 @@ public class VistaSubirAvanceAlumno extends JFrame {
 
 		
 	}//fin de la clase vistaElegirTema
+

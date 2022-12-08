@@ -196,6 +196,7 @@ public class VistaEnviarCorreos extends JFrame {
 				numeroAltas=0;
 				btnEnviar.setEnabled(false);
 				
+
 				for (int i = 0; i < tableCorreos.getRowCount(); i++) {
 					model.removeRow(i);
 					i-=1;

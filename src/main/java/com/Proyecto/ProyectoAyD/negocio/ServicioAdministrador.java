@@ -28,6 +28,7 @@ public class ServicioAdministrador {
 	
 	
 	public boolean buscaAdministrador(String Contraseña, String Nombre) {
+
 		Administrador admLocal = repositoryAdm.findByContraseñaAdm(Contraseña);
 		if(admLocal != null) {
 			if(admLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
@@ -167,6 +168,7 @@ public class ServicioAdministrador {
 		}
 	}
 	
+
 	//proc4.3
 
 	/**
@@ -186,3 +188,4 @@ public class ServicioAdministrador {
 	}
 	
 }
+

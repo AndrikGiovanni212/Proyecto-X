@@ -8,6 +8,7 @@ import com.Proyecto.ProyectoAyD.negocio.ServicioDocente;
 import com.Proyecto.ProyectoAyD.negocio.ServicioEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
+
 //import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
@@ -162,5 +163,4 @@ public class ControlPrincipal {
 	public void cambiarContraseña( String nombre,String contraseña) {
 		controlPassword.inicia(nombre,contraseña);
 	}
-
 }

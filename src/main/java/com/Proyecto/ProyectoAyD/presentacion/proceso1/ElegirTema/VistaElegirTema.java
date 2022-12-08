@@ -124,14 +124,6 @@ public class VistaElegirTema extends JFrame
 	btnNewEnviarArchivo.setBounds(151, 83, 115, 23);
 	PanelAvance.add(btnNewEnviarArchivo);
 	
-	JButton btnNewButton_2 = new JButton("Resportar problema");
-	btnNewButton_2.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-		}
-	});
-	btnNewButton_2.setBounds(276, 83, 133, 23);
-	PanelAvance.add(btnNewButton_2);
-	
 	JPanel PanelHorario = new JPanel();
 	tabbedPane.addTab("Horario", null, PanelHorario, null);
 	JLabel lblFondoVerde = new JLabel("New label");
@@ -223,4 +215,5 @@ public void verificarVacia()
 public void muestraDialogoConMensaje(String mensaje ) {
 	JOptionPane.showMessageDialog(this , mensaje);
 }
+
 }//fin de la clase vistaElegirTema

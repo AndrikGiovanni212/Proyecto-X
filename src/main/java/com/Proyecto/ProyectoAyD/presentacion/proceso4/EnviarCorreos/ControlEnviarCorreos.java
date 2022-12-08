@@ -1,6 +1,7 @@
 package com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos;
 
 import java.io.File;
+
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -57,10 +58,5 @@ public class ControlEnviarCorreos {
 		servicioAlumno.mensajeEnviado(listAlumno);
 		servicioDocente.mensajeEnviado(listDocente);
 	}
-	
-	
-	
-	
-	
 	
 }
