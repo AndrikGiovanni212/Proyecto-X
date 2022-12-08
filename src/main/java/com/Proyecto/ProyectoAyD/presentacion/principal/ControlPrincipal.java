@@ -11,6 +11,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
+import com.Proyecto.ProyectoAyD.presentacion.proceso1.SeleccionHorario.ControSeleccionHorario;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSubirActividades;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.VisualizarEstatus.ControlVisualizarEstatus;
@@ -37,6 +38,8 @@ public class ControlPrincipal {
 	private ControlEnviarCorreos controlEnviarCorreos;
 	@Autowired
 	private ControlVisualizarEstatus controlVisualizarEstatus;
+	@Autowired
+	private ControSeleccionHorario controlSeleccionHorario;
 	//proceso1
 	@Autowired
 	private ControlMensaje controlMensaje;
@@ -100,6 +103,11 @@ public class ControlPrincipal {
 	//procesos3 alumno
 	public void eleccionHorarioAlumno(String nombreAlumno) {
 		controlVisualizarEstatus.inicia(nombreAlumno);
+	}
+	
+	//proceso 1 HU1-7 Alumno
+	public void seleccionHorarioAlumno(String nombreAlumno) {
+		controlSeleccionHorario.inicia(nombreAlumno);
 	}
 	
 	//procesos 4 
