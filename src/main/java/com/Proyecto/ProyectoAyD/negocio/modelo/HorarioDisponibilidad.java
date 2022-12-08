@@ -35,6 +35,7 @@ public class HorarioDisponibilidad  {
 	
 	private boolean ocupado;
 	
+
 	
 	@JsonIgnore
 	@ManyToOne(targetEntity = Docente.class,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
