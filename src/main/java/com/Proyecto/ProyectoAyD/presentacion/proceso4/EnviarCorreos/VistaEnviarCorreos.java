@@ -84,6 +84,8 @@ public class VistaEnviarCorreos extends JFrame {
 	private String altas[]= new String[100];
 	@Autowired
 	private JavaMailSender emailSende;
+	private List<Alumno> listAlumno;
+	private List<Docente> listDocente;
 	
 	
 
@@ -188,9 +190,18 @@ public class VistaEnviarCorreos extends JFrame {
 					message.setTo(correo);
 					message.setText(textArea.getText());
 					message.setSubject(body);
-					emailSende.send(message);
+					emailSende.send(message);	
 					System.out.println("Mail Send...");				
 				}
+				numeroAltas=0;
+				btnEnviar.setEnabled(false);
+				
+				//controlEnviarCorreos.mensajeEnviado(listAlumno,listDocente);
+				for (int i = 0; i < tableCorreos.getRowCount(); i++) {
+					model.removeRow(i);
+					i-=1;
+				}
+				
 					
 			}
 		});
@@ -222,7 +233,7 @@ public class VistaEnviarCorreos extends JFrame {
 		textArea.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(textArea.getText().isEmpty()) {
+				if(textArea.getText().isEmpty() || (numeroAltas==0)) {
 					btnCambiar.setEnabled(false);
 				}else {
 					textArea.setEditable(false);
@@ -279,6 +290,8 @@ public class VistaEnviarCorreos extends JFrame {
 	
 	public void llenaTabla(List<Alumno> list, List<Docente> lista2) {
 		Object[] fila=new Object[1];
+		listAlumno = list;
+		listDocente=lista2;
 		for(Docente act: lista2) {
 			fila[0] = act.getCorreo();
 			this.altas[numeroAltas]=act.getCorreo();
@@ -290,7 +303,11 @@ public class VistaEnviarCorreos extends JFrame {
 			this.altas[numeroAltas]=act.getCorreo();
 			numeroAltas++;
 			model.addRow(fila);
-		}	
+		}
+		if(numeroAltas>0 && (!(textArea.getText().equals("")))) {
+			btnEnviar.setEnabled(true);
+		}
+		
 	}
 	
 	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {

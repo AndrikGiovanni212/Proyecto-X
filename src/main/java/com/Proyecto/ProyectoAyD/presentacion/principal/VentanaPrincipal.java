@@ -535,6 +535,14 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(btnDisponibilidad);
+		
+		JButton btnHorarioTesina = new JButton("Horario de Tesina");
+		btnHorarioTesina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.seleccionHorarioAlumno(nombreAlumno);
+			}
+		});
+		mnNewMenu_1.add( btnHorarioTesina);
 
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
