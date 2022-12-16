@@ -325,15 +325,7 @@ public class VistaBaja extends JFrame {
 		
 	}
 	
-	public void limpiarCampos() {
-		textFieldMatricula.setText("");
-		textFieldNombre.setText("");
-		textFieldCorreo.setText("");
-		textFieldTelefono.setText("");
-		textFieldEdad.setText("");
-		textFieldRolMuestra.setText("");
-		textFieldMatricula.setEditable(true);
-	}
+
 	
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
