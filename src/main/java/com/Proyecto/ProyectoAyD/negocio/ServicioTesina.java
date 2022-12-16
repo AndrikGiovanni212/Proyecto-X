@@ -34,9 +34,21 @@ public class ServicioTesina
 		Alumno al=autor;
 		Tesina tesina;
 		tesina = new Tesina();
+		
+		if(al.getTesina()!=null)//Si hay una tesina quiere decir que ya tiene un tema relacionado
+			throw new IllegalArgumentException("Ya tienes tema");//mensaje de la excepción		
 		tesina.setAutor(al.getNombre());
-		tesina.setTema(tema1);		
+		tesina.setTema(tema1);
+		tesina.setAlumno(al);
+		al.setTesina(tesina);
+		repositoryAlumno.save(al);
 		repositoryTesina.save(tesina);	
-		return tesina;
+				return tesina;
+
+		//tesina.setAutor(al.getNombre());
+		//tesina.setTema(tema1);		
+		//repositoryTesina.save(tesina);	
+		//return tesina;
+
 	}//Fin de tesina
 }//fin de clase ServicioTesina

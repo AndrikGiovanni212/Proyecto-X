@@ -22,7 +22,11 @@ import lombok.Data;
 @Data
 public class Docente {
 	@Id
-	private String idDocente;
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idDocente;
+
+	private String contraseñaDocente;
 	
 	private String nombre;
 	

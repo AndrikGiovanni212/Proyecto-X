@@ -70,22 +70,22 @@ public class VistaAlta extends JFrame {
 
 		JLabel lblLogoFacebook = new JLabel("New label");
 		lblLogoFacebook.setBounds(279, 297, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("D:\\APPS\\STC\\Power-X-main\\ProyectoAyD\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
 		lblLogoTwitter.setBounds(305, 300, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("D:\\APPS\\STC\\Power-X-main\\ProyectoAyD\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
 		lblInstagram.setBounds(347, 297, 78, 28);
-		lblInstagram.setIcon(new ImageIcon("D:\\APPS\\STC\\Power-X-main\\ProyectoAyD\\Imagenes\\instagram.png"));
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
 		lblNombreSistema.setBounds(-26, 294, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("D:\\APPS\\STC\\Power-X-main\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel = new JPanel();

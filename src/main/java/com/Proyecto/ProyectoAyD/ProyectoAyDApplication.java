@@ -1,4 +1,5 @@
-package com.Proyecto.ProyectoAyD;
+
+	package com.Proyecto.ProyectoAyD;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -58,8 +59,16 @@ public class ProyectoAyDApplication {
 	private RepositoryAlumno repositorioAlumno;
 	@Autowired
 	private RepositoryEvaluador repositoryEvalaudor;
+	@Autowired
+	RepositoryTema repositoryTema;
 
 	public static void main(String[] args) {
+		System.out.println("Primer Commit AAP");
+		System.out.println("Prueba 1");
+		System.out.println("Rama AAP_HU1-7_ElegirFecha");
+
+		
+		
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ProyectoAyDApplication.class);
 
 		builder.headless(false);
@@ -72,32 +81,40 @@ public class ProyectoAyDApplication {
 		controlPrincipal.inicia();
 	}
 	public void inicializaBD() {
+		
+		Docente docente = new Docente();
+		docente.setContraseñaDocente("36541");
+		docente.setNombre("manuel");
+		docente.setCorreo("manuelmartinezv13@gmail.com");
+		docente.setMatricula("5566644");
+		docente.setCorreoEnviado(true);
+		repositorioDocente.save(docente);
+		
+		
 		Docente docente1 = new Docente();
-		docente1.setIdDocente("12345");
+		docente1.setContraseñaDocente("12345");
 		docente1.setNombre("nabeel");
 		docente1.setCorreo("bob1nabeel@gmail.com");
+		docente1.setMatricula("54321");
 		repositorioDocente.save(docente1);
 	
-		Docente docente = new Docente();
-		docente.setIdDocente("78965");
+		docente = new Docente();
+		docente.setContraseñaDocente("78965");
 		docente.setNombre("armando");
 		docente.setCorreo("armaarzolape@gmail.com");
 		repositorioDocente.save(docente);
 		
-		docente = new Docente();
-		docente.setIdDocente("36541");
-		docente.setNombre("manuel");
-		docente.setCorreo("manuelmartinezv13@gmail.com");
-		repositorioDocente.save(docente);
+		
 		
 		Alumno alumno = new Alumno();
-		alumno.setIdAlumno("75321");
+		alumno.setContraseñaAlumno("75321");
+		alumno.setMatricula("77777");
 		alumno.setNombre("andrik");
 		alumno.setCorreo("gabg2116@gmail.com");
 		repositorioAlumno.save(alumno);
 		
 		Administrador adm = new Administrador();
-		adm.setIdAdministrador("14785");
+		adm.setContraseñaAdm("14785");
 		adm.setNombre("yesica");
 		repositorioAdm.save(adm);
 		
@@ -150,8 +167,21 @@ public class ProyectoAyDApplication {
 		Notificacion1.setMensaje("Le falta mejorar a la tesis");
 		Notificacion1.setDocente(docente1);
 		repositorioNotificacion.save(Notificacion1);
-		
-		
+		Tema tema1= new Tema();
+		tema1.setNombre("Inteligencia Artificial");
+		repositoryTema.save(tema1);
+		Tema tema2= new Tema();
+		tema2.setNombre("Ingenieria de Software");
+		repositoryTema.save(tema2);
+		Tema tema3= new Tema();
+		tema3.setNombre("Base de datos");
+		repositoryTema.save(tema3);
+		Tema tema4= new Tema();
+		tema4.setNombre("Programación Orientada a Objetos");
+		repositoryTema.save(tema4);
+		Tema tema5= new Tema();
+		tema5.setNombre("Redes");
+		repositoryTema.save(tema5);		
 	}
 	
 	

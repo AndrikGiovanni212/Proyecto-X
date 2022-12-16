@@ -26,4 +26,7 @@ public class Tesina {
 	private String autor;
 	@OneToOne(targetEntity = Tema.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private Tema tema;
+	@OneToOne(targetEntity = Alumno.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	private Alumno alumno;
+
 }

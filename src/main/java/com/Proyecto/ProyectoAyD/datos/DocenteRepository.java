@@ -7,14 +7,18 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
+
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 
 
 public interface DocenteRepository extends CrudRepository <Docente, String> {
-	public Docente findByIdDocente(String contraseña);
+	public Docente findByContraseñaDocente(String contraseña);
 	
 	public List<Docente> findAll();
+	public List<Docente> findAllByCorreoEnviado(boolean correo);
 	
-	//public List<Actividad> findByActividadesDocenteIdDocente(String contraseña);
-	
+	//proc4.2
+	public Docente findByMatricula(String matricula);
+
 }

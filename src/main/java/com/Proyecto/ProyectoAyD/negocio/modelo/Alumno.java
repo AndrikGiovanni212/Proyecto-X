@@ -12,21 +12,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-
 @Entity 
 @Data
 @Setter
 @Getter
 public class Alumno {
 	@Id
-	private String idAlumno;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idAlumno;
+
+	private String contraseñaAlumno;
 	
 	private String correo;
 	
@@ -36,7 +37,7 @@ public class Alumno {
 	
 	private int telefono;
 	
-	private String Matricula;
+	private String matricula;
 	
 	private boolean correoEnviado=false;
 	
@@ -44,7 +45,11 @@ public class Alumno {
 	
 	@OneToMany(targetEntity = Evaluador.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evaluador> evaluador;
+	@ManyToOne(targetEntity = Tesina.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Tesina tesina;	
+
 	
+
 }
 
 

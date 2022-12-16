@@ -8,13 +8,17 @@ import com.Proyecto.ProyectoAyD.negocio.ServicioDocente;
 import com.Proyecto.ProyectoAyD.negocio.ServicioEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
-import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
+
+//import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
+import com.Proyecto.ProyectoAyD.presentacion.proceso1.SeleccionHorario.ControSeleccionHorario;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSubirActividades;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.VisualizarEstatus.ControlVisualizarEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.AltaUsuario.ControlAlta;
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.BajaUsuario.ControlBaja;
+import com.Proyecto.ProyectoAyD.presentacion.proceso4.CambiarPassword.ControlCambiarPassword;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnviarCorreos;
 
 
@@ -23,6 +27,7 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnvia
 public class ControlPrincipal {
 	@Autowired
 	private VentanaPrincipal ventanaPrincipal;
+	
 	@Autowired
 	private ServicioAdministrador servicioAdministrador;
 	@Autowired
@@ -37,18 +42,31 @@ public class ControlPrincipal {
 	private ControlEnviarCorreos controlEnviarCorreos;
 	@Autowired
 	private ControlVisualizarEstatus controlVisualizarEstatus;
+	@Autowired
+	private ControSeleccionHorario controlSeleccionHorario;
 	//proceso1
 	@Autowired
 	private ControlMensaje controlMensaje;
-	@Autowired
-	private ControlEleccionDocente controlEleccionDocente;
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
+
+	//proc4.2
+	@Autowired
+	private ControlBaja controlVisualizarBaja;
+	//proc4.3
+	@Autowired
+	private ControlCambiarPassword controlPassword;
 	
 	
+
+	//proceso1.3
+	@Autowired
+	ControlElegirTema controlElegirTema;
+
 	public void inicia() {
 		ventanaPrincipal.login(this);
+		
 	}
 	
 	public void datosAdministrador() {
@@ -70,7 +88,11 @@ public class ControlPrincipal {
 	public boolean buscaDocente(String Contraseña, String Nombre) {	
 		return servicioDocente.buscaDocente(Contraseña, Nombre);
 	}
-	
+	public void ElegirTema(String Nombre) 
+	{
+		
+		controlElegirTema.inicia( Nombre);
+	}//fin de ElegirTema
 	public boolean buscaAlumno(String Contraseña, String Nombre) {	
 		return servicioAlumno.buscaAlumno(Contraseña, Nombre);
 	}
@@ -102,6 +124,11 @@ public class ControlPrincipal {
 		controlVisualizarEstatus.inicia(nombreAlumno);
 	}
 	
+	//proceso 1 HU1-7 Alumno
+	public void seleccionHorarioAlumno(String nombreAlumno) {
+		controlSeleccionHorario.inicia(nombreAlumno);
+	}
+	
 	//procesos 4 
 	public void enviarCorreos(String nombre,String contraseña) {
 		controlEnviarCorreos.muestra(nombre,contraseña);
@@ -116,7 +143,8 @@ public class ControlPrincipal {
 	//proceso1 elegirDocente
 	public void EleccionDocente(String nombreAlumno,String contraseña) 
 	{//inicio método EleccionDocente
-			controlEleccionDocente.inicia(nombreAlumno, contraseña);	
+			//controlEleccionDocente.inicia(nombreAlumno, contraseña);	
+
 	}//fin de ElecicónDocente
 	
 	
@@ -125,5 +153,14 @@ public class ControlPrincipal {
 	public void darAltas(String nombreAdmin, String contraseña) {
 		controlVisualizarAlta.inicia(nombreAdmin, contraseña);
 	}
-
+	
+	//proc 4.2
+	public void darBajas(String nombreAdmin, String contraseña) {
+		controlVisualizarBaja.inicia(nombreAdmin, contraseña);
+	}
+	
+	//proc 4.3
+	public void cambiarContraseña( String nombre,String contraseña) {
+		controlPassword.inicia(nombre,contraseña);
+	}
 }
