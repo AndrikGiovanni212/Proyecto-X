@@ -13,6 +13,8 @@ import com.Proyecto.ProyectoAyD.presentacion.principal.ControlPrincipal;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.ModificarFechaEntrega.ControlModificarFechaEntrega;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 
 @Component
 public class ControlSubirActividades {
@@ -42,8 +44,13 @@ public class ControlSubirActividades {
 		String sDate1=fecha; 
 		try {
 			Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
-			servicioDocente.AgregarActividades(nombre, pdf, contraseña, date1);
-			vistaSubirActividades.llenaTabla(servicioDocente.recuperaListaPDF(contraseña));
+			System.out.println(pdf);
+			System.out.println(date1);
+			
+			if(servicioDocente.AgregarActividades(nombre, pdf, contraseña, date1)) {
+				vistaSubirActividades.llenaTabla(servicioDocente.recuperaListaPDF(contraseña));
+			}
+			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}  

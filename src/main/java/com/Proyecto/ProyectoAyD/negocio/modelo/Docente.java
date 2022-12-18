@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -38,7 +39,7 @@ public class Docente {
 	
 	private String Usuario;
 	
-	@OneToMany(targetEntity = Actividad.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@ManyToMany(targetEntity = Actividad.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List <Actividad> actividades;
 	
 	@OneToMany(targetEntity = Notificacion.class)
