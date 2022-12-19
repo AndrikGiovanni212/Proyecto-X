@@ -13,13 +13,12 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
-
 public class VistaRetroalimentar extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 
-	/**
+	/**m
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
