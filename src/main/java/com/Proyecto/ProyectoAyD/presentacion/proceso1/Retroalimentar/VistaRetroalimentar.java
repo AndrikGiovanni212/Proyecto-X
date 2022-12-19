@@ -111,8 +111,9 @@ public class VistaRetroalimentar extends JFrame {
 		
 		JButton btnNewEnviarArchivo = new JButton("Ver archivo del alumno");
 		btnNewEnviarArchivo.setBounds(112, 121, 139, 23);
+
 		PanelAvance.add(btnNewEnviarArchivo);		
-		
+
 		JButton btnNewButton_2 = new JButton("Enviar retroalimentación");
 		btnNewButton_2.setBounds(261, 121, 150, 23);
 		PanelAvance.add(btnNewButton_2);
