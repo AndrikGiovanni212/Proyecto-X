@@ -126,5 +126,7 @@ public class VistaRetroalimentar extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 37, 129, 13);
 		PanelAvance.add(lblNewLabel_1);
+		
+		//hola
 	}
 }
