@@ -41,7 +41,8 @@ public class ServicioDocente {
 	int numero = 1;
 	
 	public boolean buscaDocente(String Contraseña, String Nombre) {
-		Docente docenteLocal = repositoryDocente.findByIdDocente(Contraseña);
+
+		Docente docenteLocal = repositoryDocente.findByContraseñaDocente(Contraseña);
 		if(docenteLocal != null) {
 			if(docenteLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
 				return true;
@@ -81,6 +82,7 @@ public class ServicioDocente {
 	 * @param String,byte[], String,Date
 	 *   
 	 */
+	
 	public boolean AgregarActividades(String nombre, byte[] pdf ,String contraseña, Date fecha) {
 		this.vo = new Actividad();
 		if(repositoryActividad.findByDocenteContraseñaDocente(contraseña).size() == 0) {
@@ -93,12 +95,10 @@ public class ServicioDocente {
 		vo.setArchivoPdf(pdf);
 		System.out.println(pdf);
 		vo.setFecha(fecha);
-<<<<<<< Updated upstream
-		Docente dos = repositoryDocente.findByIdDocente(contraseña);
-=======
+
 		Docente dos = new Docente();
 		dos =repositoryDocente.findByContraseñaDocente(contraseña);
->>>>>>> Stashed changes
+
 		vo.setDocente(dos);
 		repositoryActividad.save(vo);	
 		this.list.add(vo);
@@ -132,15 +132,23 @@ public class ServicioDocente {
 	public String traeId() {
 		String id = null;
 		for(Docente docente:repositoryDocente.findAll()) {
-			id = docente.getIdDocente();
+			id = docente.getContraseñaDocente();
 		}
 		 return id;	
 	}
 	
-	//proc4
+	//proc4.4
+	/**
+	 * recupera una lista de todos los docente que tenga el atributo de correo enviado false
+	 * si el atributo es true regresa una lista vacia
+	 * 
+	 * @return List<Docente> si es false
+	 * @return vacio si es true
+	 *   
+	 */
 	public List<Docente> recuperaListaDocent(){
 		List <Docente> list = new ArrayList();
-		list = repositoryDocente.findAll();
+		list = repositoryDocente.findAllByCorreoEnviado(false);
 		return list;
 	}
 	
@@ -155,6 +163,30 @@ public class ServicioDocente {
 		repositoryActividad.save(act);
 	}
 	
-	
-
+	//proc4.4
+	/**
+	 * cambia en la base de datos el valor del atributo correo enviado de false a true
+	 * 
+	 * @param list<Docente>
+	 *   
+	 */
+		public boolean mensajeEnviado(List<Docente> list) {
+			if(list.isEmpty()) {
+				return false;
+			}
+			
+			for(Docente doc:list) {
+				doc.setCorreoEnviado(true);
+				repositoryDocente.save(doc);
+			}
+			return true;
+		}
+		
+	//proc4.3
+		public Docente cambioContraseña(String contraseña,String nombre, String oldcontraseña) {
+			Docente docente = repositoryDocente.findByContraseñaDocente(oldcontraseña);
+			docente.setContraseñaDocente(contraseña);
+			repositoryDocente.save(docente);
+			return docente;
+		}
 }

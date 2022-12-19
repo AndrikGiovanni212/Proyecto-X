@@ -13,8 +13,6 @@ import com.Proyecto.ProyectoAyD.presentacion.principal.ControlPrincipal;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.ModificarFechaEntrega.ControlModificarFechaEntrega;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
 
 @Component
 public class ControlSubirActividades {

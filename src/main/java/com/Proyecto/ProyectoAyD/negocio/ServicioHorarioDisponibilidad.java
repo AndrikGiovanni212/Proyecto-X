@@ -15,6 +15,8 @@ import com.Proyecto.ProyectoAyD.datos.HorarioDisponibilidadRepository;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.HorarioDisponibilidad;
 
+
+
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -41,7 +43,8 @@ public class ServicioHorarioDisponibilidad {
 	 */
 	public ArrayList<HorarioDisponibilidad> verificaExistenciaHorario(String idDocent) {	
 		ArrayList <HorarioDisponibilidad> HD = new ArrayList<>();
-		for(HorarioDisponibilidad HDs:disponibilidadRepositorio.findAllByDocenteIdDocente(idDocent)) { //crea el nuevo arreglo si existe un horario ya creado
+
+		for(HorarioDisponibilidad HDs:disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocent)) { //crea el nuevo arreglo si existe un horario ya creado
 			HD.add(HDs);
 		}
 		if(HD.isEmpty() == true) {
@@ -53,7 +56,7 @@ public class ServicioHorarioDisponibilidad {
 	public boolean agregaHorario(String idDocente, String datos[][], boolean estatus[][], String contra) {
 		int contador = 0;
 		boolean verifica = false;
-		Optional<Docente> docente = docenteRepositorio.findById(idDocente);
+		Docente docente = docenteRepositorio.findByContraseñaDocente(idDocente);
 		HorarioDisponibilidad HD = new HorarioDisponibilidad();
 		for(int i=0; i<4; i++) {
 			if(datos[i][0].equals("")) {		
@@ -74,7 +77,7 @@ public class ServicioHorarioDisponibilidad {
 			HD.setViernes(datos[i][5]);
 			HD.setDisponible(estatus[i][0]);
 			HD.setOcupado(estatus[i][1]);
-			HD.setDocente(docente.get());
+			HD.setDocente(docente);
 			disponibilidadRepositorio.save(HD);
 			verifica = HD.agregaHorarioDisponibilidad(HD);
 		}	
@@ -85,8 +88,8 @@ public class ServicioHorarioDisponibilidad {
 	public ArrayList<HorarioDisponibilidad> buscaHorario(String contraseña) {
 		ArrayList <HorarioDisponibilidad> HD = new ArrayList<>();
 		try {
-			String idDocente = disponibilidadRepositorio.findByContraseñaDocente(contraseña).get().getDocente().getIdDocente();
-			for(HorarioDisponibilidad HDs:disponibilidadRepositorio.findAllByDocenteIdDocente(idDocente)) {
+			String idDocente = disponibilidadRepositorio.findByContraseñaDocente(contraseña).get().getDocente().getContraseñaDocente();
+			for(HorarioDisponibilidad HDs:disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocente)) {
 				HD.add(HDs);
 			}
 			return HD;
@@ -102,7 +105,7 @@ public class ServicioHorarioDisponibilidad {
 	 */
 	public boolean actualiza(boolean estatus[][], String idDocente) {
 		List<HorarioDisponibilidad> oldHD = new ArrayList<HorarioDisponibilidad>();
-		oldHD = disponibilidadRepositorio.findAllByDocenteIdDocente(idDocente);
+		oldHD = disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocente);
 		boolean verifica = false;
 		int i =0;
 		for(HorarioDisponibilidad HD:oldHD) {
@@ -121,7 +124,7 @@ public class ServicioHorarioDisponibilidad {
 	 * @return regresa un objeto de tipo docente
 	 */
 	public Docente buscaDocente(String contraseña, String nombre) {
-		Docente docente = docenteRepositorio.findByIdDocente(contraseña); //busca en el repositorio del docente al docente con la contrasela dada por el docente
+		Docente docente = docenteRepositorio.findByContraseñaDocente(contraseña); //busca en el repositorio del docente al docente con la contrasela dada por el docente
 		if(docente != null) {
 			if(docente.getNombre().equals(nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
 				return docente;
@@ -129,5 +132,7 @@ public class ServicioHorarioDisponibilidad {
 		}	
 		return null;
 	}
+	
 
+	
 }

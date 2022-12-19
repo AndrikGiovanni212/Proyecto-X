@@ -37,4 +37,9 @@ public class Evaluador {
 	private int edad;
 	private String matricula;
 	
+
+	@OneToMany(targetEntity = Archivo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List <Archivo> archivo;
+
+
 }
