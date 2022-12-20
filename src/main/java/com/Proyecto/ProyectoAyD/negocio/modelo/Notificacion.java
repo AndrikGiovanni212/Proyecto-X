@@ -26,7 +26,10 @@ public class Notificacion {
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(nullable = false, updatable = false)
     private Docente docente;
-
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn( updatable = false)
+    private Evaluador director;
+	
 	
 	/**
 	 * Permite confirmar si la notificacion fue hecha de manera correcta

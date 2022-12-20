@@ -640,7 +640,10 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnAvance = new JButton("Avance\r\n");
 		btnAvance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.muestraRetroalimentar(nombreDocente,contraseña);		
+			System.out.println("Avance");	
 			}
+
 		});
 		mnDocente.add(btnAvance);
 

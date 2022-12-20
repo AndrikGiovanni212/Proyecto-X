@@ -2,20 +2,51 @@ package com.Proyecto.ProyectoAyD.presentacion.proceso1.Retroalimentar;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.springframework.stereotype.Component;
+
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Tema;
+import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
+
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.List;
+
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
+import javax.swing.JScrollPane;
+import javax.swing.JScrollBar;
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DropMode;
+import javax.swing.ImageIcon;
+@Component
 public class VistaRetroalimentar extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private ControRetroalimentar ControlVistaRetroalimentar;
+	private String Revisor;
 	private JTextField textField;
 
 	/**m
@@ -126,5 +157,18 @@ public class VistaRetroalimentar extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 37, 129, 13);
 		PanelAvance.add(lblNewLabel_1);
+			
+
+	}//fin del constructor 
+	/*  método para poder mostrar la vista temas, junto a los temas disponibles */
+	public void muestra (ControRetroalimentar control,String revisor, String contraseña) 
+	{//Inicio de muestra
+		ControlVistaRetroalimentar= control;
+		Revisor=revisor;
+		setVisible(true);
+	}//fin de muestra
+	public void muestraDialogoConMensaje(String mensaje ) {
+		JOptionPane.showMessageDialog(this , mensaje);
 	}
+
 }

@@ -12,6 +12,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 //import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
+import com.Proyecto.ProyectoAyD.presentacion.proceso1.Retroalimentar.ControRetroalimentar;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.SeleccionHorario.ControSeleccionHorario;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSubirActividades;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
@@ -43,6 +44,7 @@ public class ControlPrincipal {
 	@Autowired
 	private ControlVisualizarEstatus controlVisualizarEstatus;
 	@Autowired
+	private ControRetroalimentar controlRetroalimentar;
 	private ControSeleccionHorario controlSeleccionHorario;
 	//proceso1
 	@Autowired
@@ -109,11 +111,14 @@ public class ControlPrincipal {
 		ventanaPrincipal.docente(this, nombre,contraseña);
 	}
 	
-	//proc2
+	//proc1.3
 	public void muestraSubirActividades(String nombreDocente,String contraseña) {
 		controlSubirActividades.muestraSubirActividades(nombreDocente,contraseña);
 	}
-	
+	//proc1.4 y 1.8
+		public void muestraRetroalimentar(String nombreDocente,String contraseña) {
+			controlRetroalimentar.inicia(nombreDocente,contraseña);
+		}
 	//proceso3.1
 	public void eleccionHorario(String nombre,String idDocente) {
 		controlSubir.inicia(nombre,idDocente);
