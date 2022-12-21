@@ -10,10 +10,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryArchivo;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
+import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
 
 @Service
@@ -22,6 +26,10 @@ public class ServicioEvaluador {
 	RepositoryEvaluador repositoryEvaluador;
 	@Autowired
 	RepositoryArchivo repositoryArchivo;
+	@Autowired
+	RepositoryAlumno repositoryAlumno;
+	@Autowired
+	RepositoryNotificacion repositoryNotificacion;
 	//Recuperemos 
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
@@ -69,8 +77,18 @@ public class ServicioEvaluador {
             //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
+	//UH1.4
  public boolean enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
-	 
+	 Notificacion retro = new   Notificacion();
+	 Evaluador eva= new Evaluador();
+	eva=repositoryEvaluador.findBynombre(nombreDocente);
+	 Alumno Alum = eva.getAlumno();
+	 retro.setAsunto(asunto);
+	 retro.setDirector(eva);
+	 retro.setMensaje(retroalimentacion);
+	 retro.setRemitente(eva.getNombre());
+	 retro.setDestinatario(Alum.getNombre());
+	 repositoryNotificacion.save(retro);
 	 return false;
  }
 }

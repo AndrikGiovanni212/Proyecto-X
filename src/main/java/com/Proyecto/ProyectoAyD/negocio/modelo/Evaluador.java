@@ -30,9 +30,9 @@ public class Evaluador {
 	private String usuario;
 	private String contraseña;
 	private Boolean status;
-//	@ManyToOne(targetEntity = Alumno.class)
-//	@JoinColumn(name="IdAlumno")
-	//private Alumno alumno;
+	@ManyToOne(targetEntity = Alumno.class)
+	@JoinColumn(name="IdAlumno")
+	private Alumno alumno;
 	private String tipoRevisor;
 	private int edad;
 	private String matricula;
