@@ -45,11 +45,15 @@ public class VistaRetroalimentar extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private ControRetroalimentar ControlVistaRetroalimentar;
+	private ControRetroalimentar controlVistaRetroalimentar;
 	private String Revisor;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldNombre;
+	private JTextField textFieldCorreo;
+	private JTextField textFieldAsunto;
+	private JLabel lblAsunto;
+	private JLabel lblCorreo;
+	private JLabel lblNombre;
+	private JTextArea textArea;
 
 	/**
 	 * m Launch the application.
@@ -140,60 +144,65 @@ public class VistaRetroalimentar extends JFrame {
 		btnSeleccionar.setBounds(0, 121, 102, 23);
 		PanelAvance.add(btnSeleccionar);
 
-		JButton btnNewEnviarArchivo = new JButton("Ver archivo del alumno");
-		btnNewEnviarArchivo.setBounds(112, 121, 139, 23);
+		JButton btnEnviarArchivo = new JButton("Ver archivo del alumno");
+		btnEnviarArchivo.setBounds(112, 121, 139, 23);
 
-		PanelAvance.add(btnNewEnviarArchivo);
+		PanelAvance.add(btnEnviarArchivo);
 
-		JButton btnNewButton_2 = new JButton("Enviar retroalimentación");
-		btnNewButton_2.setBounds(261, 121, 150, 23);
-		PanelAvance.add(btnNewButton_2);
+		JButton btnEnviar = new JButton("Enviar retroalimentación");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlVistaRetroalimentar.enviarRetro(textArea.getText(),textFieldAsunto.getText(),textFieldCorreo.getText(),textFieldNombre.getText(),Revisor);
+			}
+		});
+		btnEnviar.setBounds(261, 121, 150, 23);
+		PanelAvance.add(btnEnviar);
 
 		JLabel lblNewLabel_1 = new JLabel("Retroalimentación");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 14, 129, 13);
 		PanelAvance.add(lblNewLabel_1);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(0, 33, 249, 85);
-		PanelAvance.add(scrollPane_1);
+		JScrollPane scrollPanetextArea = new JScrollPane();
+		scrollPanetextArea.setBounds(0, 33, 249, 85);
+		PanelAvance.add(scrollPanetextArea);
 		
-		JTextArea textArea = new JTextArea();
+		 textArea = new JTextArea();
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
-		scrollPane_1.setViewportView(textArea);
+		scrollPanetextArea.setViewportView(textArea);
 		
-		textField = new JTextField();
-		textField.setBounds(254, 14, 139, 20);
-		PanelAvance.add(textField);
-		textField.setColumns(10);
+		textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(254, 14, 139, 20);
+		PanelAvance.add(textFieldNombre);
+		textFieldNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(254, 55, 139, 20);
-		PanelAvance.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldCorreo = new JTextField();
+		textFieldCorreo.setBounds(254, 55, 139, 20);
+		PanelAvance.add(textFieldCorreo);
+		textFieldCorreo.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(254, 98, 139, 20);
-		PanelAvance.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldAsunto = new JTextField();
+		textFieldAsunto.setBounds(254, 98, 139, 20);
+		PanelAvance.add(textFieldAsunto);
+		textFieldAsunto.setColumns(10);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(264, 0, 46, 14);
 		PanelAvance.add(lblNombre);
 		
-		JLabel lblCorreo = new JLabel("Correo:");
+		lblCorreo = new JLabel("Correo:");
 		lblCorreo.setBounds(264, 39, 46, 14);
 		PanelAvance.add(lblCorreo);
 		
-		JLabel lblNewLabel_2 = new JLabel("Asunto:");
-		lblNewLabel_2.setBounds(261, 80, 46, 14);
-		PanelAvance.add(lblNewLabel_2);
+		lblAsunto = new JLabel("Asunto:");
+		lblAsunto.setBounds(261, 80, 46, 14);
+		PanelAvance.add(lblAsunto);
 	}// fin del constructor
 	/* método para poder mostrar la vista temas, junto a los temas disponibles */
 
 	public void muestra(ControRetroalimentar control, String revisor, String contraseña) {// Inicio de muestra
-		ControlVistaRetroalimentar = control;
+		controlVistaRetroalimentar = control;
 		Revisor = revisor;
 		setVisible(true);
 	}// fin de muestra

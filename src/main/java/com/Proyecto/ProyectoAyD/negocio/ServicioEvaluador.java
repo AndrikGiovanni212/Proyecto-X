@@ -69,5 +69,8 @@ public class ServicioEvaluador {
             //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
-
+ public boolean enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
+	 
+	 return false;
+ }
 }
