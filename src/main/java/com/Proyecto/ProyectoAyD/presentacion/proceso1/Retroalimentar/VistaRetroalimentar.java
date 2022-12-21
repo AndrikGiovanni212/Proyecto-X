@@ -48,6 +48,8 @@ public class VistaRetroalimentar extends JFrame {
 	private ControRetroalimentar ControlVistaRetroalimentar;
 	private String Revisor;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * m Launch the application.
@@ -109,8 +111,7 @@ public class VistaRetroalimentar extends JFrame {
 		menuBar.add(mnInformacion);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(202, 0, 77, 60);
-		contentPane.add(lblNewLabel);
+		menuBar.add(lblNewLabel);
 
 		JLabel lblNombreSistema = new JLabel("New label");
 		lblNombreSistema.setBounds(0, 219, 184, 44);
@@ -132,7 +133,7 @@ public class VistaRetroalimentar extends JFrame {
 
 		JLabel Label_Aviso = new JLabel("Avance");
 		Label_Aviso.setFont(new Font("Tahoma", Font.BOLD, 20));
-		Label_Aviso.setBounds(165, 11, 87, 36);
+		Label_Aviso.setBounds(164, 0, 87, 36);
 		PanelAvance.add(Label_Aviso);
 
 		JButton btnSeleccionar = new JButton("Subir Archivo");
@@ -148,15 +149,46 @@ public class VistaRetroalimentar extends JFrame {
 		btnNewButton_2.setBounds(261, 121, 150, 23);
 		PanelAvance.add(btnNewButton_2);
 
-		textField = new JTextField();
-		textField.setBounds(10, 57, 379, 54);
-		PanelAvance.add(textField);
-		textField.setColumns(10);
-
 		JLabel lblNewLabel_1 = new JLabel("Retroalimentación");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(10, 37, 129, 13);
+		lblNewLabel_1.setBounds(10, 14, 129, 13);
 		PanelAvance.add(lblNewLabel_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(0, 33, 249, 85);
+		PanelAvance.add(scrollPane_1);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setWrapStyleWord(true);
+		textArea.setLineWrap(true);
+		scrollPane_1.setViewportView(textArea);
+		
+		textField = new JTextField();
+		textField.setBounds(254, 14, 139, 20);
+		PanelAvance.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(254, 55, 139, 20);
+		PanelAvance.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(254, 98, 139, 20);
+		PanelAvance.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(264, 0, 46, 14);
+		PanelAvance.add(lblNombre);
+		
+		JLabel lblCorreo = new JLabel("Correo:");
+		lblCorreo.setBounds(264, 39, 46, 14);
+		PanelAvance.add(lblCorreo);
+		
+		JLabel lblNewLabel_2 = new JLabel("Asunto:");
+		lblNewLabel_2.setBounds(261, 80, 46, 14);
+		PanelAvance.add(lblNewLabel_2);
 	}// fin del constructor
 	/* método para poder mostrar la vista temas, junto a los temas disponibles */
 
@@ -169,5 +201,4 @@ public class VistaRetroalimentar extends JFrame {
 	public void muestraDialogoConMensaje(String mensaje) {
 		JOptionPane.showMessageDialog(this, mensaje);
 	}
-
 }
