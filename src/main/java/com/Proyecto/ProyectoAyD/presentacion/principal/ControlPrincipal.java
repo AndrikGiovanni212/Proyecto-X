@@ -35,6 +35,8 @@ public class ControlPrincipal {
 	@Autowired
 	private ServicioAlumno servicioAlumno;
 	@Autowired
+	private ServicioEvaluador servicioEvaluador;
+	@Autowired
 	private ControlSubirActividades controlSubirActividades;
 	@Autowired
 	private ControlSubirEstatus controlSubir;
@@ -44,6 +46,7 @@ public class ControlPrincipal {
 	private ControlVisualizarEstatus controlVisualizarEstatus;
 	@Autowired
 	private ControSeleccionHorario controlSeleccionHorario;
+
 	//proceso1
 	@Autowired
 	private ControlMensaje controlMensaje;
@@ -88,9 +91,12 @@ public class ControlPrincipal {
 	public boolean buscaDocente(String Contraseña, String Nombre) {	
 		return servicioDocente.buscaDocente(Contraseña, Nombre);
 	}
+
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		return servicioEvaluador.buscaEvaluador(Contraseña, Nombre);
+	}
 	public void ElegirTema(String Nombre) 
-	{
-		
+	{	
 		controlElegirTema.inicia( Nombre);
 	}//fin de ElegirTema
 	public boolean buscaAlumno(String Contraseña, String Nombre) {	
@@ -107,6 +113,10 @@ public class ControlPrincipal {
 	
 	public void inicioDocente(String nombre, String contraseña) {
 		ventanaPrincipal.docente(this, nombre,contraseña);
+	}
+	
+	public void inicioEvaluador(String nombre, String contraseña) {
+		ventanaPrincipal.evaluador(this, nombre,contraseña);
 	}
 	
 	//proc2

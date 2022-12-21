@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.Proyecto.ProyectoAyD.datos.RepositoryArchivo;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 
 
@@ -22,6 +23,18 @@ public class ServicioEvaluador {
 	RepositoryEvaluador repositoryEvaluador;
 	@Autowired
 	RepositoryArchivo repositoryArchivo;
+
+	//login
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		Evaluador evaluadorLocal = repositoryEvaluador.findByContraseñaEvaluador(Contraseña);
+		if(evaluadorLocal != null) {
+			if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+				return true;
+			}
+		}	
+		return false;
+	}
+
 	//Recuperemos 
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
