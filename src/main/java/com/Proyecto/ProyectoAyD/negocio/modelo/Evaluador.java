@@ -28,7 +28,7 @@ public class Evaluador {
 	private String correo;
 	private int telefono;
 	private String usuario;
-	private String contraseña;
+	private String contraseñaEvaluador;
 	private Boolean status;
 	@ManyToOne(targetEntity = Alumno.class)
 	@JoinColumn(name="IdAlumno")

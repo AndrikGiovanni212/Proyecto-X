@@ -119,9 +119,20 @@ public class ProyectoAyDApplication {
 		repositorioAdm.save(adm);
 		
 		Evaluador Revisor1= new Evaluador();
-		Revisor1.setNombre("Omar");
+		Revisor1.setNombre("omar");
 		Revisor1.setUsuario("Omar Aldaco");
-		Revisor1.setContraseña("12345");
+		Revisor1.setContraseñaEvaluador("aldac");
+		Revisor1.setTelefono(34244324);
+		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
+		Revisor1.setStatus(true);
+		Revisor1.setTipoRevisor("Director");
+		
+		repositoryEvalaudor.save(Revisor1);
+		Revisor1= new Evaluador();
+		Revisor1.setNombre("gabi");
+		Revisor1.setUsuario("Omar Aldaco");
+		Revisor1.setContraseñaEvaluador("gabi33");
+
 		Revisor1.setTelefono(34244324);
 		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
 		Revisor1.setStatus(true);
@@ -131,7 +142,7 @@ public class ProyectoAyDApplication {
 		Evaluador Revisor2= new Evaluador();
 		Revisor2.setNombre("Pedro");
 		Revisor2.setUsuario("Pedro Rodriguez");
-		Revisor2.setContraseña("Pedro45");
+		Revisor2.setContraseñaEvaluador("Pedro45");
 		Revisor2.setTelefono(6453564);
 		Revisor2.setCorreo("PedroRodro674@izt.uam.mx");
 		Revisor2.setTipoRevisor("Revisor");
@@ -141,7 +152,9 @@ public class ProyectoAyDApplication {
 		Revisor2= new Evaluador();
 		Revisor2.setNombre("jorge");
 		Revisor2.setUsuario("Pedro Rodriguez");
-		Revisor2.setContraseña("jorge");
+
+		Revisor2.setContraseñaEvaluador("jorge45");
+
 		Revisor2.setTelefono(6453564);
 		Revisor2.setCorreo("PedroRodro674@izt.uam.mx");
 		Revisor2.setTipoRevisor("Coordinador");

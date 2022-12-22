@@ -18,9 +18,9 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
  */
 public interface ActividadesRepository extends CrudRepository <Actividad, Long> {
 	
-	public List<Actividad> findByDocenteIdDocente(String contraseña);
+	public List<Actividad> findByDocenteContraseñaDocente(String contraseña);
 	
-	public Actividad findByIdActividad(long id);
+	public Actividad findByNumeroActividad(long id);
 	
 	
 

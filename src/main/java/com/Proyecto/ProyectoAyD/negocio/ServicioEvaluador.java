@@ -16,6 +16,7 @@ import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
 import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
@@ -27,9 +28,21 @@ public class ServicioEvaluador {
 	@Autowired
 	RepositoryArchivo repositoryArchivo;
 	@Autowired
-	RepositoryAlumno repositoryAlumno;
-	@Autowired
 	RepositoryNotificacion repositoryNotificacion;
+
+
+	//login
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		Evaluador evaluadorLocal = repositoryEvaluador.findByContraseñaEvaluador(Contraseña);
+		if(evaluadorLocal != null) {
+			if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+				return true;
+			}
+		}	
+		return false;
+	}
+
+
 	//Recuperemos 
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
@@ -89,14 +102,5 @@ public class ServicioEvaluador {
 	 repositoryNotificacion.save(retro);
 	 return false;
  }
-//login
-	public boolean buscaEvaluador(String Contraseña, String Nombre) {
-		Evaluador evaluadorLocal = repositoryEvaluador.findBycontraseña(Contraseña);
-		if(evaluadorLocal != null) {
-			if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
-				return true;
-			}
-		}	
-		return false;
-	}
+
 }

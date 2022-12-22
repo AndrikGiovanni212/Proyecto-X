@@ -42,8 +42,13 @@ public class ControlSubirActividades {
 		String sDate1=fecha; 
 		try {
 			Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
-			servicioDocente.AgregarActividades(nombre, pdf, contraseña, date1);
-			vistaSubirActividades.llenaTabla(servicioDocente.recuperaListaPDF(contraseña));
+			System.out.println(pdf);
+			System.out.println(date1);
+			
+			if(servicioDocente.AgregarActividades(nombre, pdf, contraseña, date1)) {
+				vistaSubirActividades.llenaTabla(servicioDocente.recuperaListaPDF(contraseña));
+			}
+			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}  
