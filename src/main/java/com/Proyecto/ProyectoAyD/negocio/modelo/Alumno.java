@@ -12,16 +12,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 @Entity 
 @Data
-@Setter
-@Getter
 public class Alumno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,11 +45,17 @@ public class Alumno {
 	
 	private String Usuario;
 	
-	@OneToMany(targetEntity = Evaluador.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Evaluador> evaluador;
-	@ManyToOne(targetEntity = Tesina.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+	@ManyToMany(targetEntity = Notificacion.class, cascade = CascadeType.ALL)
+	private List <Notificacion> notificacicion;
+	
+	@ManyToOne(targetEntity = Tesina.class)
 	private Tesina tesina;	
 	
+
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(targetEntity = Evaluador.class, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Evaluador> evaluador;
 
 	
 

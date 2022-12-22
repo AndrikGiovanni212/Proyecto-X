@@ -33,6 +33,8 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component 
 public class VentanaPrincipal extends JFrame {
+
+
 	public VentanaPrincipal() {
 	}
 	
@@ -536,6 +538,14 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(btnElegirDocente);
+		
+		JButton btnCambioFecha = new JButton("Cambio de Fecha");
+		btnCambioFecha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.cambioFechaEntrega(nombreAlumno, contraseña);
+			}
+		});
+		mnNewMenu_1.add(btnCambioFecha);
 
 		JButton btnDisponibilidad = new JButton("Disponibilidad de docente");
 		btnDisponibilidad.addActionListener(new ActionListener() {

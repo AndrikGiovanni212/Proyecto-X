@@ -11,9 +11,14 @@ import org.springframework.stereotype.Service;
 import com.Proyecto.ProyectoAyD.datos.ActividadesRepository;
 import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
+
+import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
+
 import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Tema;
 
 @Service
@@ -25,7 +30,12 @@ public class ServicioAlumno
 	RepositoryAlumno repositoryAlumno;
 	@Autowired
 	RepositoryEvaluador repositoryEvaluador;
+	@Autowired
+	RepositoryNotificacion repositoryNotificacion;
 	Alumno alumnoLocal;
+	int numero = 1;
+	
+	List<Notificacion> list=new ArrayList<Notificacion>();
 	//pro3
 	public boolean buscaAlumno(String contraseña, String nombre) {
 		alumnoLocal = repositoryAlumno.findByContraseñaAlumno(contraseña);
@@ -102,7 +112,39 @@ public class ServicioAlumno
 	//proc4.2
 	
 	public Alumno recuperaByNombre(String nombre) {
+		if(nombre == null) {
+			throw new NullPointerException("Null parameters are not allowed"); 
+		}
+		
+		
 		return repositoryAlumno.findByNombre(nombre);
+	}
+	//proc2.3
+	public void solicitudFecha(String NombreDestinatario, String CorreoElectronico, String Mensaje, String Asunto,String nombreRemitente,String contraseña){
+		
+		if(NombreDestinatario == null) {
+			throw new NullPointerException("Null parameters are not allowed"); 
+		}
+		
+		
+		Notificacion notifi=new Notificacion();
+		if(repositoryNotificacion.findByAlumnoContraseñaAlumno(contraseña).size() == 0) {
+			this.list = new ArrayList<>();
+			this.numero = 1;
+		}
+		notifi.setAsunto(Asunto);
+		notifi.setCorreo(CorreoElectronico);
+		notifi.setDestinatario(NombreDestinatario);
+		notifi.setMensaje(Mensaje);
+		notifi.setRemitente(nombreRemitente);
+		Alumno alum = new Alumno();
+		alum =repositoryAlumno.findByContraseñaAlumno(contraseña);
+		notifi.setAlumno(alum);
+		repositoryNotificacion.save(notifi);
+		this.list.add(notifi);
+		alum.setNotificacicion(list);
+		repositoryAlumno.save(alum);
+		
 	}
 
 }

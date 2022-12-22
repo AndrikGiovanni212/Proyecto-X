@@ -13,6 +13,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.SeleccionHorario.ControSeleccionHorario;
+import com.Proyecto.ProyectoAyD.presentacion.proceso2.SolicitudCambioFecha.ControlSolicitudCambioFecha;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSubirActividades;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirTareasAlumno.ControlSubirTareasAlumno;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
@@ -58,6 +59,9 @@ public class ControlPrincipal {
 	//proc4.3
 	@Autowired
 	private ControlCambiarPassword controlPassword;
+	//proc2.3
+	@Autowired
+	private ControlSolicitudCambioFecha controlCambioFecha;
 	
 	
 
@@ -170,5 +174,11 @@ public class ControlPrincipal {
 	//proc 4.3
 	public void cambiarContraseña( String nombre,String contraseña) {
 		controlPassword.inicia(nombre,contraseña);
+	}
+	
+	//proceso 2.3 Cambio de Fecha de entrega
+	public void cambioFechaEntrega(String nombreAlumno,String contraseña) {
+		controlCambioFecha.inicia(nombreAlumno,contraseña);
+
 	}
 }
