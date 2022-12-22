@@ -82,5 +82,6 @@ public class ServicioEvaluador {
             //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
+	//public void verAvance()
 
 }
