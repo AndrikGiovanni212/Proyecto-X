@@ -67,8 +67,8 @@ public class ServicioEvaluador {
 		evaluador.add(repositoryEvaluador.findByIdEvaluador(idRevisor));
 		return evaluador;
 	}
-	public void guardaravance( String nombre, File ruta,String Evaluador) {
-        
+public void guardaravance( String nombre, File ruta,String Evaluador) {
+	    System.out.println(nombre);
         Archivo archi = new Archivo();
         List<Archivo> listarchi=new ArrayList<Archivo>();
         Evaluador eva=new Evaluador();
@@ -88,7 +88,7 @@ public class ServicioEvaluador {
             repositoryEvaluador.save(eva);
         } catch (IOException ex) {
             archi.setArchivoPdf(null);
-            	//System.out.println("Error al agregar archivo pdf "+ex.getMessage());
+            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
 	//UH1.4

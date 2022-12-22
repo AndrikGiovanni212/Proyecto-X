@@ -114,7 +114,7 @@ public class VistaElegirTema extends JFrame
 	        
 	        File ruta2 = new File(ruta);
 	        if (ruta.trim().length() != 0) {
-	        	controlElegirTema.agregarAvance(btnSeleccionar.getText(), ruta2, "Omar");
+	        	controlElegirTema.agregarAvance(btnSeleccionar.getText(), ruta2, "omar");
 	        } else {
 	            JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
 	        }

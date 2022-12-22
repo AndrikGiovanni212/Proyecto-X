@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.Data;
 @Entity
 @Data
@@ -38,7 +41,8 @@ public class Evaluador {
 	private String matricula;
 	@OneToMany(targetEntity = Notificacion.class,fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List <Notificacion> notificacion;
-	@OneToMany(targetEntity = Archivo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(targetEntity = Archivo.class)
 	private List <Archivo> archivo;
 
 

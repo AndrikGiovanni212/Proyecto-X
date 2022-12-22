@@ -120,7 +120,7 @@ public class VistaSubirTareasAlumno extends JFrame {
 			        
 			        File ruta2 = new File(ruta);
 			        if (ruta.trim().length() != 0) {
-			        	controlSubirTareasAlumno.agregarAvance(btnSeleccionar.getText(), ruta2, "Omar");
+			        	controlSubirTareasAlumno.agregarAvance(btnSeleccionar.getText(), ruta2, "omar");
 			        } else {
 			            JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
 			        }
@@ -237,21 +237,3 @@ public class VistaSubirTareasAlumno extends JFrame {
 		        }
 		    }
 	}//fin de la clase vistaSubir TareasAlumno
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
