@@ -44,18 +44,24 @@ public class Alumno {
 	private boolean correoEnviado=false;
 	
 	private String Usuario;
-	
 
+  	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToOne(targetEntity = Tesina.class, cascade = CascadeType.ALL)
+	private Tesina tesina;	
+
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(targetEntity = Notificacion.class, cascade = CascadeType.ALL)
 	private List <Notificacion> notificacicion;
 	
-	@ManyToOne(targetEntity = Tesina.class)
-	private Tesina tesina;	
-	
-
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(targetEntity = Evaluador.class, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evaluador> evaluador;
+	
+//	@LazyCollection(LazyCollectionOption.FALSE)
+//	@ManyToMany(targetEntity = Archivo.class, cascade = CascadeType.ALL)
+//	private List <Archivo> archivo;
+
 
 	
 
