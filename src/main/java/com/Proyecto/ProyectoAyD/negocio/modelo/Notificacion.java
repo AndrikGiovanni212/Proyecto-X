@@ -1,5 +1,6 @@
 package com.Proyecto.ProyectoAyD.negocio.modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,9 +24,12 @@ public class Notificacion {
 	private String asunto;
 	private String correo;
 	private int hora;
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(nullable = false, updatable = false)
+	@ManyToOne(targetEntity = Docente.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Docente docente;
+	
+
+	@ManyToOne(targetEntity = Alumno.class, fetch = FetchType.EAGER)
+    private Alumno alumno;
 
 	
 	/**

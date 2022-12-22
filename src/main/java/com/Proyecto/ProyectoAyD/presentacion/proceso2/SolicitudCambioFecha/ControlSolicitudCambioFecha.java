@@ -30,7 +30,7 @@ public class ControlSolicitudCambioFecha
 	ServicioEvaluador servicioEvaluador;
 	@Autowired 
 	private ServicioNotificacion servicioNotificacion;
-	
+	private String contraseña;
 	
 	public void inicia(String nombreAlumno,String contraseña) {
 		Alumno alu = new Alumno();
@@ -59,7 +59,7 @@ public class ControlSolicitudCambioFecha
 	}
 	
 	public void enviarSolicitud(String NombreDestinatario, String CorreoElectronico, String Mensaje, String Asunto,String nombreRemitente) {	
-		servicioNotificacion.solicitudFecha( NombreDestinatario,  CorreoElectronico, Mensaje,  Asunto, nombreRemitente);
+		servicioAlumno.solicitudFecha( NombreDestinatario,  CorreoElectronico, Mensaje,  Asunto, nombreRemitente,contraseña);
 
 	}
 
