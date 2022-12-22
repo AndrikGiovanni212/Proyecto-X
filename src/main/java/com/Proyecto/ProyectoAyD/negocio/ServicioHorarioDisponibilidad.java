@@ -42,6 +42,10 @@ public class ServicioHorarioDisponibilidad {
 	 * @return ArrayList<HorarioDisponibilida>  
 	 */
 	public ArrayList<HorarioDisponibilidad> verificaExistenciaHorario(String idDocent) {	
+		if(idDocent == null) {
+			throw new NullPointerException("Null parameters are not allowed"); 
+		}
+		
 		ArrayList <HorarioDisponibilidad> HD = new ArrayList<>();
 
 		for(HorarioDisponibilidad HDs:disponibilidadRepositorio.findAllByDocenteContraseñaDocente(idDocent)) { //crea el nuevo arreglo si existe un horario ya creado
@@ -86,6 +90,10 @@ public class ServicioHorarioDisponibilidad {
 	}
 
 	public ArrayList<HorarioDisponibilidad> buscaHorario(String contraseña) {
+		if(contraseña == null) {
+			throw new NullPointerException("Null parameters are not allowed");
+		}
+		
 		ArrayList <HorarioDisponibilidad> HD = new ArrayList<>();
 		try {
 			String idDocente = disponibilidadRepositorio.findByContraseñaDocente(contraseña).get().getDocente().getContraseñaDocente();

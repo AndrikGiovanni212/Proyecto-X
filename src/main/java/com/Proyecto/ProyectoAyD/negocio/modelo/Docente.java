@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.Data;
 
 
@@ -42,11 +45,12 @@ public class Docente {
 	private boolean correoEnviado=false;
 	
 	private String Usuario;
-	
-	@ManyToMany(targetEntity = Actividad.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(targetEntity = Actividad.class, cascade = CascadeType.ALL)
 	private List <Actividad> actividades;
 	
-	@OneToMany(targetEntity = Notificacion.class)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(targetEntity = Alumno.class)
 	private List <Notificacion> notificacion;
 	
 }

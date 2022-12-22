@@ -228,7 +228,7 @@ public class VentanaPrincipal extends JFrame {
 						muestraDialogoConMensaje("docente encontrado");
 						controlPrincipal.inicioDocente(textNombre.getText(),textContraseña.getText()); 	
 					}
-					if(controlPrincipal.buscaEvaluador(textContraseña.getText(),textNombre.getText())){
+					else if(controlPrincipal.buscaEvaluador(textContraseña.getText(),textNombre.getText())){
 						muestraDialogoConMensaje("evaluador encontrado");
 						controlPrincipal.inicioEvaluador(textNombre.getText(),textContraseña.getText());
 					}else {
@@ -539,6 +539,14 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNewMenu_1.add(btnElegirDocente);
 
+		JButton btnCambioFecha = new JButton("Cambio de Fecha");
+		btnCambioFecha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.cambioFechaEntrega(nombreAlumno, contraseña);
+			}
+		});
+		mnNewMenu_1.add(btnCambioFecha);
+			
 		JButton btnDisponibilidad = new JButton("Disponibilidad de docente");
 		btnDisponibilidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -803,6 +811,7 @@ public class VentanaPrincipal extends JFrame {
 					controlPrincipal.eleccionHorario(nombreDocente,contraseña);		//pestaña de eleccion de horario de disponibilida pasandole el idDocente
 				}
 			});
+			mnDocente.add(btnHorarioDisponibilidad);
 			JButton btnCambiarContraseña = new JButton("Cambiar Contraseña");
 			btnCambiarContraseña.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

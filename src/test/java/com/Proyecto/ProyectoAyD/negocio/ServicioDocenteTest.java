@@ -110,9 +110,10 @@ class ServicioDocenteTest {
 		
 		//caso2: que reciba un null como parametro
 		//si el parametro es null lanza el IllegalArgumentException
-//		Assertions.assertThrows(IllegalArgumentException.class, ()->{
-//			boolean cambio2 = docenteServicio.mensajeEnviado(null);
-//		});
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			docenteServicio.mensajeEnviado(null);
+        });
+		assertEquals("Null parameters are not allowed",exception.getMessage());
 		
 		//caso3: que reciba una lista vacia
 		//si el parametro esta vacio regresa un false
@@ -173,7 +174,13 @@ class ServicioDocenteTest {
 	
 	@Test
 	void testAgregarActividades() {
-		//caso1 se agrega un actividad
+		//caso1 se pasa parametros nullos
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			docenteServicio.AgregarActividades(null,null,null,null);
+        });
+		assertEquals("Null parameters are not allowed",exception.getMessage());
+		
+		//caso2 se agrega un actividad
 		String contraseña = "12345";
 		Docente docente = new Docente();
 		docente.setContraseñaDocente("12345");

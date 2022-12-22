@@ -1,3 +1,4 @@
+
 package com.Proyecto.ProyectoAyD.negocio;
 
 import java.io.ByteArrayInputStream;
@@ -84,6 +85,11 @@ public class ServicioDocente {
 	 */
 	
 	public boolean AgregarActividades(String nombre, byte[] pdf ,String contraseña, Date fecha) {
+		
+		if(nombre == null) {
+			throw new NullPointerException("Null parameters are not allowed"); 
+		}
+		
 		this.vo = new Actividad();
 		if(repositoryActividad.findByDocenteContraseñaDocente(contraseña).size() == 0) {
 			this.list = new ArrayList<>();
@@ -154,10 +160,11 @@ public class ServicioDocente {
 	
 	//proc2ModificaFecha
 	public Actividad recuperaFecha(long id) {
+		
 		return repositoryActividad.findByNumeroActividad(id);
 	}
 	public void cambiaFecha(long id, String fechaNueva) throws Exception {
-		Date newFecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaNueva);
+		Date newFecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaNueva, null);
 		Actividad act = repositoryActividad.findByNumeroActividad(id);
 		act.setFecha(newFecha);
 		repositoryActividad.save(act);
@@ -171,6 +178,10 @@ public class ServicioDocente {
 	 *   
 	 */
 		public boolean mensajeEnviado(List<Docente> list) {
+			if(list == null) {
+				throw new NullPointerException("Null parameters are not allowed"); 
+			}
+			
 			if(list.isEmpty()) {
 				return false;
 			}

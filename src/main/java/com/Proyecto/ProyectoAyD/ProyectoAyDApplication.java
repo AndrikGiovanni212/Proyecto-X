@@ -139,7 +139,7 @@ public class ProyectoAyDApplication {
 		repositoryEvalaudor.save(Revisor1);
 		
 		Evaluador Revisor2= new Evaluador();
-		Revisor2.setNombre("Pedro");
+		Revisor2.setNombre("pedro");
 		Revisor2.setUsuario("Pedro Rodriguez");
 		Revisor2.setContraseñaEvaluador("Pedro45");
 		Revisor2.setTelefono(6453564);
