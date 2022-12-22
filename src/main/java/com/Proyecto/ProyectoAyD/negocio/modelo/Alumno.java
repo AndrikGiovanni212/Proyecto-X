@@ -53,14 +53,15 @@ public class Alumno {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(targetEntity = Notificacion.class, cascade = CascadeType.ALL)
 	private List <Notificacion> notificacicion;
-	
+
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(targetEntity = Evaluador.class, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evaluador> evaluador;
-	
+
 //	@LazyCollection(LazyCollectionOption.FALSE)
 //	@ManyToMany(targetEntity = Archivo.class, cascade = CascadeType.ALL)
 //	private List <Archivo> archivo;
+
 
 
 	

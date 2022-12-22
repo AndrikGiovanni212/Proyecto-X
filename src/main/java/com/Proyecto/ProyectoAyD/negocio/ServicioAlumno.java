@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 import com.Proyecto.ProyectoAyD.datos.ActividadesRepository;
 import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
-
 import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
-
 import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
@@ -98,6 +96,10 @@ public class ServicioAlumno
 	
 	//proce4.4
 	public boolean mensajeEnviado(List<Alumno> list) {
+		if(list == null) {
+			throw new NullPointerException("Null parameters are not allowed"); 
+		}
+
 		if(list.isEmpty()) {
 			return false;
 		}

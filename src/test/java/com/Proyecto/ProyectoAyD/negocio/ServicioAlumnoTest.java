@@ -24,6 +24,11 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.HorarioDisponibilidad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
+import com.Proyecto.ProyectoAyD.negocio.modelo.HorarioDisponibilidad;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
 @ExtendWith(MockitoExtension.class)
 class ServicioAlumnoTest {
@@ -107,9 +112,10 @@ class ServicioAlumnoTest {
 		
 		//caso2: que reciba un null como parametro
 		//si el parametro es null lanza el IllegalArgumentException
-//		Assertions.assertThrows(IllegalArgumentException.class, ()->{
-//			boolean cambio2 = servicioAlumno.mensajeEnviado(null);
-//		});
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			servicioAlumno.mensajeEnviado(null);
+        });
+		assertEquals("Null parameters are not allowed",exception.getMessage());
 		
 		//caso3: que reciba una lista vacia
 		//si el parametro esta vacio regresa un false

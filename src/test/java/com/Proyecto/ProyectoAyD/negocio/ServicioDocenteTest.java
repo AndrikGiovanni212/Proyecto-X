@@ -16,9 +16,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
+import com.Proyecto.ProyectoAyD.datos.ActividadesRepository;
 import com.Proyecto.ProyectoAyD.datos.DocenteRepository;
 import com.Proyecto.ProyectoAyD.datos.HorarioDisponibilidadRepository;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.HorarioDisponibilidad;
 
@@ -27,6 +28,8 @@ class ServicioDocenteTest {
 	
 	@Mock
 	private DocenteRepository docenteRepositorio;
+	@Mock
+	private ActividadesRepository RepositorioActividad;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -106,18 +109,99 @@ class ServicioDocenteTest {
 		
 		//caso2: que reciba un null como parametro
 		//si el parametro es null lanza el IllegalArgumentException
-//		Assertions.assertThrows(IllegalArgumentException.class, ()->{
-//			boolean cambio2 = docenteServicio.mensajeEnviado(null);
-//		});
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			docenteServicio.mensajeEnviado(null);
+        });
+		assertEquals("Null parameters are not allowed",exception.getMessage());
 		
 		//caso3: que reciba una lista vacia
 		//si el parametro esta vacio regresa un false
 		listDocente.clear();
 		cambio = docenteServicio.mensajeEnviado(listDocente);
-		assertEquals(false,cambio);
+		assertEquals(false,cambio);	
+	}
+	
+	@Test
+	void testRecuperaListaPDF() {
+		//caso1 el docente no tiene ninguna actividad
+		String contraseña = "12345";
+		Docente docente = new Docente();
+		docente.setContraseñaDocente("12345");
+		docente.setNombre("yesenia");
+		docente.setCorreo("minimbre@gmail.com");
+		docenteRepositorio.save(docente);
+			
+		List<Actividad> list = new ArrayList();
+		if(contraseña == docente.getContraseñaDocente()) {
+			if(docente.getActividades() != null) {
+			}
+			
+		}
+	
+		when(RepositorioActividad.findByDocenteContraseñaDocente(contraseña)).thenReturn(list);
+		List<Actividad> actList = docenteServicio.recuperaListaPDF(contraseña);
+		assertEquals(0, actList.size());
 		
+		//caso2 el docente tiene actividades
+		Actividad vo = new Actividad();
+		vo.setNumeroActividad(1);
+		vo.setNombreArchivo("prueba1");
+		RepositorioActividad.save(vo);
+		list.add(vo);
+		vo = new Actividad();
+		vo.setNumeroActividad(2);
+		vo.setNombreArchivo("prueba1");
+		RepositorioActividad.save(vo);
+		list.add(vo);
+		docente.setActividades(list);
+		docenteRepositorio.save(docente);
 		
+		List<Actividad> list2 = new ArrayList();
+		if(contraseña == docente.getContraseñaDocente()) {
+			if(docente.getActividades() != null) {
+				for(int i =0; i<docente.getActividades().size();i++) {
+					list2.add(docente.getActividades().get(i));
+				}
+			}
+			
+		}
+	
+		when(RepositorioActividad.findByDocenteContraseñaDocente(contraseña)).thenReturn(list2);
+		List<Actividad> actList2 = docenteServicio.recuperaListaPDF(contraseña);
+		assertEquals(2, actList2.size());
+	}
+	
+	@Test
+	void testAgregarActividades() {
+		//caso1 se pasa parametros nullos
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			docenteServicio.AgregarActividades(null,null,null,null);
+        });
+		assertEquals("Null parameters are not allowed",exception.getMessage());
 		
+		//caso2 se agrega un actividad
+		String contraseña = "12345";
+		Docente docente = new Docente();
+		docente.setContraseñaDocente("12345");
+		docente.setNombre("yesenia");
+		docente.setCorreo("minimbre@gmail.com");
+		docenteRepositorio.save(docente);
+		
+		Actividad act = new Actividad();
+		act.setArchivoPdf(null);
+		act.setFecha(null);
+		act.setIdActividad(1);
+		act.setNombreArchivo("prueba1");
+		act.setNumeroActividad(1);
+		act.setDocente(docente);
+		RepositorioActividad.save(act);
+		
+		List<Actividad> list=new ArrayList<Actividad>();
+		list.add(act);
+		
+		docente.setActividades(list);
+		docenteRepositorio.save(docente);
+		assertEquals(1, docente.getActividades().size());		
 	}
 
 }

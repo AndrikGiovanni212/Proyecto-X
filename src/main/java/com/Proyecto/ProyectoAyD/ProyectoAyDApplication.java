@@ -119,9 +119,9 @@ public class ProyectoAyDApplication {
 		repositorioAdm.save(adm);
 		
 		Evaluador Revisor1= new Evaluador();
-		Revisor1.setNombre("Omar");
+		Revisor1.setNombre("omar");
 		Revisor1.setUsuario("Omar Aldaco");
-		Revisor1.setContraseñaEvaluador("Aldaco33");
+		Revisor1.setContraseñaEvaluador("aldac");
 		Revisor1.setTelefono(34244324);
 		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
 		Revisor1.setStatus(true);
@@ -139,7 +139,7 @@ public class ProyectoAyDApplication {
 		repositoryEvalaudor.save(Revisor1);
 		
 		Evaluador Revisor2= new Evaluador();
-		Revisor2.setNombre("Pedro");
+		Revisor2.setNombre("pedro");
 		Revisor2.setUsuario("Pedro Rodriguez");
 		Revisor2.setContraseñaEvaluador("Pedro45");
 		Revisor2.setTelefono(6453564);

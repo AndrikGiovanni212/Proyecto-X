@@ -1,6 +1,7 @@
 package com.Proyecto.ProyectoAyD.negocio.modelo;
 
 import java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,6 @@ public class Archivo {
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(nullable = false, updatable = false)
     private Evaluador evaluador;
-	
-	
+
 	
 }

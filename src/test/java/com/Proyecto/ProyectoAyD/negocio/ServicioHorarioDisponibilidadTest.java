@@ -97,9 +97,10 @@ class ServicioHorarioDisponibilidadTest {
 			
 		//Caso de prueba 3: el parametro el null:
 		//si el parametro es null lanza el IllegalArgumentException
-		Assertions.assertThrows(IllegalArgumentException.class, ()->{
-			ArrayList<HorarioDisponibilidad> horarioDisponibilidad = HDServicio.verificaExistenciaHorario(null);
-		});
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			HDServicio.verificaExistenciaHorario(null);
+        });
+		assertEquals("Null parameters are not allowed",exception.getMessage());
 		
 	}
 			
@@ -172,9 +173,10 @@ class ServicioHorarioDisponibilidadTest {
 					
 				//Caso de prueba 3: el parametro el null:
 				//si el parametro es null lanza el IllegalArgumentException
-				Assertions.assertThrows(IllegalArgumentException.class, ()->{
-					ArrayList<HorarioDisponibilidad> horarioDisponibilidad = HDServicio.buscaHorario(null);
+				NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+					HDServicio.verificaExistenciaHorario(null);
 				});
+				assertEquals("Null parameters are not allowed",exception.getMessage());
 	}
 
 	@Test
@@ -217,9 +219,10 @@ class ServicioHorarioDisponibilidadTest {
 		
 		//caso 2
 		//si los parametros son null lanza el IllegalArgumentException
-		Assertions.assertThrows(IllegalArgumentException.class, ()->{
-			boolean actualizar= HDServicio.actualiza(null,null);
+		NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+			HDServicio.verificaExistenciaHorario(null);
 		});
+		assertEquals("Null parameters are not allowed",exception.getMessage());
 	}
 
 	@Test
@@ -253,10 +256,9 @@ class ServicioHorarioDisponibilidadTest {
 		//caso 3 reciben parametros nullos
 		
 		//si un parametro o dos parametros son null lanza el IllegalArgumentException
-		Assertions.assertThrows(IllegalArgumentException.class, ()->{
-			Docente doss = HDServicio.buscaDocente(null, null);
-		});
-		
+//		Assertions.assertThrows(IllegalArgumentException.class, ()->{
+//			Docente doss = HDServicio.buscaDocente(null, null);
+//		});		
 	}
 
 }
