@@ -32,31 +32,22 @@ public class ControlSolicitudCambioFecha
 	private ServicioNotificacion servicioNotificacion;
 	private String contraseña;
 	
+	
 	public void inicia(String nombreAlumno,String contraseña) {
 		Alumno alu = new Alumno();
+		this.contraseña = contraseña;
 		alu=servicioAlumno.recuperaByNombre(nombreAlumno);
 		vistaControlSolicitud.muestra(this, nombreAlumno);
 	}
 	
-	
-	public Alumno recuperaporNombre(String nombre) {
-		Alumno alum = new Alumno();
-		alum=servicioAlumno.recuperaByNombre(nombre);
-		System.out.println(alum.getNombre());
-		return servicioAlumno.recuperaByNombre(nombre);
-		
-	}
-	public void agregarAvance(String nombre,File archivo,String Evaluador) {
-		Evaluador eva= servicioEvaluador.recuperaNombre(Evaluador);
-		System.out.println(eva+"Control");
-		servicioEvaluador.guardaravance(nombre, archivo, Evaluador);
-	}
-	
+
 	public Evaluador compruebaEvaluador(String nombre) {
+		System.out.println(nombre);
 		Evaluador eva = new Evaluador();
 		eva=servicioEvaluador.recuperaNombre(nombre);
 		return eva;
 	}
+
 	
 	public void enviarSolicitud(String NombreDestinatario, String CorreoElectronico, String Mensaje, String Asunto,String nombreRemitente) {	
 		servicioAlumno.solicitudFecha( NombreDestinatario,  CorreoElectronico, Mensaje,  Asunto, nombreRemitente,contraseña);

@@ -7,6 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
+
+
+
+
 /**
  * Repositorio para Grupos
  * 
@@ -16,7 +20,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 public interface RepositoryNotificacion extends CrudRepository <Notificacion, Long> {
 	
 	public Notificacion findByCorreo(String correo);
-	public List<Notificacion> findByDocenteIdDocente(String contraseña);
+	public List<Notificacion> findByDocenteContraseñaDocente(String contraseña);
 	public List<Notificacion> findByAlumnoContraseñaAlumno(String contraseña);
 
 }

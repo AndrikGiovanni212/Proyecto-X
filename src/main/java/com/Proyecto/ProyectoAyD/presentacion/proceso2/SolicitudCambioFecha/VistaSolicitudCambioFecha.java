@@ -33,7 +33,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
-
+@SuppressWarnings("serial")
 @Component
 public class VistaSolicitudCambioFecha extends JFrame {
 	private String nombre;
@@ -212,9 +212,9 @@ public class VistaSolicitudCambioFecha extends JFrame {
 			if (textFieldMotivo.getText().equals("") || textFieldNombre.getText().equals("")) {
 				muestraDialogoConMensaje("Los campos de motivo y nombre no puedes estar vacios");
 			} else {
-				Evaluador eva1=new Evaluador();
+				Evaluador eva1= new Evaluador();
 				eva1= controlSolicitudCambioFecha.compruebaEvaluador(textFieldNombre.getText());
-				if(eva1.getClass()==null) {
+				if(eva1 == null) {
 					//eva1= controlSolicitudCambio.compruebaEvaluador(textFieldNombre.getText());
 					muestraDialogoConMensaje("No existe ningun evaluador con ese Nombre");
 				}else {

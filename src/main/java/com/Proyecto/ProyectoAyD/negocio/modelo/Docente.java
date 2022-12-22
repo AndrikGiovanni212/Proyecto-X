@@ -12,7 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import lombok.Data;
 
@@ -41,11 +45,13 @@ public class Docente {
 	private boolean correoEnviado=false;
 	
 	private String Usuario;
-	
-	@OneToMany(targetEntity = Actividad.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(targetEntity = Actividad.class, cascade = CascadeType.ALL)
 	private List <Actividad> actividades;
 	
-	@OneToMany(targetEntity = Notificacion.class)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(targetEntity = Alumno.class)
 	private List <Notificacion> notificacion;
 	
 }
+

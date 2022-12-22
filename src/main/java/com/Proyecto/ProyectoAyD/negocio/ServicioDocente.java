@@ -35,9 +35,10 @@ public class ServicioDocente {
 	@Autowired
 	ServicioActividad servicioActividad;
 	
-	List<Actividad> list=new ArrayList<Actividad>();;
+	List<Actividad> list=new ArrayList<Actividad>();
 	Actividad vo;
 	Docente docenteLocal;
+	int numero = 1;
 	
 	public boolean buscaDocente(String Contraseña, String Nombre) {
 
@@ -49,12 +50,21 @@ public class ServicioDocente {
 		}	
 		return false;
 	}
-	
+	/**
+	 * recupera la lista de las actividades que ha subido el docente si no ha subido nada 
+	 * regresa una lista vacia si tiene alguna actividad regresa una lista con las actividades
+	 * 
+	 * @return List<Actividad> si existe
+	 * @return una lista vacia si no existe una actividad
+	 * 
+	 * @param String
+	 *   
+	 */
 	public List<Actividad> recuperaListaPDF(String Contraseña){
 		List<Actividad> list = new ArrayList();		
-		for(Actividad act:repositoryActividad.findByDocenteIdDocente(Contraseña)) {
+		for(Actividad act:repositoryActividad.findByDocenteContraseñaDocente(Contraseña)) {
 			Actividad vo = new Actividad();
-			vo.setIdActividad(act.getIdActividad());
+			vo.setNumeroActividad(act.getNumeroActividad());
 			vo.setNombreArchivo(act.getNombreArchivo());
 			vo.setArchivoPdf(act.getArchivoPdf());
 			vo.setFecha(act.getFecha());
@@ -63,24 +73,44 @@ public class ServicioDocente {
 		return list;
 	}
 	
-	public void AgregarActividades(String nombre, byte[] pdf ,String contraseña, Date fecha) {
+	/**
+	 * agrega una lista de actividades al docente y se guarda la actividad en la base de datos
+	 * 
+	 * @return true si se agrego correctamente
+	 * @return false si no se agrego correctamente
+	 * 
+	 * @param String,byte[], String,Date
+	 *   
+	 */
+	
+	public boolean AgregarActividades(String nombre, byte[] pdf ,String contraseña, Date fecha) {
 		this.vo = new Actividad();
+		if(repositoryActividad.findByDocenteContraseñaDocente(contraseña).size() == 0) {
+			this.list = new ArrayList<>();
+			this.numero = 1;
+		}
+		vo.setNumeroActividad(numero);
+		numero++;
 		vo.setNombreArchivo(nombre);	
 		vo.setArchivoPdf(pdf);
+		System.out.println(pdf);
 		vo.setFecha(fecha);
-		Docente dos = repositoryDocente.findByContraseñaDocente(contraseña);
+
+		Docente dos = new Docente();
+		dos =repositoryDocente.findByContraseñaDocente(contraseña);
+
 		vo.setDocente(dos);
 		repositoryActividad.save(vo);	
-		this.list.add(vo);	
+		this.list.add(vo);
 		dos.setActividades(list);
-		//falata que si se guarda bien me regrese un true
 		repositoryDocente.save(dos);
+		return true;
 
 	}
 	
 	public void leePdf(long id) {
 		byte [] b = null;
-		Actividad actLocal = repositoryActividad.findByIdActividad(id);
+		Actividad actLocal = repositoryActividad.findByNumeroActividad(id);
 		b = actLocal.getArchivoPdf();
 		
 		InputStream bos= new ByteArrayInputStream(b);
@@ -124,11 +154,11 @@ public class ServicioDocente {
 	
 	//proc2ModificaFecha
 	public Actividad recuperaFecha(long id) {
-		return repositoryActividad.findByIdActividad(id);
+		return repositoryActividad.findByNumeroActividad(id);
 	}
 	public void cambiaFecha(long id, String fechaNueva) throws Exception {
 		Date newFecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaNueva);
-		Actividad act = repositoryActividad.findByIdActividad(id);
+		Actividad act = repositoryActividad.findByNumeroActividad(id);
 		act.setFecha(newFecha);
 		repositoryActividad.save(act);
 	}
