@@ -308,6 +308,7 @@ public class VistaBaja extends JFrame {
 		mnAdministrador.add(btnCorreos);
 	}
 	
+
 	public void limpiarCampos() {
 		textFieldMatricula.setText("");
 		textFieldNombre.setText("");
@@ -325,7 +326,6 @@ public class VistaBaja extends JFrame {
 		
 	}
 	
-
 	
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);

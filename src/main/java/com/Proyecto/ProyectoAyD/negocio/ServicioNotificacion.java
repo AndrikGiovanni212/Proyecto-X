@@ -10,6 +10,7 @@ import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
 
+
 @Service
 public class ServicioNotificacion {
 	@Autowired
@@ -49,6 +50,6 @@ public class ServicioNotificacion {
 	
 		repositorioNotificacion.save(notifi);
 	}
-		
+
 
 }

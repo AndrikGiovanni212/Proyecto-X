@@ -171,5 +171,6 @@ public class ControlPrincipal {
 	//proceso 2.3 Cambio de Fecha de entrega
 	public void cambioFechaEntrega(String nombreAlumno,String contraseña) {
 		controlCambioFecha.inicia(nombreAlumno,contraseña);
+
 	}
 }

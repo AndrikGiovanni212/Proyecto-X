@@ -33,6 +33,7 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component 
 public class VentanaPrincipal extends JFrame {
+
 	public VentanaPrincipal() {
 	}
 	

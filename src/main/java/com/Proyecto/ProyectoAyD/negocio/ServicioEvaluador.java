@@ -26,7 +26,8 @@ public class ServicioEvaluador {
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
 		Evaluador alum=new Evaluador();
-		alum=repositoryEvaluador.findByNombre(nombre);
+
+		alum=repositoryEvaluador.findBynombre(nombre);
 		return alum;
 	}//fin de métodorecuperar
 	public List  <Evaluador> recuperarTodo() {
@@ -50,7 +51,7 @@ public class ServicioEvaluador {
         Archivo archi = new Archivo();
         List<Archivo> listarchi=new ArrayList<Archivo>();
         Evaluador eva=new Evaluador();
-        eva=repositoryEvaluador.findByNombre(Evaluador);
+        eva=repositoryEvaluador.findBynombre(Evaluador);
         System.out.println(eva+"Servicio");
         //po.setNombreArchivo(nombre);
         try {
