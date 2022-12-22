@@ -152,9 +152,7 @@ public class ProyectoAyDApplication {
 		Revisor2= new Evaluador();
 		Revisor2.setNombre("jorge");
 		Revisor2.setUsuario("Pedro Rodriguez");
-
-		Revisor2.setContraseñaEvaluador("jorge45");
-
+		Revisor2.setContraseñaEvaluador("jorge");
 		Revisor2.setTelefono(6453564);
 		Revisor2.setCorreo("PedroRodro674@izt.uam.mx");
 		Revisor2.setTipoRevisor("Coordinador");

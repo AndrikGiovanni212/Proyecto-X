@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -26,9 +27,10 @@ public class Notificacion {
 //	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 //    @JoinColumn(nullable = false, updatable = false)
 //    private Docente docente;
-//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @JoinColumn( updatable = false)
-//    private Evaluador director;
+
+	@ManyToOne
+	@JoinColumn(name="IdEvaluador")
+    private Evaluador director;
 	
 	
 	/**

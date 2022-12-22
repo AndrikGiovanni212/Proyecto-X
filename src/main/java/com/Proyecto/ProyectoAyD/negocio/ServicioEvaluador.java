@@ -94,13 +94,18 @@ public class ServicioEvaluador {
  public boolean enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
 	 Notificacion retro = new   Notificacion();
 	 Evaluador eva= new Evaluador();
-	eva=repositoryEvaluador.findBynombre(nombreDocente);
+	List <Notificacion> notificaciones = new ArrayList<Notificacion>();
+	 eva=repositoryEvaluador.findBynombre(nombreDocente);
 	System.out.println(eva);
 	 retro.setAsunto(asunto);
 	 retro.setMensaje(retroalimentacion);
 	 retro.setNombre(nombre);
+	 retro.setDirector(eva);
+	 notificaciones.add(retro);
+	 eva.setNotificacion(notificaciones);
+	 repositoryEvaluador.save(eva);
 	 repositoryNotificacion.save(retro);
-	 return false;
+	 return true;
  }
 
 }
