@@ -8,8 +8,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Proyecto.ProyectoAyD.datos.ActividadesRepository;
 import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Tema;
@@ -17,7 +19,8 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Tema;
 @Service
 public class ServicioAlumno 
 {
-	
+	@Autowired
+	ActividadesRepository repositoryActividad;
 	@Autowired
 	RepositoryAlumno repositoryAlumno;
 	@Autowired
@@ -45,6 +48,19 @@ public class ServicioAlumno
 		return list;
 	
 	}
+	
+	/*public List<Actividad> recuperaListaPDF(String Contraseña){
+		List<Actividad> list = new ArrayList();		
+		for(Actividad act:repositoryActividad.findByAlumnoIdAlumno(Contraseña)) {
+			Actividad vo = new Actividad();
+			vo.setIdActividad(act.getIdActividad());
+			vo.setNombreArchivo(act.getNombreArchivo());
+			vo.setArchivoPdf(act.getArchivoPdf());
+			vo.setFecha(act.getFecha());
+			list.add(vo);		
+		}
+		return list;
+	}*/
 	
 	//proceso 1 mensaje
 

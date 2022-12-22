@@ -33,6 +33,8 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 @Component 
 public class VentanaPrincipal extends JFrame {
+	public VentanaPrincipal() {
+	}
 	
 	private JPanel contentPane;
 	private ControlPrincipal controlPrincipal;	
@@ -553,6 +555,15 @@ public class VentanaPrincipal extends JFrame {
 
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
+		
+		JButton btnTareas = new JButton("Tareas");
+		
+		btnTareas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlPrincipal.SubirTareasAlumno(nombreAlumno);
+			}
+		});
+			mnNewMenu_2.add(btnTareas);
 		
 		JButton btnRegresa = new JButton("");
 		btnRegresa.addActionListener(new ActionListener() {
