@@ -118,7 +118,7 @@ public class ServicioDocente {
 	 */
 	public List<Docente> recuperaListaDocent(){
 		List <Docente> list = new ArrayList();
-		list = repositoryDocente.findAllByCorreoEnviado(false);
+		list = repositoryDocente.findAllBycorreoEnviado(false);
 		return list;
 	}
 	

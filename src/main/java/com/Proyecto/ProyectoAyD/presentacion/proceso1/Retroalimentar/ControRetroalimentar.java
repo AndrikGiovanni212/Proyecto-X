@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.Proyecto.ProyectoAyD.negocio.ServicioEvaluador;
 
 @Component
-public class ControRetroalimentar {
+	public class ControRetroalimentar {
 	@Autowired
 	VistaRetroalimentar vista;
 	@Autowired

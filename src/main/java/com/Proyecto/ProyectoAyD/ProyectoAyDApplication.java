@@ -121,17 +121,7 @@ public class ProyectoAyDApplication {
 		Evaluador Revisor1= new Evaluador();
 		Revisor1.setNombre("Omar");
 		Revisor1.setUsuario("Omar Aldaco");
-		Revisor1.setContraseña("Aldaco33");
-		Revisor1.setTelefono(34244324);
-		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
-		Revisor1.setStatus(true);
-		Revisor1.setTipoRevisor("Director");
-		
-		repositoryEvalaudor.save(Revisor1);
-		Revisor1= new Evaluador();
-		Revisor1.setNombre("gabi");
-		Revisor1.setUsuario("Omar Aldaco");
-		Revisor1.setContraseña("gabi33");
+		Revisor1.setContraseña("12345");
 		Revisor1.setTelefono(34244324);
 		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
 		Revisor1.setStatus(true);
@@ -166,7 +156,7 @@ public class ProyectoAyDApplication {
 		Notificacion1.setCorreo("gabg2116@gmail.com");
 		Notificacion1.setAsunto("Tesis");
 		Notificacion1.setMensaje("Le falta mejorar a la tesis");
-		Notificacion1.setDocente(docente1);
+		//Notificacion1.setDocente(docente1);
 		repositorioNotificacion.save(Notificacion1);
 		Tema tema1= new Tema();
 		tema1.setNombre("Inteligencia Artificial");

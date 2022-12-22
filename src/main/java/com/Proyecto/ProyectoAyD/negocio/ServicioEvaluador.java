@@ -74,7 +74,7 @@ public class ServicioEvaluador {
             repositoryEvaluador.save(eva);
         } catch (IOException ex) {
             archi.setArchivoPdf(null);
-            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
+            	//System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
 	//UH1.4
@@ -82,13 +82,21 @@ public class ServicioEvaluador {
 	 Notificacion retro = new   Notificacion();
 	 Evaluador eva= new Evaluador();
 	eva=repositoryEvaluador.findBynombre(nombreDocente);
-	 Alumno Alum = eva.getAlumno();
+	System.out.println(eva);
 	 retro.setAsunto(asunto);
-	 retro.setDirector(eva);
 	 retro.setMensaje(retroalimentacion);
-	 retro.setRemitente(eva.getNombre());
-	 retro.setDestinatario(Alum.getNombre());
+	 retro.setNombre(nombre);
 	 repositoryNotificacion.save(retro);
 	 return false;
  }
+//login
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		Evaluador evaluadorLocal = repositoryEvaluador.findBycontraseña(Contraseña);
+		if(evaluadorLocal != null) {
+			if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+				return true;
+			}
+		}	
+		return false;
+	}
 }

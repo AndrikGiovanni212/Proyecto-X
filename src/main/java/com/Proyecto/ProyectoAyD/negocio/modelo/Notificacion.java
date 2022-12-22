@@ -23,12 +23,12 @@ public class Notificacion {
 	private String asunto;
 	private String correo;
 	private int hora;
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(nullable = false, updatable = false)
-    private Docente docente;
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn( updatable = false)
-    private Evaluador director;
+//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn(nullable = false, updatable = false)
+//    private Docente docente;
+//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn( updatable = false)
+//    private Evaluador director;
 	
 	
 	/**
