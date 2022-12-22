@@ -142,22 +142,22 @@ public class VistaSubirTareasAlumno extends JFrame {
 			
 			JLabel lblLogoFacebook = new JLabel("New label");
 			lblLogoFacebook.setBounds(291, 226, 58, 38);
-			lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\facebook.png"));
+			lblLogoFacebook.setIcon(new ImageIcon("Imagenes\\facebook.png"));
 			contentPane.add(lblLogoFacebook);
 			
 			JLabel lblLogoTwitter = new JLabel("New label");
 			lblLogoTwitter.setBounds(315, 229, 77, 33);
-			lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\twitter.png"));
+			lblLogoTwitter.setIcon(new ImageIcon("Imagenes\\twitter.png"));
 			contentPane.add(lblLogoTwitter);
 			
 			JLabel lblInstagram = new JLabel("New label");
 			lblInstagram.setBounds(356, 231, 78, 28);
-			lblInstagram.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\instagram.png"));
+			lblInstagram.setIcon(new ImageIcon("Imagenes\\instagram.png"));
 			contentPane.add(lblInstagram);
 			
 			JLabel lblNombreSistema = new JLabel("New label");
 			lblNombreSistema.setBounds(-24, 229, 184, 44);
-			lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Familia\\Downloads\\Imagenes\\Imagenes\\NombreSistema.png"));
+			lblNombreSistema.setIcon(new ImageIcon("Imagenes\\NombreSistema.png"));
 			contentPane.add(lblNombreSistema);
 			
 			JMenuBar menuBar = new JMenuBar();

@@ -39,6 +39,8 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 @SuppressWarnings("serial")
 @Component 
 public class VistaSubirActividades extends JFrame {
+	public VistaSubirActividades() {
+	}
 
 		private ControlSubirActividades controlSubirActividades;
 		private JPanel contentPane;
@@ -80,22 +82,22 @@ public class VistaSubirActividades extends JFrame {
 
 			JLabel lblLogoFacebook = new JLabel("New label");
 			lblLogoFacebook.setBounds(389, 297, 58, 38);
-			lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+			lblLogoFacebook.setIcon(new ImageIcon("Imagenes\\facebook.png"));
 			contentPane.add(lblLogoFacebook);
 
 			JLabel lblLogoTwitter = new JLabel("New label");
 			lblLogoTwitter.setBounds(409, 300, 77, 33);
-			lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
+			lblLogoTwitter.setIcon(new ImageIcon("Imagenes\\twitter.png"));
 			contentPane.add(lblLogoTwitter);
 
 			JLabel lblInstagram = new JLabel("New label");
 			lblInstagram.setBounds(457, 297, 78, 28);
-			lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
+			lblInstagram.setIcon(new ImageIcon("Imagenes\\instagram.png"));
 			contentPane.add(lblInstagram);
 
 			JLabel lblNombreSistema = new JLabel("New label");
 			lblNombreSistema.setBounds(-26, 294, 184, 44);
-			lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+			lblNombreSistema.setIcon(new ImageIcon("Imagenes\\NombreSistema.png"));
 			contentPane.add(lblNombreSistema);
 			
 			JPanel panel = new JPanel();
@@ -261,7 +263,7 @@ public class VistaSubirActividades extends JFrame {
 
 			JLabel lblNewLabel = new JLabel("New label");
 			lblNewLabel.setBounds(368, 0, 77, 60);
-			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+			lblNewLabel.setIcon(new ImageIcon("Imagenes\\usuario.png"));
 			contentPane.add(lblNewLabel);
 
 			JLabel lblNewLabel_1 = new JLabel(nombreDocente);

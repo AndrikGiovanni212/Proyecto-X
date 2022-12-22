@@ -15,9 +15,9 @@ public void inicia(String revisor, String contraseña) {
 	vista.muestra(this, revisor, contraseña);
 }
 
-public void enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
+public void enviarRetro(String retroalimentacion,String asunto,String nombre,String nombreDocente) {
 	try {
-		servicioEvaluador.enviarRetro(retroalimentacion,asunto,correo,nombre,nombreDocente);
+		servicioEvaluador.enviarRetro(retroalimentacion,asunto,nombre,nombreDocente);
 		vista.muestraDialogoConMensaje("Retroalimentación enviada exitosamente");
 	} catch(Exception ex) {
 		vista.muestraDialogoConMensaje("Error: "+ex.getMessage());
