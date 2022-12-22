@@ -1,9 +1,12 @@
 package com.Proyecto.ProyectoAyD.negocio;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,5 +72,53 @@ public class ServicioEvaluador {
             //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
+	//login
+		public boolean buscaEvaluador(String Contraseña, String Nombre) {
+			Evaluador evaluadorLocal = (Evaluador) repositoryEvaluador.findBynombre(Contraseña);
+			if(evaluadorLocal != null) {
+				if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+					return true;
+				}
+			}	
+			return false;
+		}
+		public List<Archivo> recuperaListaPDF(String nombre){
+		List<Archivo> list = new ArrayList();		
+		
+		return list;
+		}
+		/*public boolean buscaEvaluador(String Contraseña, String Nombre) {
+
+			Evaluador evaluadorLocal = repositoryEvaluador.findByContraseñaEvaluador(Contraseña);
+			if(evaluadorLocal != null) {
+				if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+					return true;
+				}
+			}	
+			return false;
+		}*/
+	public void leePdf(String revisor) {
+		byte [] b = null;
+		Evaluador eva =repositoryEvaluador.findBynombre(revisor);
+		List <Archivo> list = new ArrayList <Archivo>();
+		Archivo actLocal =(Archivo) eva.getArchivo();
+				
+		b = actLocal.getArchivoPdf();
+		
+		InputStream bos= new ByteArrayInputStream(b);
+		try {
+			int tamanoInput = bos.available();
+			byte[] datosPdf = new byte[tamanoInput];
+			bos.read(datosPdf, 0, tamanoInput);
+			OutputStream out = new FileOutputStream("new.pdf");
+			out.write(datosPdf);
+			
+			out.close();
+			bos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+			
+	}
 
 }

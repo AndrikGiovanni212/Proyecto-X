@@ -28,15 +28,17 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnvia
 public class ControlPrincipal {
 	@Autowired
 	private VentanaPrincipal ventanaPrincipal;
-	
 	@Autowired
 	private ServicioAdministrador servicioAdministrador;
 	@Autowired
 	private ServicioDocente servicioDocente;
 	@Autowired
 	private ServicioAlumno servicioAlumno;
+	
 	@Autowired
 	private ControlSubirActividades controlSubirActividades;
+	@Autowired
+	private ServicioEvaluador servicioEvaluador;
 	@Autowired
 	private ControlSubirEstatus controlSubir;
 	@Autowired
@@ -45,23 +47,21 @@ public class ControlPrincipal {
 	private ControlVisualizarEstatus controlVisualizarEstatus;
 	@Autowired
 	private ControRetroalimentar controlRetroalimentar;
+	@Autowired
 	private ControSeleccionHorario controlSeleccionHorario;
+
 	//proceso1
 	@Autowired
 	private ControlMensaje controlMensaje;
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
-
 	//proc4.2
 	@Autowired
 	private ControlBaja controlVisualizarBaja;
 	//proc4.3
 	@Autowired
 	private ControlCambiarPassword controlPassword;
-	
-	
-
 	//proceso1.3
 	@Autowired
 	ControlElegirTema controlElegirTema;
@@ -90,9 +90,14 @@ public class ControlPrincipal {
 	public boolean buscaDocente(String Contraseña, String Nombre) {	
 		return servicioDocente.buscaDocente(Contraseña, Nombre);
 	}
+
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		return servicioEvaluador.buscaEvaluador(Contraseña, Nombre);
+	}
 	public void ElegirTema(String Nombre) 
-	{
-		
+
+	{	
+
 		controlElegirTema.inicia( Nombre);
 	}//fin de ElegirTema
 	public boolean buscaAlumno(String Contraseña, String Nombre) {	
@@ -111,7 +116,10 @@ public class ControlPrincipal {
 		ventanaPrincipal.docente(this, nombre,contraseña);
 	}
 	
-	//proc1.3
+	public void inicioEvaluador(String nombre, String contraseña) {
+		ventanaPrincipal.evaluador(this, nombre,contraseña);
+	}
+
 	public void muestraSubirActividades(String nombreDocente,String contraseña) {
 		controlSubirActividades.muestraSubirActividades(nombreDocente,contraseña);
 	}
