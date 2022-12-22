@@ -144,13 +144,13 @@ public class VistaRetroalimentar extends JFrame {
 		btnSeleccionar.setBounds(0, 121, 102, 23);
 		PanelAvance.add(btnSeleccionar);
 
-		JButton btnNewEnviarArchivo = new JButton("Ver archivo del alumno");
-		btnNewEnviarArchivo.addActionListener(new ActionListener() {
+		JButton btnEnviarArchivo = new JButton("Ver archivo del alumno");
+		btnEnviarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlVistaRetroalimentar.verArchivo(Revisor);
 			}
 		});
-		btnNewEnviarArchivo.setBounds(112, 121, 139, 23);
+		btnEnviarArchivo.setBounds(112, 121, 139, 23);
 
 
 		PanelAvance.add(btnEnviarArchivo);

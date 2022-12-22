@@ -132,7 +132,7 @@ public class ServicioAdministrador {
 	 * @param matricula
 	 */
 	public Docente verificaDocenteParaBaja(String matricula) {
-		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Docente docenteLocal = repositoryDocen.findBymatricula(matricula);
 		if(docenteLocal != null) {
 			return docenteLocal;
 		}else {
@@ -145,7 +145,7 @@ public class ServicioAdministrador {
 	 * @param matricula
 	 */
 	public boolean verificaExistencia(String matricula) {
-		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Docente docenteLocal = repositoryDocen.findBymatricula(matricula);
 		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
 		if(docenteLocal != null||alumnoLocal != null) {
 			return true;
@@ -159,7 +159,7 @@ public class ServicioAdministrador {
 	 * @param matricula
 	 */
 	public boolean verificaExistenciaBaja(String matricula) {
-		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Docente docenteLocal = repositoryDocen.findBymatricula(matricula);
 		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
 		if(docenteLocal != null||alumnoLocal != null) {
 			return true;
@@ -176,7 +176,7 @@ public class ServicioAdministrador {
 	 * @param matricula
 	 */
 	public boolean bajaPorMatricula(String matricula) {
-		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Docente docenteLocal = repositoryDocen.findBymatricula(matricula);
 		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
 		if(docenteLocal != null) {
 			repositoryDocen.delete(docenteLocal);

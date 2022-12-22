@@ -19,6 +19,7 @@ import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
 import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
@@ -30,9 +31,21 @@ public class ServicioEvaluador {
 	@Autowired
 	RepositoryArchivo repositoryArchivo;
 	@Autowired
-	RepositoryAlumno repositoryAlumno;
-	@Autowired
 	RepositoryNotificacion repositoryNotificacion;
+
+
+	//login
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		Evaluador evaluadorLocal = repositoryEvaluador.findByContraseñaEvaluador(Contraseña);
+		if(evaluadorLocal != null) {
+			if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+				return true;
+			}
+		}	
+		return false;
+	}
+
+
 	//Recuperemos 
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
@@ -77,7 +90,7 @@ public class ServicioEvaluador {
             repositoryEvaluador.save(eva);
         } catch (IOException ex) {
             archi.setArchivoPdf(null);
-            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
+            	//System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
 	//login
@@ -132,14 +145,18 @@ public class ServicioEvaluador {
  public boolean enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
 	 Notificacion retro = new   Notificacion();
 	 Evaluador eva= new Evaluador();
-	eva=repositoryEvaluador.findBynombre(nombreDocente);
-	 Alumno Alum = eva.getAlumno();
+	List <Notificacion> notificaciones = new ArrayList<Notificacion>();
+	 eva=repositoryEvaluador.findBynombre(nombreDocente);
+	System.out.println(eva);
 	 retro.setAsunto(asunto);
-	 retro.setDirector(eva);
 	 retro.setMensaje(retroalimentacion);
-	 retro.setRemitente(eva.getNombre());
-	 retro.setDestinatario(Alum.getNombre());
+	 retro.setNombre(nombre);
+	 retro.setDirector(eva);
+	 notificaciones.add(retro);
+	 eva.setNotificacion(notificaciones);
+	 repositoryEvaluador.save(eva);
 	 repositoryNotificacion.save(retro);
-	 return false;
+	 return true;
  }
+
 }
