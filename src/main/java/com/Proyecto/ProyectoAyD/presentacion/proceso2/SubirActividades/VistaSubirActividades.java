@@ -39,6 +39,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 @SuppressWarnings("serial")
 @Component 
 public class VistaSubirActividades extends JFrame {
+
 		private ControlSubirActividades controlSubirActividades;
 		private JPanel contentPane;
 		private JTextField textNombreArchivo;
@@ -46,10 +47,6 @@ public class VistaSubirActividades extends JFrame {
 		private JTable tableActividades;
 		private JButton btnSubir;
 		private JTextField textFecha;
-
-
-
-
 		private DefaultTableModel dt;
 
 		/**

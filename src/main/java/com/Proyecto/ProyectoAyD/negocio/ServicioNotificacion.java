@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Proyecto.ProyectoAyD.datos.DocenteRepository;
 import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
@@ -15,7 +16,8 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 public class ServicioNotificacion {
 	@Autowired
 	private RepositoryNotificacion repositorioNotificacion;
-	
+	@Autowired
+	private DocenteRepository repositoryDocente;
 
 	/**
 	 * 
@@ -37,6 +39,7 @@ public class ServicioNotificacion {
 	//Funcion para pedirle al repositorio notificacion las notificaciones que tiene el docente
 	public List<Notificacion> mostrarNotifi(String contraseña,String nombre) {
 		List<Notificacion> notifi1 = new ArrayList();
+
 		return notifi1=repositorioNotificacion.findByDocenteContraseñaDocente(contraseña);
 	}
 	
@@ -51,6 +54,7 @@ public class ServicioNotificacion {
 		notifi.setRemitente(nombreRemitente);
 	
 		repositorioNotificacion.save(notifi);
+
 	}
 	
 		

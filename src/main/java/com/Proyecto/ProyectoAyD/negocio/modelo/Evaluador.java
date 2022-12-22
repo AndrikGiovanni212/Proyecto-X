@@ -30,11 +30,14 @@ public class Evaluador {
 	private String usuario;
 	private String contraseñaEvaluador;
 	private Boolean status;
+	@ManyToOne(targetEntity = Alumno.class)
+	@JoinColumn(name="IdAlumno")
+	private Alumno alumno;
 	private String tipoRevisor;
 	private int edad;
 	private String matricula;
-	
-
+	@OneToMany(targetEntity = Notificacion.class,fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List <Notificacion> notificacion;
 	@OneToMany(targetEntity = Archivo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List <Archivo> archivo;
 

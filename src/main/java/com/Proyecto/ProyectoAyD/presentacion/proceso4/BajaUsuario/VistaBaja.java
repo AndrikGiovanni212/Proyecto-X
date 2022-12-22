@@ -324,7 +324,7 @@ public class VistaBaja extends JFrame {
 		setVisible(true);
 		
 	}
-	
+
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
 	}

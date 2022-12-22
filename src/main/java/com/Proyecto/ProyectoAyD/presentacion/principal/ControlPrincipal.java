@@ -12,6 +12,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 //import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
+import com.Proyecto.ProyectoAyD.presentacion.proceso1.Retroalimentar.ControRetroalimentar;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.SeleccionHorario.ControSeleccionHorario;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SolicitudCambioFecha.ControlSolicitudCambioFecha;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSubirActividades;
@@ -29,23 +30,25 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso4.EnviarCorreos.ControlEnvia
 public class ControlPrincipal {
 	@Autowired
 	private VentanaPrincipal ventanaPrincipal;
-	
 	@Autowired
 	private ServicioAdministrador servicioAdministrador;
 	@Autowired
 	private ServicioDocente servicioDocente;
 	@Autowired
 	private ServicioAlumno servicioAlumno;
-	@Autowired
-	private ServicioEvaluador servicioEvaluador;
+	
 	@Autowired
 	private ControlSubirActividades controlSubirActividades;
+	@Autowired
+	private ServicioEvaluador servicioEvaluador;
 	@Autowired
 	private ControlSubirEstatus controlSubir;
 	@Autowired
 	private ControlEnviarCorreos controlEnviarCorreos;
 	@Autowired
 	private ControlVisualizarEstatus controlVisualizarEstatus;
+	@Autowired
+	private ControRetroalimentar controlRetroalimentar;
 	@Autowired
 	private ControSeleccionHorario controlSeleccionHorario;
 
@@ -55,7 +58,6 @@ public class ControlPrincipal {
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
-
 	//proc4.2
 	@Autowired
 	private ControlBaja controlVisualizarBaja;
@@ -65,9 +67,6 @@ public class ControlPrincipal {
 	//proc2.3
 	@Autowired
 	private ControlSolicitudCambioFecha controlCambioFecha;
-	
-	
-
 	//proceso1.3
 	@Autowired
 	ControlElegirTema controlElegirTema;
@@ -101,7 +100,8 @@ public class ControlPrincipal {
 		return servicioEvaluador.buscaEvaluador(Contraseña, Nombre);
 	}
 	public void ElegirTema(String Nombre) 
-	{	
+
+	{
 		controlElegirTema.inicia( Nombre);
 	}//fin de ElegirTema
 	public boolean buscaAlumno(String Contraseña, String Nombre) {	
@@ -123,12 +123,14 @@ public class ControlPrincipal {
 	public void inicioEvaluador(String nombre, String contraseña) {
 		ventanaPrincipal.evaluador(this, nombre,contraseña);
 	}
-	
-	//proc2
+
 	public void muestraSubirActividades(String nombreDocente,String contraseña) {
 		controlSubirActividades.muestraSubirActividades(nombreDocente,contraseña);
 	}
-	
+	//proc1.4 y 1.8
+		public void muestraRetroalimentar(String nombreDocente,String contraseña) {
+			controlRetroalimentar.inicia(nombreDocente,contraseña);
+		}
 	//proceso3.1
 	public void eleccionHorario(String nombre,String idDocente) {
 		controlSubir.inicia(nombre,idDocente);

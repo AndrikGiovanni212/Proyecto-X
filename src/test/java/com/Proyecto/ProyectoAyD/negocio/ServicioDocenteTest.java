@@ -63,7 +63,7 @@ class ServicioDocenteTest {
 		listDocente.add(docente);
 		listDocente.add(docente2);
 		
-		when(docenteRepositorio.findAllByCorreoEnviado(false)).thenReturn(listDocente);
+		when(docenteRepositorio.findAllBycorreoEnviado(false)).thenReturn(listDocente);
 		List<Docente> docentelist = docenteServicio.recuperaListaDocent();
 		assertEquals(2,docentelist.size());
 		
@@ -79,7 +79,7 @@ class ServicioDocenteTest {
 				listDocente2.add(doc);
 			}
 		}
-		when(docenteRepositorio.findAllByCorreoEnviado(false)).thenReturn(listDocente2);
+		when(docenteRepositorio.findAllBycorreoEnviado(false)).thenReturn(listDocente2);
 		docentelist = docenteServicio.recuperaListaDocent();
 		assertEquals(0,docentelist.size());
 		
@@ -201,7 +201,8 @@ class ServicioDocenteTest {
 		
 		docente.setActividades(list);
 		docenteRepositorio.save(docente);
-		assertEquals(1, docente.getActividades().size());		
-	}
 
+		assertEquals(1, docente.getActividades().size());
+		
+	}
 }

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 
@@ -29,8 +30,7 @@ public class Notificacion {
 	private String destinatario;
 	private String asunto;
 	private String correo;
-	private int hora;
-	
+	private int hora;	
 	@ManyToOne(targetEntity = Docente.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Docente docente;
 	
@@ -38,6 +38,10 @@ public class Notificacion {
 	@ManyToOne(targetEntity = Alumno.class, fetch = FetchType.EAGER)
     private Alumno alumno;
 
+	@ManyToOne
+	@JoinColumn(name="IdEvaluador")
+    private Evaluador director;
+	
 	
 	/**
 	 * Permite confirmar si la notificacion fue hecha de manera correcta

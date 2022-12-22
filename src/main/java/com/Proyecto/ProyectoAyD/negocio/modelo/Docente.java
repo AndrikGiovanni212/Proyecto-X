@@ -49,9 +49,10 @@ public class Docente {
 	@ManyToMany(targetEntity = Actividad.class, cascade = CascadeType.ALL)
 	private List <Actividad> actividades;
 	
+
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(targetEntity = Alumno.class)
 	private List <Notificacion> notificacion;
-	
+
 }
 

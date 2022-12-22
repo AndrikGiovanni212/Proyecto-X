@@ -100,10 +100,8 @@ public class ServicioDocente {
 		vo.setArchivoPdf(pdf);
 		System.out.println(pdf);
 		vo.setFecha(fecha);
-
 		Docente dos = new Docente();
 		dos =repositoryDocente.findByContraseñaDocente(contraseña);
-
 		vo.setDocente(dos);
 		repositoryActividad.save(vo);	
 		this.list.add(vo);
@@ -153,7 +151,7 @@ public class ServicioDocente {
 	 */
 	public List<Docente> recuperaListaDocent(){
 		List <Docente> list = new ArrayList();
-		list = repositoryDocente.findAllByCorreoEnviado(false);
+		list = repositoryDocente.findAllBycorreoEnviado(false);
 		return list;
 	}
 	

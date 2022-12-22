@@ -10,11 +10,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryArchivo;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
+import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
 
 @Service
@@ -23,7 +27,9 @@ public class ServicioEvaluador {
 	RepositoryEvaluador repositoryEvaluador;
 	@Autowired
 	RepositoryArchivo repositoryArchivo;
-	
+
+	@Autowired
+	RepositoryNotificacion repositoryNotificacion;
 	//login
 	public boolean buscaEvaluador(String Contraseña, String Nombre) {
 		Evaluador evaluadorLocal = repositoryEvaluador.findByContraseñaEvaluador(Contraseña);
@@ -34,14 +40,6 @@ public class ServicioEvaluador {
 		}	
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	//Recuperemos 
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
@@ -90,8 +88,25 @@ public class ServicioEvaluador {
             repositoryEvaluador.save(eva);
         } catch (IOException ex) {
             archi.setArchivoPdf(null);
-            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
+            	//System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
+	//UH1.4
+ public boolean enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
+	 Notificacion retro = new   Notificacion();
+	 Evaluador eva= new Evaluador();
+	List <Notificacion> notificaciones = new ArrayList<Notificacion>();
+	 eva=repositoryEvaluador.findByNombre(nombreDocente);
+	System.out.println(eva);
+	 retro.setAsunto(asunto);
+	 retro.setMensaje(retroalimentacion);
+	 retro.setNombre(nombre);
+	 retro.setDirector(eva);
+	 notificaciones.add(retro);
+	 eva.setNotificacion(notificaciones);
+	 repositoryEvaluador.save(eva);
+	 repositoryNotificacion.save(retro);
+	 return true;
+ }
 
 }
