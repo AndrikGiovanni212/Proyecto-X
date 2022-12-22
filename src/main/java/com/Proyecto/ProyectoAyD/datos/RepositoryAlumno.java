@@ -18,5 +18,9 @@ public interface RepositoryAlumno extends CrudRepository <Alumno, Long> {
 	public Alumno findByCorreo(String correo);
 	public Alumno findByNombre(String nombre);
 	public Alumno findByEvaluadorIdEvaluador(int id);
+	//proc4.2
+	public Alumno findByMatricula(String matricula);
+
+	
 
 }

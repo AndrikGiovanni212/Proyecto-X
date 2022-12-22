@@ -43,5 +43,6 @@ public class Docente {
 	
 	@OneToMany(targetEntity = Notificacion.class)
 	private List <Notificacion> notificacion;
+
 	
 }

@@ -414,6 +414,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNewMenu_1.add(btnAltas);
 		
+
 		JButton btnBajas = new JButton("Bajas");
 		mnNewMenu_1.add(btnBajas);
 		

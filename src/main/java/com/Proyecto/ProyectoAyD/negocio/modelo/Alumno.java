@@ -36,6 +36,7 @@ public class Alumno {
 	
 	private int telefono;
 	
+
 	private String Matricula;
 	
 	private boolean correoEnviado=false;

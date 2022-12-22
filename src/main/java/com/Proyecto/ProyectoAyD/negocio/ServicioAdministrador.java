@@ -112,4 +112,61 @@ public class ServicioAdministrador {
 		return false;
 	}
 	
+	//proc4.2
+	/**
+	 * Verifica en el repositorio para pasar la referencia al Alumno buscado
+	 * @param matricula
+	 */
+	public Alumno verificaAlumnoParaBaja(String matricula) {
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(alumnoLocal != null) {
+			return alumnoLocal;
+		}else {
+			return null;
+		}
+		
+	}
+	/**
+	 * Verifica en el repositorio para pasar la referencia al Docente buscado
+	 * @param matricula
+	 */
+	public Docente verificaDocenteParaBaja(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		if(docenteLocal != null) {
+			return docenteLocal;
+		}else {
+			return null;
+		}
+	}
+	
+	/**
+	 * Verifica en el repositorio para pasar la referencia al Docente buscado
+	 * @param matricula
+	 */
+	public boolean verificaExistencia(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(docenteLocal != null||alumnoLocal != null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Eliminar del repositorio
+	 * @param matricula
+	 */
+	public boolean bajaPorMatricula(String matricula) {
+		Docente docenteLocal = repositoryDocen.findByMatricula(matricula);
+		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
+		if(docenteLocal != null) {
+			repositoryDocen.delete(docenteLocal);
+			return true;
+		}else {
+			repositoryAlum.delete(alumnoLocal);
+			return false;
+		}
+	}
+	
 }
