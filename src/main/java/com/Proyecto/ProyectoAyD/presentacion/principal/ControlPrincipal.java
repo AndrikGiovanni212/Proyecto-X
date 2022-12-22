@@ -14,6 +14,7 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTe
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.SeleccionHorario.ControSeleccionHorario;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.ControlSubirActividades;
+import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirTareasAlumno.ControlSubirTareasAlumno;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.SubirHorario.ControlSubirEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso3.VisualizarEstatus.ControlVisualizarEstatus;
 import com.Proyecto.ProyectoAyD.presentacion.proceso4.AltaUsuario.ControlAlta;
@@ -127,6 +128,13 @@ public class ControlPrincipal {
 	//proceso 1 HU1-7 Alumno
 	public void seleccionHorarioAlumno(String nombreAlumno) {
 		controlSeleccionHorario.inicia(nombreAlumno);
+	}
+	
+	//Proceso2-2 SubirTareaAlumno
+	@Autowired
+	private ControlSubirTareasAlumno controlSubirTareasAlumno;
+	public void SubirTareasAlumno(String Nombre) {
+		controlSubirTareasAlumno.inicia(Nombre);
 	}
 	
 	//procesos 4 
