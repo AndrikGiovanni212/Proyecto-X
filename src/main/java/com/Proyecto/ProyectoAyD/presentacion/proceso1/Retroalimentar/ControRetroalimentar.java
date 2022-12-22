@@ -14,9 +14,16 @@ import com.Proyecto.ProyectoAyD.negocio.ServicioEvaluador;
 public void inicia(String revisor, String contraseña) {
 	vista.muestra(this, revisor, contraseña);
 }
-
-
 public void verArchivo(String revisor) {
 	servicioEvaluador.leePdf(revisor);
+}
+public void enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
+	try {
+		servicioEvaluador.enviarRetro(retroalimentacion,asunto,correo,nombre,nombreDocente);
+		vista.muestraDialogoConMensaje("Retroalimentación enviada exitosamente");
+	} catch(Exception ex) {
+		vista.muestraDialogoConMensaje("Error: "+ex.getMessage());
+	}
+
 }
 }
