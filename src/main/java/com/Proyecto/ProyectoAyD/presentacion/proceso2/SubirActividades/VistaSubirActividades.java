@@ -39,6 +39,10 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 @SuppressWarnings("serial")
 @Component 
 public class VistaSubirActividades extends JFrame {
+	public VistaSubirActividades() {
+	}
+	
+	
 
 		private ControlSubirActividades controlSubirActividades;
 		private JPanel contentPane;
@@ -70,7 +74,7 @@ public class VistaSubirActividades extends JFrame {
 		 */
 		public void vistaSubirActividades(ControlSubirActividades controlSubirActividades, String nombreDocente, String contraseña) {
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 551, 369);
+			setBounds(100, 100, 634, 412);
 			contentPane = new JPanel();
 			contentPane.setBackground(Color.WHITE);
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,44 +83,44 @@ public class VistaSubirActividades extends JFrame {
 			contentPane.setLayout(null);
 
 			JLabel lblLogoFacebook = new JLabel("New label");
-			lblLogoFacebook.setBounds(389, 297, 58, 38);
+			lblLogoFacebook.setBounds(472, 331, 58, 38);
 			lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 			contentPane.add(lblLogoFacebook);
 
 			JLabel lblLogoTwitter = new JLabel("New label");
-			lblLogoTwitter.setBounds(409, 300, 77, 33);
+			lblLogoTwitter.setBounds(495, 334, 77, 33);
 			lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 			contentPane.add(lblLogoTwitter);
 
 			JLabel lblInstagram = new JLabel("New label");
-			lblInstagram.setBounds(457, 297, 78, 28);
+			lblInstagram.setBounds(540, 334, 78, 28);
 			lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 			contentPane.add(lblInstagram);
 
 			JLabel lblNombreSistema = new JLabel("New label");
-			lblNombreSistema.setBounds(-26, 294, 184, 44);
+			lblNombreSistema.setBounds(-24, 328, 184, 44);
 			lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 			contentPane.add(lblNombreSistema);
 			
 			JPanel panel = new JPanel();
 			panel.setBackground(new Color(0, 128, 0));
-			panel.setBounds(0, 36, 535, 258);
+			panel.setBounds(0, 36, 618, 284);
 			contentPane.add(panel);
 			panel.setLayout(null);
 			
 			JPanel panel_1 = new JPanel();
 			panel_1.setBackground(new Color(135, 206, 250));
-			panel_1.setBounds(10, 11, 356, 236);
+			panel_1.setBounds(10, 11, 425, 262);
 			panel.add(panel_1);
 			panel_1.setLayout(null);
 			
 			JLabel lblTitulo = new JLabel("Actividades Publicadas");
-			lblTitulo.setFont(new Font("Times New Roman", Font.ITALIC, 16));
-			lblTitulo.setBounds(87, 11, 158, 14);
+			lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 16));
+			lblTitulo.setBounds(116, 11, 195, 14);
 			panel_1.add(lblTitulo);
 			
 			JScrollPane scrollPane = new JScrollPane();
-			scrollPane.setBounds(0, 30, 356, 206);
+			scrollPane.setBounds(0, 30, 425, 232);
 			panel_1.add(scrollPane);
 			
 
@@ -178,7 +182,7 @@ public class VistaSubirActividades extends JFrame {
 			
 			JPanel panel_1_2 = new JPanel();
 			panel_1_2.setBackground(new Color(135, 206, 250));
-			panel_1_2.setBounds(376, 11, 149, 236);
+			panel_1_2.setBounds(445, 11, 163, 262);
 			panel.add(panel_1_2);
 			panel_1_2.setLayout(null);	
 			
@@ -196,7 +200,7 @@ public class VistaSubirActividades extends JFrame {
 				}
 			});
 			btnSeleccionarArchivo.setBackground(new Color(176, 224, 230));
-			btnSeleccionarArchivo.setBounds(10, 149, 137, 23);
+			btnSeleccionarArchivo.setBounds(10, 176, 137, 23);
 			panel_1_2.add(btnSeleccionarArchivo);
 			
 			btnSubir = new JButton("Subir");
@@ -229,21 +233,23 @@ public class VistaSubirActividades extends JFrame {
 				}
 			});
 			btnSubir.setBackground(new Color(176, 224, 230));
-			btnSubir.setBounds(10, 183, 137, 23);
+			btnSubir.setBounds(10, 210, 137, 23);
 			panel_1_2.add(btnSubir);
 			
 			textNombreArchivo = new JTextField();
 			textNombreArchivo.setEditable(false);
-			textNombreArchivo.setBounds(10, 27, 127, 20);
+			textNombreArchivo.setBounds(10, 61, 137, 20);
 			panel_1_2.add(textNombreArchivo);
 			textNombreArchivo.setColumns(10);
 			
 			JLabel lblNombreArchivo = new JLabel("Nombre del Archivo:");
-			lblNombreArchivo.setBounds(30, 11, 127, 14);
+			lblNombreArchivo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			lblNombreArchivo.setBounds(20, 36, 127, 14);
 			panel_1_2.add(lblNombreArchivo);
 			
 			JLabel lblfecha = new JLabel("Fecha de Entrega");
-			lblfecha.setBounds(30, 69, 127, 14);
+			lblfecha.setFont(new Font("Tahoma", Font.PLAIN, 14));
+			lblfecha.setBounds(20, 102, 127, 14);
 			panel_1_2.add(lblfecha);
 			
 			textFecha = new JTextField();
@@ -256,16 +262,16 @@ public class VistaSubirActividades extends JFrame {
 				}
 			});
 			textFecha.setColumns(10);
-			textFecha.setBounds(10, 85, 127, 20);
+			textFecha.setBounds(10, 127, 137, 20);
 			panel_1_2.add(textFecha);
 
 			JLabel lblNewLabel = new JLabel("New label");
-			lblNewLabel.setBounds(368, 0, 77, 60);
+			lblNewLabel.setBounds(412, 0, 77, 60);
 			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 			contentPane.add(lblNewLabel);
 
 			JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-			lblNewLabel_1.setBounds(450, 11, 119, 22);
+			lblNewLabel_1.setBounds(489, 11, 119, 22);
 			lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 			contentPane.add(lblNewLabel_1);
 

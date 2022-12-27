@@ -8,7 +8,7 @@ import com.Proyecto.ProyectoAyD.negocio.ServicioDocente;
 import com.Proyecto.ProyectoAyD.negocio.ServicioEvaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
-
+import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 //import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElecciónDocente.ControlEleccionDocente;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTema;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje.ControlMensaje;
@@ -55,6 +55,12 @@ public class ControlPrincipal {
 	//proceso1
 	@Autowired
 	private ControlMensaje controlMensaje;
+	
+	//proceso1
+	@Autowired
+	private ControlEleccionDocente controlEleccionDocente;
+		
+	
 	//proceso4.1
 	@Autowired
 	private ControlAlta controlVisualizarAlta;
@@ -167,7 +173,7 @@ public class ControlPrincipal {
 	//proceso1 elegirDocente
 	public void EleccionDocente(String nombreAlumno,String contraseña) 
 	{//inicio método EleccionDocente
-			//controlEleccionDocente.inicia(nombreAlumno, contraseña);	
+			controlEleccionDocente.inicia(nombreAlumno, contraseña);	
 
 	}//fin de ElecicónDocente
 	

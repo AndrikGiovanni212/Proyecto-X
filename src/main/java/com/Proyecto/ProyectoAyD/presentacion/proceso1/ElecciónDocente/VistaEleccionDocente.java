@@ -73,7 +73,7 @@ public class VistaEleccionDocente extends JFrame {
 	 */
 	public VistaEleccionDocente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 346, 369);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,33 +82,33 @@ public class VistaEleccionDocente extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(168, 297, 58, 38);
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(203, 300, 77, 33);
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
 		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(251, 302, 78, 28);
+		lblInstagram.setBounds(540, 334, 78, 28);
 		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-26, 294, 184, 44);
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 0));
-		panel.setBounds(0, 36, 329, 258);
+		panel.setBounds(0, 36, 618, 284);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 303, 202);
+		tabbedPane.setBounds(10, 11, 598, 228);
 		panel.add(tabbedPane);
 		
 		JPanel panelDirector = new JPanel();
@@ -116,7 +116,7 @@ public class VistaEleccionDocente extends JFrame {
 		panelDirector.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 11, 300, 197);
+		scrollPane.setBounds(0, 11, 583, 197);
 		panelDirector.add(scrollPane);
 		
 		tableDirector = new JTable();
@@ -173,7 +173,7 @@ public class VistaEleccionDocente extends JFrame {
 		tabbedPane.addTab("Revisor", null, panelRevisor, null);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(0, 11, 300, 197);
+		scrollPane_1.setBounds(0, 11, 583, 197);
 		panelRevisor.add(scrollPane_1);
 		
 		tableRevisor = new JTable();
@@ -230,7 +230,7 @@ public class VistaEleccionDocente extends JFrame {
 		tabbedPane.addTab("Coordinador", null, panelCoordinador, null);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(0, 11, 300, 197);
+		scrollPane_2.setBounds(0, 11, 583, 197);
 		panelCoordinador.add(scrollPane_2);
 		
 		table = new JTable();
@@ -273,16 +273,16 @@ public class VistaEleccionDocente extends JFrame {
 			}
 		});
 		btnConfirmar.setEnabled(false);
-		btnConfirmar.setBounds(189, 224, 89, 23);
+		btnConfirmar.setBounds(291, 250, 89, 23);
 		panel.add(btnConfirmar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(203, 0, 66, 60);
+		lblNewLabel.setBounds(412, 0, 77, 60);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel(nombre);
-		lblNewLabel_1.setBounds(361, 11, 119, 22);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 

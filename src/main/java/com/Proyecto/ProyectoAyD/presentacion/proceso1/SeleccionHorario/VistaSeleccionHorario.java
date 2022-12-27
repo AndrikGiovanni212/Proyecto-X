@@ -72,7 +72,7 @@ public class VistaSeleccionHorario extends JFrame {
 	
 	public VistaSeleccionHorario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 372);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -81,33 +81,33 @@ public class VistaSeleccionHorario extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(288, 305, 58, 38);
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(318, 308, 77, 33);
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
 		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(369, 305, 78, 28);
+		lblInstagram.setBounds(540, 334, 78, 28);
 		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-30, 302, 184, 44);
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(34, 139, 34));
-		panel_1.setBounds(0, 39, 434, 258);
+		panel_1.setBounds(0, 36, 618, 284);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 414, 244);
+		tabbedPane.setBounds(10, 11, 598, 244);
 		panel_1.add(tabbedPane);
 		
 		JPanel PanelHorario = new JPanel();
@@ -117,34 +117,34 @@ public class VistaSeleccionHorario extends JFrame {
 		
 		comboBoxAño= new JComboBox<>();
 		comboBoxAño.setModel(new DefaultComboBoxModel(new String[] {"Año", "2022", "2023"}));
-		comboBoxAño.setBounds(28, 151, 125, 22);
+		comboBoxAño.setBounds(74, 149, 125, 22);
 		PanelHorario.add(comboBoxAño);
 		
 		comboBoxMes= new JComboBox<>();
 		comboBoxMes.setModel(new DefaultComboBoxModel(new String[] {"Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}));
-		comboBoxMes.setBounds(28, 99, 125, 22);
+		comboBoxMes.setBounds(74, 95, 125, 22);
 		PanelHorario.add(comboBoxMes);
 		
 		comboBoxDia= new JComboBox<>();
 		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] {"Día", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
-		comboBoxDia.setBounds(28, 50, 125, 22);
+		comboBoxDia.setBounds(74, 50, 125, 22);
 		PanelHorario.add(comboBoxDia);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("SELECCION DE HORARIO");
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1.setBounds(139, 11, 145, 14);
+		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1.setBounds(185, 11, 181, 14);
 		PanelHorario.add(lblNewLabel_2_1_1);
 		
 		
 		
 		comboBoxHora= new JComboBox<>();
 		comboBoxHora.setModel(new DefaultComboBoxModel(new String[] {"Hora", "10", "11", "12", "13", "14", "15", "16", "17"}));
-		comboBoxHora.setBounds(221, 50, 125, 22);
+		comboBoxHora.setBounds(419, 50, 125, 22);
 		PanelHorario.add(comboBoxHora);
 		
 		comboBoxModo= new JComboBox<>();
 		comboBoxModo.setModel(new DefaultComboBoxModel(new String[] {"Modo", "Online", "Presencial"}));
-		comboBoxModo.setBounds(221, 124, 125, 22);
+		comboBoxModo.setBounds(419, 128, 125, 22);
 		PanelHorario.add(comboBoxModo);
 		
 		JButton btnNewButton_1 = new JButton("CONFIRMAR");
@@ -161,42 +161,33 @@ public class VistaSeleccionHorario extends JFrame {
 				}
 			}//fin de actionPermorfed JButton
 		});//fin de clase anonima
-		btnNewButton_1.setBounds(293, 103, 89, 23);
-		
-		/*btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (comboBox.getSelectedItem())
-			}
-		}
-		);*/
-		
 		btnNewButton_1.setToolTipText("");
-		btnNewButton_1.setBounds(151, 182, 117, 23);
+		btnNewButton_1.setBounds(249, 182, 117, 23);
 		PanelHorario.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("Día");
-		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1.setBounds(28, 36, 38, 14);
+		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1_1.setBounds(28, 52, 38, 14);
 		PanelHorario.add(lblNewLabel_2_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("Mes");
-		lblNewLabel_2_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1_1.setBounds(28, 85, 38, 14);
+		lblNewLabel_2_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1_1_1.setBounds(26, 97, 38, 14);
 		PanelHorario.add(lblNewLabel_2_1_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1_1_1_1 = new JLabel("Año");
-		lblNewLabel_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1_1_1.setBounds(28, 132, 38, 14);
+		lblNewLabel_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1_1_1_1.setBounds(28, 151, 38, 14);
 		PanelHorario.add(lblNewLabel_2_1_1_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1_1_2 = new JLabel("Hora");
-		lblNewLabel_2_1_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1_2.setBounds(221, 36, 38, 14);
+		lblNewLabel_2_1_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1_1_2.setBounds(369, 52, 38, 14);
 		PanelHorario.add(lblNewLabel_2_1_1_1_2);
 		
 		JLabel lblNewLabel_2_1_1_1_2_1 = new JLabel("Modo");
-		lblNewLabel_2_1_1_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1_2_1.setBounds(221, 103, 38, 14);
+		lblNewLabel_2_1_1_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1_1_2_1.setBounds(369, 132, 40, 14);
 		PanelHorario.add(lblNewLabel_2_1_1_1_2_1);
 		/*
 		JPanel PanelAvance = new JPanel();
@@ -240,15 +231,15 @@ public class VistaSeleccionHorario extends JFrame {
 		//PanelMensaje.add(lblNewLabel_2_1);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
+		lblNewLabel.setBounds(412, 0, 77, 60);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("nombreAlumno");
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
+		JLabel lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
-
+		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(10, 0, 190, 28);
 		contentPane.add(menuBar);

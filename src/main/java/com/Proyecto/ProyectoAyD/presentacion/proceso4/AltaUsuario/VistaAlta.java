@@ -59,68 +59,76 @@ public class VistaAlta extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAlta() {
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setBounds(100, 100, 496, 369);
+//		contentPane = new JPanel();
+//		contentPane.setBackground(Color.WHITE);
+//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+// cambiar tamaño de panel
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 496, 369);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(279, 297, 58, 38);
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(305, 300, 77, 33);
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
 		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(347, 297, 78, 28);
+		lblInstagram.setBounds(540, 334, 78, 28);
 		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-26, 294, 184, 44);
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 0));
-		panel.setBounds(0, 36, 480, 258);
+		panel.setBounds(0, 36, 618, 284);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setBackground(new Color(255, 255, 255));
-		panel_1_2.setBounds(10, 11, 460, 236);
+		panel_1_2.setBounds(10, 11, 598, 262);
 		panel.add(panel_1_2);
 		panel_1_2.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(173, 255, 47));
-		panel_1.setBounds(10, 11, 440, 169);
+		panel_1.setBounds(10, 11, 578, 206);
 		panel_1_2.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblnombreLabel = new JLabel("Nombre\r\n");
+		lblnombreLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblnombreLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblnombreLabel.setForeground(new Color(0, 0, 0));
 		lblnombreLabel.setBackground(new Color(0, 128, 0));
-		lblnombreLabel.setBounds(10, 11, 46, 14);
+		lblnombreLabel.setBounds(68, 11, 79, 14);
 		panel_1.add(lblnombreLabel);
 		
 		textFieldNombre = new JTextField();
 		textFieldNombre.setEditable(false);
-		textFieldNombre.setBounds(10, 31, 117, 20);
+		textFieldNombre.setBounds(50, 31, 117, 20);
 		panel_1.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		JLabel lblEdadLabel = new JLabel("Edad");
-		lblEdadLabel.setBounds(10, 62, 46, 14);
+		lblEdadLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblEdadLabel.setBounds(68, 62, 46, 14);
 		panel_1.add(lblEdadLabel);
 		
 		textFieldEdad = new JTextField();
@@ -137,32 +145,35 @@ public class VistaAlta extends JFrame {
 			}
 		});
 		textFieldEdad.setEditable(false);
-		textFieldEdad.setBounds(10, 82, 117, 20);
+		textFieldEdad.setBounds(50, 87, 117, 20);
 		panel_1.add(textFieldEdad);
 		textFieldEdad.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Correo");
-		lblNewLabel_4.setBounds(10, 113, 46, 14);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_4.setBounds(68, 124, 46, 14);
 		panel_1.add(lblNewLabel_4);
 		
 		textFieldCorreo = new JTextField();
 		textFieldCorreo.setEditable(false);
-		textFieldCorreo.setBounds(10, 138, 117, 20);
+		textFieldCorreo.setBounds(50, 149, 117, 20);
 		panel_1.add(textFieldCorreo);
 		textFieldCorreo.setColumns(10);
 		
 		JLabel lblContraseñaLabel = new JLabel("Contraseña");
-		lblContraseñaLabel.setBounds(160, 11, 70, 14);
+		lblContraseñaLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblContraseñaLabel.setBounds(268, 12, 70, 14);
 		panel_1.add(lblContraseñaLabel);
 		
 		textFieldContraseña = new JTextField();
 		textFieldContraseña.setEditable(false);
-		textFieldContraseña.setBounds(160, 31, 117, 20);
+		textFieldContraseña.setBounds(246, 31, 117, 20);
 		panel_1.add(textFieldContraseña);
 		textFieldContraseña.setColumns(10);
 		
 		JLabel lblTelefonoLabel = new JLabel("Telefono");
-		lblTelefonoLabel.setBounds(160, 62, 70, 14);
+		lblTelefonoLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTelefonoLabel.setBounds(268, 62, 70, 14);
 		panel_1.add(lblTelefonoLabel);
 		
 		textFieldTelefono = new JTextField();
@@ -179,22 +190,24 @@ public class VistaAlta extends JFrame {
 			}
 		});
 		textFieldTelefono.setEditable(false);
-		textFieldTelefono.setBounds(160, 82, 117, 20);
+		textFieldTelefono.setBounds(246, 88, 117, 20);
 		panel_1.add(textFieldTelefono);
 		textFieldTelefono.setColumns(10);
 		
 		JLabel lblUsuarioLabel = new JLabel("Usuario");
-		lblUsuarioLabel.setBounds(160, 113, 46, 14);
+		lblUsuarioLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUsuarioLabel.setBounds(279, 124, 46, 14);
 		panel_1.add(lblUsuarioLabel);
 		
 		textFieldUsuario = new JTextField();
 		textFieldUsuario.setEditable(false);
-		textFieldUsuario.setBounds(160, 138, 117, 20);
+		textFieldUsuario.setBounds(246, 149, 117, 20);
 		panel_1.add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
 		JLabel lblMatriculaLabel = new JLabel("Matricula");
-		lblMatriculaLabel.setBounds(311, 11, 79, 14);
+		lblMatriculaLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblMatriculaLabel.setBounds(452, 12, 79, 14);
 		panel_1.add(lblMatriculaLabel);
 		
 		textFieldMatricula = new JTextField();
@@ -211,14 +224,14 @@ public class VistaAlta extends JFrame {
 			}
 		});
 		textFieldMatricula.setEditable(false);
-		textFieldMatricula.setBounds(307, 31, 117, 20);
+		textFieldMatricula.setBounds(422, 31, 117, 20);
 		panel_1.add(textFieldMatricula);
 		textFieldMatricula.setColumns(10);
 		
 		JComboBox comboBoxMastros = new JComboBox();
 		comboBoxMastros.setEnabled(false);
 		comboBoxMastros.setModel(new DefaultComboBoxModel(new String[] {"", "DOCENTE", "EVALUADOR"}));
-		comboBoxMastros.setBounds(311, 81, 113, 22);
+		comboBoxMastros.setBounds(426, 87, 113, 22);
 		panel_1.add(comboBoxMastros);
 		
 		JComboBox comboBoxTipoRevisor = new JComboBox();
@@ -234,16 +247,18 @@ public class VistaAlta extends JFrame {
 			}
 		});
 		comboBoxTipoRevisor.setToolTipText("");
-		comboBoxTipoRevisor.setBounds(311, 136, 113, 22);
+		comboBoxTipoRevisor.setBounds(426, 148, 113, 22);
 		panel_1.add(comboBoxTipoRevisor);
 		
 		
 		JLabel lblTipoRevisor = new JLabel("Tipo Revisor");
-		lblTipoRevisor.setBounds(311, 113, 113, 14);
+		lblTipoRevisor.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTipoRevisor.setBounds(436, 120, 113, 14);
 		panel_1.add(lblTipoRevisor);
 		
 		JLabel lblNewLabel_2 = new JLabel("Tipo Docente");
-		lblNewLabel_2.setBounds(311, 62, 79, 14);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(432, 62, 99, 14);
 		panel_1.add(lblNewLabel_2);
 		
 		JButton btnButtonAgregarUsuario = new JButton("Agregar Usuario");
@@ -259,7 +274,7 @@ public class VistaAlta extends JFrame {
 			}
 		});
 		btnButtonAgregarUsuario.setEnabled(false);
-		btnButtonAgregarUsuario.setBounds(233, 202, 128, 23);
+		btnButtonAgregarUsuario.setBounds(373, 228, 128, 23);
 		panel_1_2.add(btnButtonAgregarUsuario);
 		
 		JComboBox comboBoxAlumnoDocente = new JComboBox();
@@ -287,7 +302,7 @@ public class VistaAlta extends JFrame {
 				}
 			}
 		});
-		comboBoxAlumnoDocente.setBounds(77, 202, 117, 22);
+		comboBoxAlumnoDocente.setBounds(67, 228, 117, 22);
 		panel_1_2.add(comboBoxAlumnoDocente);
 		
 		btnButtonAgregarUsuario.addActionListener(new ActionListener() {
@@ -336,12 +351,12 @@ public class VistaAlta extends JFrame {
 		});
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(260, 0, 77, 60);
-		lblNewLabel.setIcon(new ImageIcon("D:\\APPS\\STC\\Power-X-main\\ProyectoAyD\\Imagenes\\usuario.png"));
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("nombre");
-		lblNewLabel_1.setBounds(336, 11, 119, 22);
+		JLabel lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 

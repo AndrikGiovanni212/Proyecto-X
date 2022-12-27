@@ -63,8 +63,15 @@ public class VistaCambiarPassword extends JFrame {
 	 */
 	private String nombre;
 	public VistaCambiarPassword() {
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setBounds(100, 100, 367, 293);
+//		contentPane = new JPanel();
+//		contentPane.setBackground(Color.WHITE);
+//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//cambio de tamaño de panel
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 367, 293);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,35 +80,35 @@ public class VistaCambiarPassword extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(216, 222, 58, 38);
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(235, 225, 77, 33);
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
 		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(284, 227, 78, 28);
+		lblInstagram.setBounds(540, 334, 78, 28);
 		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-16, 219, 184, 44);
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 0));
-		panel.setBounds(0, 36, 352, 183);
+		panel.setBounds(0, 36, 618, 284);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setBackground(new Color(135, 206, 250));
-		panel_1_2.setBounds(10, 11, 333, 159);
+		panel_1_2.setBounds(10, 11, 598, 262);
 		panel.add(panel_1_2);
 		panel_1_2.setLayout(null);
 		
@@ -124,26 +131,28 @@ public class VistaCambiarPassword extends JFrame {
 			}
 		});
 		buttonActualizar.setBackground(new Color(176, 224, 230));
-		buttonActualizar.setBounds(115, 125, 137, 23);
+		buttonActualizar.setBounds(211, 211, 137, 23);
 		panel_1_2.add(buttonActualizar);
 		
 		JLabel lblTitulo = new JLabel("Cambiar Contraseña");
-		lblTitulo.setFont(new Font("Times New Roman", Font.PLAIN, 13));
-		lblTitulo.setBounds(93, 11, 163, 14);
+		lblTitulo.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblTitulo.setBounds(179, 11, 206, 34);
 		panel_1_2.add(lblTitulo);
 		
 		JLabel lblPassword = new JLabel("Contraseña Actual:");
-		lblPassword.setBounds(10, 56, 127, 14);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPassword.setBounds(10, 56, 189, 33);
 		panel_1_2.add(lblPassword);
 		
 		
 		textField_1.setEditable(false);
-		textField_1.setBounds(135, 56, 137, 14);
+		textField_1.setBounds(195, 56, 176, 27);
 		panel_1_2.add(textField_1);
 		textField_1.setColumns(10);	
 		
 		JLabel lblNuevaFechaDe = new JLabel("Nueva Contraseña:");
-		lblNuevaFechaDe.setBounds(10, 100, 127, 14);
+		lblNuevaFechaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNuevaFechaDe.setBounds(10, 129, 175, 25);
 		panel_1_2.add(lblNuevaFechaDe);
 		
 		
@@ -154,16 +163,16 @@ public class VistaCambiarPassword extends JFrame {
 			}
 		});
 		textField_2.setColumns(10);
-		textField_2.setBounds(135, 100, 137, 14);
+		textField_2.setBounds(195, 123, 176, 31);
 		panel_1_2.add(textField_2);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(190, 0, 77, 60);
+		lblNewLabel.setBounds(412, 0, 77, 60);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel();
-		lblNewLabel_1.setBounds(326, 11, 119, 22);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 

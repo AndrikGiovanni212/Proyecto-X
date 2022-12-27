@@ -33,6 +33,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
+import javax.swing.JInternalFrame;
 @SuppressWarnings("serial")
 @Component
 public class VistaSolicitudCambioFecha extends JFrame {
@@ -58,38 +59,36 @@ public class VistaSolicitudCambioFecha extends JFrame {
 	}
 	
 	public VistaSolicitudCambioFecha() {
-	setBounds(100, 100, 450, 300);
-	contentPane = new JPanel();
-	contentPane.setBackground(Color.WHITE);
-	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 634, 412);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 	setContentPane(contentPane);
 	contentPane.setLayout(null);
 	
 	JLabel lblLogoFacebook = new JLabel("New label");
-	lblLogoFacebook.setBounds(291, 226, 58, 38);
+	lblLogoFacebook.setBounds(472, 331, 58, 38);
 	lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 	contentPane.add(lblLogoFacebook);
-	
+
 	JLabel lblLogoTwitter = new JLabel("New label");
-	lblLogoTwitter.setBounds(315, 229, 77, 33);
+	lblLogoTwitter.setBounds(495, 334, 77, 33);
 	lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 	contentPane.add(lblLogoTwitter);
-	
+
 	JLabel lblInstagram = new JLabel("New label");
-	lblInstagram.setBounds(356, 231, 78, 28);
+	lblInstagram.setBounds(540, 334, 78, 28);
 	lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 	contentPane.add(lblInstagram);
-	
+
 	JLabel lblNombreSistema = new JLabel("New label");
-	lblNombreSistema.setBounds(-24, 229, 184, 44);
+	lblNombreSistema.setBounds(-24, 328, 184, 44);
 	lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 	contentPane.add(lblNombreSistema);
 	
-	JLabel lblNewLabel_1 = new JLabel("Nombre Alumno");
-	lblNewLabel_1.setBounds(328, 11, 119, 22);
-	lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-	contentPane.add(lblNewLabel_1);
+	
 	
 	JMenuBar menuBar = new JMenuBar();
 	menuBar.setBounds(0, 0, 219, 28);
@@ -112,74 +111,82 @@ public class VistaSolicitudCambioFecha extends JFrame {
 	JButton btnDisponibilidad = new JButton("Disponibilidad de docente");
 	mnNewMenu_1.add(btnDisponibilidad);
 	
+	
+	
 	JMenu mnNewMenu_2 = new JMenu("Clase");
 	menuBar.add(mnNewMenu_2);
 	
 	JPanel panel = new JPanel();
 	panel.setLayout(null);
 	panel.setBackground(new Color(0, 128, 0));
-	panel.setBounds(0, 28, 434, 205);
+	panel.setBounds(0, 42, 618, 287);
 	contentPane.add(panel);
 	
 	JPanel panel_1_2 = new JPanel();
 	panel_1_2.setLayout(null);
 	panel_1_2.setBackground(Color.WHITE);
-	panel_1_2.setBounds(10, 11, 414, 187);
+	panel_1_2.setBounds(10, 11, 598, 265);
 	panel.add(panel_1_2);
 	
 	JPanel panel_1 = new JPanel();
 	panel_1.setLayout(null);
 	panel_1.setBackground(new Color(173, 255, 47));
-	panel_1.setBounds(10, 11, 394, 165);
+	panel_1.setBounds(10, 11, 578, 243);
 	panel_1_2.add(panel_1);
 	
 	textFieldNombre = new JTextField();
 	textFieldNombre.setColumns(10);
-	textFieldNombre.setBounds(10, 30, 117, 20);
+	textFieldNombre.setBounds(10, 79, 136, 20);
 	panel_1.add(textFieldNombre);
 	
 	JLabel lblExplicacion = new JLabel("Ingresa detalladamente el motivo de la solicitud");
-	lblExplicacion.setBounds(157, 11, 227, 14);
+	lblExplicacion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	lblExplicacion.setBounds(230, 9, 309, 29);
 	panel_1.add(lblExplicacion);
 	
 	textFieldMotivo = new JTextField();
 	textFieldMotivo.setColumns(10);
-	textFieldMotivo.setBounds(157, 30, 227, 69);
+	textFieldMotivo.setBounds(217, 49, 327, 144);
 	panel_1.add(textFieldMotivo);
 	
 	JLabel lblNewLabel = new JLabel("Nombre Completo");
-	lblNewLabel.setBounds(10, 11, 117, 14);
+	lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	lblNewLabel.setBounds(22, 49, 117, 20);
 	panel_1.add(lblNewLabel);
 	
 	JLabel lblNewLabel_2 = new JLabel("Sugerir nueva fecha");
-	lblNewLabel_2.setBounds(10, 110, 148, 14);
+	lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	lblNewLabel_2.setBounds(20, 110, 148, 14);
 	panel_1.add(lblNewLabel_2);
 	
 	JLabel lblNewLabel_3 = new JLabel("Dia");
-	lblNewLabel_3.setBounds(10, 135, 24, 14);
+	lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	lblNewLabel_3.setBounds(50, 211, 31, 14);
 	panel_1.add(lblNewLabel_3);
 	
 	JComboBox comboBoxDia = new JComboBox();
 	comboBoxDia.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3","4", "5", "6","7", "8", "9","10", "11", "12","13", "14", "15","16", "17", "18","19", "20", "21","22", "23", "24","25", "26", "27","28", "29", "30","31"}));
-	comboBoxDia.setBounds(32, 131, 42, 22);
+	comboBoxDia.setBounds(79, 209, 67, 22);
 	panel_1.add(comboBoxDia);
 	
 	JLabel lblNewLabel_3_1 = new JLabel("Mes");
-	lblNewLabel_3_1.setBounds(84, 135, 24, 14);
+	lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	lblNewLabel_3_1.setBounds(174, 211, 31, 14);
 	panel_1.add(lblNewLabel_3_1);
 	
 	JComboBox comboBoxMes = new JComboBox();
 	comboBoxMes.setEditable(false);
-	comboBoxMes.setBounds(106, 131, 72, 22);
+	comboBoxMes.setBounds(204, 209, 83, 22);
 	panel_1.add(comboBoxMes);
 	
 	JLabel lblNewLabel_4 = new JLabel("Año");
-	lblNewLabel_4.setBounds(184, 135, 24, 14);
+	lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	lblNewLabel_4.setBounds(317, 211, 31, 14);
 	panel_1.add(lblNewLabel_4);
 	
 	JComboBox comboBoxYear = new JComboBox();
 	comboBoxYear.setEditable(false);
-	comboBoxYear.setBounds(208, 131, 72, 22);
+	comboBoxYear.setBounds(347, 209, 89, 22);
 	comboBoxYear.setModel(new DefaultComboBoxModel(new String[] {"", "2022", "2023", "2024", "2025", "2026", "2027"}));
 	panel_1.add(comboBoxYear);
 	
@@ -227,8 +234,18 @@ public class VistaSolicitudCambioFecha extends JFrame {
 		}
 	});
 	
-	btnNewButton_1.setBounds(302, 131, 89, 23);
+	btnNewButton_1.setBounds(479, 209, 89, 23);
 	panel_1.add(btnNewButton_1);
+	
+	JLabel lblNewLabe2 = new JLabel("New label");
+	lblNewLabe2.setBounds(412, 0, 77, 60);
+	lblNewLabe2.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+	contentPane.add(lblNewLabe2);
+	
+	JLabel lblNewLabel_1 = new JLabel("nombre");
+	lblNewLabel_1.setBounds(489, 11, 119, 22);
+	lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+	contentPane.add(lblNewLabel_1);
 	
 }	
 

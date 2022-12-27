@@ -65,7 +65,7 @@ public class VistaBaja extends JFrame {
 	 */
 	public VistaBaja() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 496, 369);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -74,48 +74,49 @@ public class VistaBaja extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(279, 297, 58, 38);
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(305, 300, 77, 33);
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
 		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(347, 297, 78, 28);
+		lblInstagram.setBounds(540, 334, 78, 28);
 		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-26, 294, 184, 44);
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 0));
-		panel.setBounds(0, 36, 480, 258);
+		panel.setBounds(0, 36, 618, 284);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setBackground(new Color(255, 255, 255));
-		panel_1_2.setBounds(10, 11, 460, 236);
+		panel_1_2.setBounds(10, 11, 598, 262);
 		panel.add(panel_1_2);
 		panel_1_2.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(173, 255, 47));
-		panel_1.setBounds(10, 11, 139, 169);
+		panel_1.setBounds(10, 11, 139, 206);
 		panel_1_2.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblmatriculaLabel = new JLabel("Matricula");
+		lblmatriculaLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblmatriculaLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblmatriculaLabel.setForeground(new Color(0, 0, 0));
 		lblmatriculaLabel.setBackground(new Color(0, 128, 0));
-		lblmatriculaLabel.setBounds(42, 11, 85, 14);
+		lblmatriculaLabel.setBounds(29, 47, 85, 27);
 		panel_1.add(lblmatriculaLabel);
 		
 		textFieldMatricula = new JTextField();
@@ -132,88 +133,93 @@ public class VistaBaja extends JFrame {
 			}
 		});
 		textFieldMatricula.setEditable(true);
-		textFieldMatricula.setBounds(10, 31, 117, 20);
+		textFieldMatricula.setBounds(10, 93, 117, 20);
 		panel_1.add(textFieldMatricula);
 		textFieldMatricula.setColumns(10);
 		
 		JButton btnNewButtonBusqueda = new JButton("Buscar");
-		btnNewButtonBusqueda.setBounds(23, 135, 89, 23);
+		btnNewButtonBusqueda.setBounds(29, 141, 89, 23);
 		panel_1.add(btnNewButtonBusqueda);
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
 		panel_1_1.setBackground(new Color(173, 255, 47));
-		panel_1_1.setBounds(159, 11, 291, 169);
+		panel_1_1.setBounds(159, 11, 429, 206);
 		panel_1_2.add(panel_1_1);
 		
 		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNombre.setVerticalAlignment(SwingConstants.TOP);
 		lblNombre.setForeground(Color.BLACK);
 		lblNombre.setBackground(new Color(0, 128, 0));
-		lblNombre.setBounds(10, 11, 46, 14);
+		lblNombre.setBounds(10, 39, 67, 14);
 		panel_1_1.add(lblNombre);
 		
 		textFieldNombre = new JTextField();
 		textFieldNombre.setEditable(false);
 		textFieldNombre.setColumns(10);
-		textFieldNombre.setBounds(66, 8, 215, 20);
+		textFieldNombre.setBounds(97, 36, 281, 20);
 		panel_1_1.add(textFieldNombre);
 		
 		JLabel lblCorreoLabel_1_1 = new JLabel("Correo");
+		lblCorreoLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCorreoLabel_1_1.setVerticalAlignment(SwingConstants.TOP);
 		lblCorreoLabel_1_1.setForeground(Color.BLACK);
 		lblCorreoLabel_1_1.setBackground(new Color(0, 128, 0));
-		lblCorreoLabel_1_1.setBounds(10, 42, 46, 14);
+		lblCorreoLabel_1_1.setBounds(10, 67, 46, 14);
 		panel_1_1.add(lblCorreoLabel_1_1);
 		
 		textFieldCorreo = new JTextField();
 		textFieldCorreo.setEditable(false);
 		textFieldCorreo.setColumns(10);
-		textFieldCorreo.setBounds(66, 39, 215, 20);
+		textFieldCorreo.setBounds(97, 67, 281, 20);
 		panel_1_1.add(textFieldCorreo);
 		
 		textFieldTelefono = new JTextField();
 		textFieldTelefono.setEditable(false);
 		textFieldTelefono.setColumns(10);
-		textFieldTelefono.setBounds(66, 70, 215, 20);
+		textFieldTelefono.setBounds(97, 98, 281, 20);
 		panel_1_1.add(textFieldTelefono);
 		
 		textFieldEdad = new JTextField();
 		textFieldEdad.setEditable(false);
 		textFieldEdad.setColumns(10);
-		textFieldEdad.setBounds(66, 101, 215, 20);
+		textFieldEdad.setBounds(97, 129, 281, 20);
 		panel_1_1.add(textFieldEdad);
 		
 		textFieldRolMuestra = new JTextField();
 		textFieldRolMuestra.setEditable(false);
 		textFieldRolMuestra.setColumns(10);
-		textFieldRolMuestra.setBounds(66, 132, 215, 20);
+		textFieldRolMuestra.setBounds(97, 160, 281, 20);
 		panel_1_1.add(textFieldRolMuestra);
 		
 		JLabel lblTelefonoLabel_1_1_1 = new JLabel("Telefono");
+		lblTelefonoLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTelefonoLabel_1_1_1.setVerticalAlignment(SwingConstants.TOP);
 		lblTelefonoLabel_1_1_1.setForeground(Color.BLACK);
 		lblTelefonoLabel_1_1_1.setBackground(new Color(0, 128, 0));
-		lblTelefonoLabel_1_1_1.setBounds(10, 73, 46, 14);
+		lblTelefonoLabel_1_1_1.setBounds(10, 98, 67, 14);
 		panel_1_1.add(lblTelefonoLabel_1_1_1);
 		
 		JLabel lblEdad = new JLabel("Edad");
+		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblEdad.setVerticalAlignment(SwingConstants.TOP);
 		lblEdad.setForeground(Color.BLACK);
 		lblEdad.setBackground(new Color(0, 128, 0));
-		lblEdad.setBounds(10, 104, 46, 14);
+		lblEdad.setBounds(10, 129, 46, 14);
 		panel_1_1.add(lblEdad);
 		
 		JLabel lblRolLabel = new JLabel("Rol");
+		lblRolLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblRolLabel.setVerticalAlignment(SwingConstants.TOP);
 		lblRolLabel.setForeground(Color.BLACK);
 		lblRolLabel.setBackground(new Color(0, 128, 0));
-		lblRolLabel.setBounds(10, 135, 46, 14);
+		lblRolLabel.setBounds(10, 160, 46, 14);
 		panel_1_1.add(lblRolLabel);
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setEnabled(false);
-		btnEliminar.setBounds(184, 202, 89, 23);
+		btnEliminar.setBounds(265, 228, 89, 23);
 		panel_1_2.add(btnEliminar);
 		
 		btnNewButtonBusqueda.addActionListener(new ActionListener() {
@@ -264,12 +270,12 @@ public class VistaBaja extends JFrame {
 		});
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(260, 0, 77, 60);
+		lblNewLabel.setBounds(412, 0, 77, 60);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("nombre");
-		lblNewLabel_1.setBounds(336, 11, 119, 22);
+		JLabel lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 

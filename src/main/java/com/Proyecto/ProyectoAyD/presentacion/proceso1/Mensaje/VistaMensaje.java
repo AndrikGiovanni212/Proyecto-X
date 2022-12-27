@@ -83,24 +83,36 @@ public class VistaMensaje extends JFrame {
 	 */
 	public VistaMensaje() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 332);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setBackground(new Color(0, 255, 0));
+
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("D:\\UAM Izt\\TRIMESTRES\\Sexto-Trimestre22P\\SistemasYDiseñoComputacional\\ProyectoFinalAAP\\Imagenes\\LYMBUS2.png"));
-		lblNewLabel.setBounds(272, -4, 46, 39);
-		contentPane.add(lblNewLabel);
+		JLabel lblLogoFacebook = new JLabel("New label");
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+		contentPane.add(lblLogoFacebook);
+
+		JLabel lblLogoTwitter = new JLabel("New label");
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
+		contentPane.add(lblLogoTwitter);
+
+		JLabel lblInstagram = new JLabel("New label");
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
+		contentPane.add(lblInstagram);
+
+		JLabel lblNombreSistema = new JLabel("New label");
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		contentPane.add(lblNombreSistema);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre Docente");
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 434, 33);
@@ -134,7 +146,7 @@ public class VistaMensaje extends JFrame {
 		menuBar.add(mnNewMenu_2);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 38, 414, 244);
+		tabbedPane.setBounds(10, 38, 598, 263);
 		contentPane.add(tabbedPane);
 		
 		JPanel PanelMensaje = new JPanel();
@@ -149,41 +161,42 @@ public class VistaMensaje extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(20, 21, 368, 184);
+		panel_1.setBounds(20, 21, 551, 203);
 		PanelMensaje.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("¿A quién deseas enviar el mensaje?");
-		lblNewLabel_3.setFont(new Font("Sitka Text", Font.BOLD, 13));
+		lblNewLabel_3.setFont(new Font("Sitka Text", Font.BOLD, 14));
 		lblNewLabel_3.setForeground(SystemColor.textText);
-		lblNewLabel_3.setBounds(64, 0, 259, 14);
+		lblNewLabel_3.setBounds(145, 11, 259, 14);
 		panel_1.add(lblNewLabel_3);
 		
 		txtNombre = new JTextField();
 		txtNombre.setText("Nombre");
-		txtNombre.setBounds(10, 23, 62, 20);
+		txtNombre.setBounds(134, 36, 62, 20);
 		panel_1.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtCorreoElectronico = new JTextField();
 		txtCorreoElectronico.setText("Correo Electronico");
 		txtCorreoElectronico.setColumns(10);
-		txtCorreoElectronico.setBounds(82, 23, 114, 20);
+		txtCorreoElectronico.setBounds(225, 36, 114, 20);
 		panel_1.add(txtCorreoElectronico);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Asunto:");
-		lblNewLabel_3_1.setBounds(10, 55, 46, 14);
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3_1.setBounds(134, 68, 62, 14);
 		panel_1.add(lblNewLabel_3_1);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(53, 52, 285, 20);
+		textField.setBounds(206, 67, 285, 20);
 		panel_1.add(textField);
 		
 		JTextPane txtpnEscribeTuMensaje = new JTextPane();
 		txtpnEscribeTuMensaje.setText("Escribe tu mensaje...");
 		txtpnEscribeTuMensaje.setBackground(new Color(245, 245, 220));
-		txtpnEscribeTuMensaje.setBounds(10, 80, 328, 74);
+		txtpnEscribeTuMensaje.setBounds(54, 93, 442, 74);
 		panel_1.add(txtpnEscribeTuMensaje);
 		
 		JButton btnNewButton_1 = new JButton("ENVIAR");
@@ -200,12 +213,12 @@ public class VistaMensaje extends JFrame {
 		});
 		
 		btnNewButton_1.setToolTipText("");
-		btnNewButton_1.setBounds(142, 161, 89, 23);
+		btnNewButton_1.setBounds(236, 169, 89, 23);
 		panel_1.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("MENSAJES");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(171, 0, 63, 14);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2.setBounds(249, 0, 86, 14);
 		PanelMensaje.add(lblNewLabel_2);
 		
 		JPanel panel_2 = new JPanel();
@@ -218,7 +231,7 @@ public class VistaMensaje extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		notifi1.add(scrollPane);
-		scrollPane.setBounds(26, 21, 335, 138);
+		scrollPane.setBounds(32, 30, 512, 138);
 		
 
 		String columnas[]= {"Nombre","Notificaciones"};
@@ -243,18 +256,18 @@ public class VistaMensaje extends JFrame {
 
 		
 		notifi1.setBackground(new Color(255, 255, 255));
-		notifi1.setBounds(10, 11, 389, 194);
+		notifi1.setBounds(10, 11, 573, 213);
 		panel_2.add(notifi1);
 		notifi1.setLayout(null);
 		
 		JButton btnNewButton_1_1_1 = new JButton("LIMPIAR BUZON");
-		btnNewButton_1_1_1.setBounds(10, 160, 111, 23);
+		btnNewButton_1_1_1.setBounds(93, 179, 111, 23);
 		btnNewButton_1_1_1.setToolTipText("");
 		notifi1.add(btnNewButton_1_1_1);
 		
 		JLabel lblNewLabel_2_1_2 = new JLabel("NOTIFICACIONES");
-		lblNewLabel_2_1_2.setBounds(143, 0, 93, 14);
-		lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2_1_2.setBounds(220, 5, 139, 14);
+		lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		notifi1.add(lblNewLabel_2_1_2);
 		
 		JButton Notificacion = new JButton("Mostrar");
@@ -264,7 +277,7 @@ public class VistaMensaje extends JFrame {
 			}
 		});
 		Notificacion.setToolTipText("");
-		Notificacion.setBounds(290, 160, 89, 23);
+		Notificacion.setBounds(418, 179, 89, 23);
 		notifi1.add(Notificacion);
 		
 		
@@ -273,7 +286,21 @@ public class VistaMensaje extends JFrame {
 		PanelHorario.setBackground(SystemColor.menu);
 		tabbedPane.addTab("Horario", null, PanelHorario, null);
 		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 0));
+		panel.setBounds(0, 36, 618, 284);
+		contentPane.add(panel);
+		panel.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
+		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel_1);
 		
 	}
 

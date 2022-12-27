@@ -35,8 +35,8 @@ import javax.swing.JButton;
 public class VentanaPrincipal extends JFrame {
 
 
-	public VentanaPrincipal() {
-	}
+
+	
 	
 	private JPanel contentPane;
 	private ControlPrincipal controlPrincipal;	
@@ -95,6 +95,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 128, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -358,7 +359,7 @@ public class VentanaPrincipal extends JFrame {
 	//ventana Principal Adm
 	public void administrador(ControlPrincipal controlPrincipal, String nombreAdm,String contraseña) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -366,51 +367,25 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
-		lblNombreEscuela.setBounds(131, 54, 184, 34);
-		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 20));
-		lblNombreEscuela.setForeground(Color.WHITE);
-		contentPane.add(lblNombreEscuela);
-
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(191, 99, 51, 82);
-		lblNewLabel_2.setIcon(new ImageIcon("Imagenes\\LYMBUS2.png"));
-		contentPane.add(lblNewLabel_2);
-
-		JLabel lblFondoVerde = new JLabel("New label");
-		lblFondoVerde.setBounds(0, 33, 434, 198);
-		lblFondoVerde.setIcon(new ImageIcon("Imagenes\\FondoVerde.jpeg"));
-		contentPane.add(lblFondoVerde);
-
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(315, 229, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(356, 231, 78, 28);
-		lblInstagram.setIcon(new ImageIcon("Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
-
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("Imagenes\\usuario.png"));
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel(nombreAdm);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(73, 0, 190, 28);
@@ -464,6 +439,33 @@ public class VentanaPrincipal extends JFrame {
 		
 		this.controlPrincipal = controlPrincipal;
 		setVisible(true);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 0));
+		panel.setBounds(0, 46, 618, 274);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
+		lblNombreEscuela.setBounds(213, 22, 218, 67);
+		panel.add(lblNombreEscuela);
+		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 25));
+		lblNombreEscuela.setForeground(Color.WHITE);
+				
+		JLabel lblNewLabel_2 = new JLabel();
+		lblNewLabel_2.setBounds(269, 92, 115, 107);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setIcon(new ImageIcon("Imagenes\\LYMBUS2.png"));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel(nombreAdm);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
+		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel_1);
 	}
 	
 	
@@ -471,7 +473,7 @@ public class VentanaPrincipal extends JFrame {
 	//ventana principal alumno
 	public  void alumno(ControlPrincipal controlPrincipal, String nombreAlumno,String contraseña) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -479,51 +481,27 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
-		lblNombreEscuela.setBounds(131, 54, 184, 34);
-		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 20));
-		lblNombreEscuela.setForeground(Color.WHITE);
-		contentPane.add(lblNombreEscuela);
-
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(191, 99, 51, 82);
-		lblNewLabel_2.setIcon(new ImageIcon("\\Imagenes\\LYMBUS2.png"));
-		contentPane.add(lblNewLabel_2);
-
-		JLabel lblFondoVerde = new JLabel("New label");
-		lblFondoVerde.setBounds(0, 33, 434, 198);
-		lblFondoVerde.setIcon(new ImageIcon("Imagenes\\FondoVerde.jpeg"));
-		contentPane.add(lblFondoVerde);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(315, 229, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(356, 231, 78, 28);
-		lblInstagram.setIcon(new ImageIcon("Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("\\Imagenes\\usuario.png"));
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel(nombreAlumno);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(73, 0, 190, 28);
@@ -601,13 +579,41 @@ public class VentanaPrincipal extends JFrame {
 		
 		this.controlPrincipal = controlPrincipal;
 		setVisible(true);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 0));
+		panel.setBounds(0, 46, 618, 274);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
+		lblNombreEscuela.setBounds(213, 22, 218, 67);
+		panel.add(lblNombreEscuela);
+		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 25));
+		lblNombreEscuela.setForeground(Color.WHITE);
+				
+		JLabel lblNewLabel_2 = new JLabel();
+		lblNewLabel_2.setBounds(269, 92, 115, 107);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setIcon(new ImageIcon("Imagenes\\LYMBUS2.png"));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel(nombreAlumno);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
+		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel_1);
+		
 	}
 	//ventana principal evaluador
 
 	public void evaluador(ControlPrincipal controlPrincipal, String nombreDocente,String contraseña) {	
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -615,51 +621,26 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
-		lblNombreEscuela.setBounds(131, 54, 184, 34);
-		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 20));
-		lblNombreEscuela.setForeground(Color.WHITE);
-		contentPane.add(lblNombreEscuela);
-
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(191, 99, 51, 82);
-		lblNewLabel_2.setIcon(new ImageIcon("Imagenes\\LYMBUS2.png"));
-		contentPane.add(lblNewLabel_2);
-
-		JLabel lblFondoVerde = new JLabel("New label");
-		lblFondoVerde.setBounds(0, 33, 434, 198);
-		lblFondoVerde.setIcon(new ImageIcon("Imagenes\\FondoVerde.jpeg"));
-		contentPane.add(lblFondoVerde);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(315, 229, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(356, 231, 78, 28);
-		lblInstagram.setIcon(new ImageIcon("Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
-
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("Imagenes\\usuario.png"));
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(73, 0, 190, 28);
@@ -733,13 +714,40 @@ public class VentanaPrincipal extends JFrame {
 		
 		this.controlPrincipal = controlPrincipal;
 		setVisible(true);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 0));
+		panel.setBounds(0, 46, 618, 274);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
+		lblNombreEscuela.setBounds(213, 22, 218, 67);
+		panel.add(lblNombreEscuela);
+		lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 25));
+		lblNombreEscuela.setForeground(Color.WHITE);
+				
+		JLabel lblNewLabel_2 = new JLabel();
+		lblNewLabel_2.setBounds(269, 92, 115, 107);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setIcon(new ImageIcon("Imagenes\\LYMBUS2.png"));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
+		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel_1);
 	}
 	
 	//ventana principal docente
 		public void docente(ControlPrincipal controlPrincipal, String nombreDocente,String contraseña) {
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 450, 300);
+			setBounds(100, 100, 634, 412);
 			contentPane = new JPanel();
 			contentPane.setBackground(Color.WHITE);
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -747,51 +755,27 @@ public class VentanaPrincipal extends JFrame {
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 
-			JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
-			lblNombreEscuela.setBounds(131, 54, 184, 34);
-			lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 20));
-			lblNombreEscuela.setForeground(Color.WHITE);
-			contentPane.add(lblNombreEscuela);
-
-			JLabel lblNewLabel_2 = new JLabel("New label");
-			lblNewLabel_2.setBounds(191, 99, 51, 82);
-			lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\LYMBUS2.png"));
-			contentPane.add(lblNewLabel_2);
-
-			JLabel lblFondoVerde = new JLabel("New label");
-			lblFondoVerde.setBounds(0, 33, 434, 198);
-			lblFondoVerde.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\FondoVerde.jpeg"));
-			contentPane.add(lblFondoVerde);
 
 			JLabel lblLogoFacebook = new JLabel("New label");
-			lblLogoFacebook.setBounds(291, 226, 58, 38);
+			lblLogoFacebook.setBounds(472, 331, 58, 38);
 			lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 			contentPane.add(lblLogoFacebook);
 
 			JLabel lblLogoTwitter = new JLabel("New label");
-			lblLogoTwitter.setBounds(315, 229, 77, 33);
+			lblLogoTwitter.setBounds(495, 334, 77, 33);
 			lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 			contentPane.add(lblLogoTwitter);
 
 			JLabel lblInstagram = new JLabel("New label");
-			lblInstagram.setBounds(356, 231, 78, 28);
+			lblInstagram.setBounds(540, 334, 78, 28);
 			lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 			contentPane.add(lblInstagram);
 
 			JLabel lblNombreSistema = new JLabel("New label");
-			lblNombreSistema.setBounds(-24, 223, 184, 44);
+			lblNombreSistema.setBounds(-24, 328, 184, 44);
 			lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 			contentPane.add(lblNombreSistema);
 
-			JLabel lblNewLabel = new JLabel("New label");
-			lblNewLabel.setBounds(249, 0, 77, 62);
-			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
-			contentPane.add(lblNewLabel);
-
-			JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-			lblNewLabel_1.setBounds(328, 11, 119, 22);
-			lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-			contentPane.add(lblNewLabel_1);
 
 			JMenuBar menuBar = new JMenuBar();
 			menuBar.setBounds(73, 0, 190, 28);
@@ -863,6 +847,33 @@ public class VentanaPrincipal extends JFrame {
 			
 			this.controlPrincipal = controlPrincipal;
 			setVisible(true);
+			
+			JPanel panel = new JPanel();
+			panel.setBackground(new Color(0, 128, 0));
+			panel.setBounds(0, 46, 618, 274);
+			contentPane.add(panel);
+			panel.setLayout(null);
+			
+			JLabel lblNombreEscuela = new JLabel("Academia Lymbus");
+			lblNombreEscuela.setBounds(213, 22, 218, 67);
+			panel.add(lblNombreEscuela);
+			lblNombreEscuela.setFont(new Font("Sylfaen", Font.BOLD, 25));
+			lblNombreEscuela.setForeground(Color.WHITE);
+					
+			JLabel lblNewLabel_2 = new JLabel();
+			lblNewLabel_2.setBounds(269, 92, 115, 107);
+			panel.add(lblNewLabel_2);
+			lblNewLabel_2.setIcon(new ImageIcon("Imagenes\\LYMBUS2.png"));
+			
+			JLabel lblNewLabel = new JLabel("New label");
+			lblNewLabel.setBounds(412, 0, 77, 60);
+			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+			contentPane.add(lblNewLabel);
+
+			JLabel lblNewLabel_1 = new JLabel(nombreDocente);
+			lblNewLabel_1.setBounds(489, 11, 119, 22);
+			lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+			contentPane.add(lblNewLabel_1);
 		}
 	
 	public void muestraDialogoConMensaje(String mensaje ) {

@@ -30,6 +30,12 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.HorarioDisponibilidad;
 @SuppressWarnings("serial")
 @Component
 public class VistaModificarEstatus extends JFrame {
+	public VistaModificarEstatus() {
+	}
+	
+	
+	
+	
 	
 	private JRadioButton rdbtn1;
 	private JRadioButton rdbtn2;
@@ -62,7 +68,7 @@ public class VistaModificarEstatus extends JFrame {
 	 */
 	public void ventanaModificarEstatus(String nombreDocente,String idDocente, ArrayList<HorarioDisponibilidad> HD, ControlModificarEstatus controlModifica) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 554, 380);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,7 +78,7 @@ public class VistaModificarEstatus extends JFrame {
 		
 		JPanel panel_fondoBlanco = new JPanel();
 		panel_fondoBlanco.setBackground(Color.WHITE);
-		panel_fondoBlanco.setBounds(10, 80, 518, 171);
+		panel_fondoBlanco.setBounds(10, 80, 587, 205);
 		contentPane.add(panel_fondoBlanco);
 		panel_fondoBlanco.setLayout(new GridLayout(0, 8, 0, 0));
 		
@@ -418,7 +424,7 @@ public class VistaModificarEstatus extends JFrame {
 		
 		JPanel panel_fondoVerde = new JPanel();
 		panel_fondoVerde.setBackground(new Color(0, 128, 0));
-		panel_fondoVerde.setBounds(0, 38, 538, 253);
+		panel_fondoVerde.setBounds(0, 38, 608, 290);
 		contentPane.add(panel_fondoVerde);
 		panel_fondoVerde.setLayout(null);
 		
@@ -428,36 +434,36 @@ public class VistaModificarEstatus extends JFrame {
 				controlModificar.modifica(nombreDocente,idDocente); 		//accion de modificar pasandole al control el idDocente
 			}
 		});
-		btnModifica.setBounds(230, 219, 97, 23);
+		btnModifica.setBounds(276, 256, 97, 23);
 		panel_fondoVerde.add(btnModifica);
 		
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(392, 311, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
-		
+
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(417, 314, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
-		
+
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(463, 311, 75, 28);
-		lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
-		
+
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-27, 308, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(354, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-		lblNewLabel_1.setBounds(428, 11, 75, 22);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 
@@ -511,15 +517,6 @@ public class VistaModificarEstatus extends JFrame {
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlModifica.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
-		
 		this.controlModificar = controlModifica;
 		setVisible(true);
 	}
@@ -540,17 +537,18 @@ public class VistaModificarEstatus extends JFrame {
 	 */
 	public void modifica(String nombreDocente,String idDocente, ArrayList<HorarioDisponibilidad> HD, ControlModificarEstatus controlModifica) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 554, 380);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel_fondoBlanco = new JPanel();
 		panel_fondoBlanco.setBackground(Color.WHITE);
-		panel_fondoBlanco.setBounds(10, 80, 518, 171);
+		panel_fondoBlanco.setBounds(10, 80, 598, 195);
 		contentPane.add(panel_fondoBlanco);
 		panel_fondoBlanco.setLayout(new GridLayout(0, 8, 0, 0));
 		
@@ -1124,7 +1122,7 @@ public class VistaModificarEstatus extends JFrame {
 			
 		JPanel panel_fondoVerde = new JPanel();
 		panel_fondoVerde.setBackground(new Color(0, 128, 0));
-		panel_fondoVerde.setBounds(0, 38, 538, 253);
+		panel_fondoVerde.setBounds(0, 38, 618, 288);
 		contentPane.add(panel_fondoVerde);
 		panel_fondoVerde.setLayout(null);
 		
@@ -1173,36 +1171,36 @@ public class VistaModificarEstatus extends JFrame {
 				
 			}
 		});
-		btnModifica.setBounds(230, 219, 97, 23);
+		btnModifica.setBounds(266, 254, 97, 23);
 		panel_fondoVerde.add(btnModifica);
 		
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(392, 311, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
-		
+
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(417, 314, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
-		
+
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(463, 311, 75, 28);
-		lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
-		
+
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-27, 308, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(353, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-		lblNewLabel_1.setBounds(428, 11, 75, 22);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 
@@ -1251,22 +1249,13 @@ public class VistaModificarEstatus extends JFrame {
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlModifica.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
-		
 		this.controlModificar = controlModifica;
 		setVisible(true);
 	}
 	
 	public void muestraMensajeExito(String nombreDocente,String idDocente, ControlModificarEstatus controlModificar) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 494, 355);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -1276,13 +1265,13 @@ public class VistaModificarEstatus extends JFrame {
 		
 		JPanel panel_fondoBlanco = new JPanel();
 		panel_fondoBlanco.setBackground(Color.WHITE);
-		panel_fondoBlanco.setBounds(10, 80, 447, 171);
+		panel_fondoBlanco.setBounds(10, 81, 598, 236);
 		contentPane.add(panel_fondoBlanco);
 		panel_fondoBlanco.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(154, 205, 50));
-		panel.setBounds(98, 11, 257, 100);
+		panel.setBounds(195, 69, 257, 100);
 		panel_fondoBlanco.add(panel);
 		panel.setLayout(null);
 		
@@ -1297,42 +1286,42 @@ public class VistaModificarEstatus extends JFrame {
 				controlModificar.modifica(nombreDocente,idDocente);			
 			}
 		});
-		btnModificar.setBounds(177, 125, 89, 23);
+		btnModificar.setBounds(275, 190, 89, 23);
 		panel_fondoBlanco.add(btnModificar);
 		
 		JPanel panel_fondoVerde = new JPanel();
 		panel_fondoVerde.setBackground(new Color(0, 128, 0));
-		panel_fondoVerde.setBounds(0, 38, 468, 226);
+		panel_fondoVerde.setBounds(0, 38, 618, 291);
 		contentPane.add(panel_fondoVerde);
 		panel_fondoVerde.setLayout(null);
 		
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(335, 275, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
-		
+
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(359, 283, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
-		
+
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(403, 280, 75, 28);
-		lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
-		
+
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(0, 272, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(292, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-		lblNewLabel_1.setBounds(371, 11, 75, 22);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 
@@ -1380,15 +1369,6 @@ public class VistaModificarEstatus extends JFrame {
 
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
-		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlModificar.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
 		
 		this.controlModificar = controlModificar;
 		setVisible(true);	

@@ -75,13 +75,40 @@ public class VistaRetroalimentar extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaRetroalimentar() {
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lblLogoFacebook = new JLabel("New label");
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+		contentPane.add(lblLogoFacebook);
+
+		JLabel lblLogoTwitter = new JLabel("New label");
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
+		contentPane.add(lblLogoTwitter);
+
+		JLabel lblInstagram = new JLabel("New label");
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
+		contentPane.add(lblInstagram);
+
+		JLabel lblNombreSistema = new JLabel("New label");
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		contentPane.add(lblNombreSistema);
+		
+
+		
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 219, 28);
@@ -114,15 +141,12 @@ public class VistaRetroalimentar extends JFrame {
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 
-		JLabel lblNewLabel = new JLabel("New label");
-		menuBar.add(lblNewLabel);
+		/*JLabel lblNewLabel = new JLabel("New label");
+		menuBar.add(lblNewLabel);*/
 
-		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(0, 219, 184, 44);
-		contentPane.add(lblNombreSistema);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 38, 426, 181);
+		tabbedPane.setBounds(10, 38, 598, 262);
 		contentPane.add(tabbedPane);
 
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
@@ -135,17 +159,12 @@ public class VistaRetroalimentar extends JFrame {
 		PanelAvance.setLayout(null);
 		tabbedPane.addTab("Avance", null, PanelAvance, null);
 
-		JLabel Label_Aviso = new JLabel("Avance");
-		Label_Aviso.setFont(new Font("Tahoma", Font.BOLD, 20));
-		Label_Aviso.setBounds(164, 0, 87, 36);
-		PanelAvance.add(Label_Aviso);
-
 		JButton btnSeleccionar = new JButton("Subir Archivo");
-		btnSeleccionar.setBounds(0, 121, 102, 23);
+		btnSeleccionar.setBounds(47, 200, 102, 23);
 		PanelAvance.add(btnSeleccionar);
 
 		JButton btnEnviarArchivo = new JButton("Ver archivo del alumno");
-		btnEnviarArchivo.setBounds(112, 121, 139, 23);
+		btnEnviarArchivo.setBounds(200, 200, 175, 23);
 
 		PanelAvance.add(btnEnviarArchivo);
 
@@ -155,16 +174,16 @@ public class VistaRetroalimentar extends JFrame {
 				controlVistaRetroalimentar.enviarRetro(textArea.getText(),textFieldAsunto.getText(),textFieldCorreo.getText(),textFieldNombre.getText(),Revisor);
 			}
 		});
-		btnEnviar.setBounds(261, 121, 150, 23);
+		btnEnviar.setBounds(433, 200, 150, 23);
 		PanelAvance.add(btnEnviar);
 
 		JLabel lblNewLabel_1 = new JLabel("Retroalimentación");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(10, 14, 129, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(118, 43, 150, 13);
 		PanelAvance.add(lblNewLabel_1);
 		
 		JScrollPane scrollPanetextArea = new JScrollPane();
-		scrollPanetextArea.setBounds(0, 33, 249, 85);
+		scrollPanetextArea.setBounds(47, 67, 328, 122);
 		PanelAvance.add(scrollPanetextArea);
 		
 		 textArea = new JTextArea();
@@ -173,31 +192,55 @@ public class VistaRetroalimentar extends JFrame {
 		scrollPanetextArea.setViewportView(textArea);
 		
 		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(254, 14, 139, 20);
+		textFieldNombre.setBounds(433, 50, 139, 20);
 		PanelAvance.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		textFieldCorreo = new JTextField();
-		textFieldCorreo.setBounds(254, 55, 139, 20);
+		textFieldCorreo.setBounds(433, 106, 139, 20);
 		PanelAvance.add(textFieldCorreo);
 		textFieldCorreo.setColumns(10);
 		
 		textFieldAsunto = new JTextField();
-		textFieldAsunto.setBounds(254, 98, 139, 20);
+		textFieldAsunto.setBounds(433, 169, 139, 20);
 		PanelAvance.add(textFieldAsunto);
 		textFieldAsunto.setColumns(10);
 		
 		lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(264, 0, 46, 14);
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNombre.setBounds(433, 22, 81, 14);
 		PanelAvance.add(lblNombre);
 		
 		lblCorreo = new JLabel("Correo:");
-		lblCorreo.setBounds(264, 39, 46, 14);
+		lblCorreo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCorreo.setBounds(433, 81, 81, 14);
 		PanelAvance.add(lblCorreo);
 		
 		lblAsunto = new JLabel("Asunto:");
-		lblAsunto.setBounds(261, 80, 46, 14);
+		lblAsunto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblAsunto.setBounds(433, 144, 56, 14);
 		PanelAvance.add(lblAsunto);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Avance");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1_1.setBounds(221, 0, 129, 25);
+		PanelAvance.add(lblNewLabel_1_1);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 0));
+		panel.setBounds(0, 36, 618, 284);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel2 = new JLabel();
+		lblNewLabel2.setBounds(489, 11, 119, 22);
+		lblNewLabel2.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel2);
 	}// fin del constructor
 	/* método para poder mostrar la vista temas, junto a los temas disponibles */
 

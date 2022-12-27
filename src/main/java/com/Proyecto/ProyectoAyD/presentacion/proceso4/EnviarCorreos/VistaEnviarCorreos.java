@@ -109,8 +109,14 @@ public class VistaEnviarCorreos extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaEnviarCorreos() {
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setBounds(100, 100, 496, 369);
+//		contentPane = new JPanel();
+//		contentPane.setBackground(Color.WHITE);
+//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//cambio de tamaño de panel
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 496, 369);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -119,51 +125,51 @@ public class VistaEnviarCorreos extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(279, 297, 58, 38);
+		lblLogoFacebook.setBounds(462, 335, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
 
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(305, 300, 77, 33);
+		lblLogoTwitter.setBounds(489, 340, 77, 33);
 		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
 
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(347, 297, 78, 28);
+		lblInstagram.setBounds(530, 335, 78, 28);
 		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
 
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-26, 294, 184, 44);
+		lblNombreSistema.setBounds(-14, 332, 184, 44);
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 0));
-		panel.setBounds(0, 36, 480, 258);
+		panel.setBounds(0, 36, 608, 293);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setBackground(new Color(255, 255, 255));
-		panel_1_2.setBounds(10, 11, 460, 236);
+		panel_1_2.setBounds(10, 11, 588, 271);
 		panel.add(panel_1_2);
 		panel_1_2.setLayout(null);
 		
 		btnEnviar = new JButton("Enviar");
-		btnEnviar.setBounds(268, 202, 88, 23);
+		btnEnviar.setBounds(375, 237, 88, 23);
 		panel_1_2.add(btnEnviar);
 		btnEnviar.setEnabled(false);
 		
 		btnEnviar.setBackground(new Color(176, 224, 230));
 		
-		JLabel lblCorreosDadosDe = new JLabel("Correos dados de alta");
-		lblCorreosDadosDe.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCorreosDadosDe.setBounds(297, 11, 141, 14);
+		JLabel lblCorreosDadosDe = new JLabel("Lymbi System\r\n");
+		lblCorreosDadosDe.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblCorreosDadosDe.setBounds(62, 4, 209, 29);
 		panel_1_2.add(lblCorreosDadosDe);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(268, 36, 182, 155);
+		scrollPane.setBounds(353, 36, 225, 190);
 		panel_1_2.add(scrollPane);
 		
 		tableCorreos = new JTable();
@@ -206,13 +212,8 @@ public class VistaEnviarCorreos extends JFrame {
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBackground(new Color(176, 224, 230));
-		btnBuscar.setBounds(362, 202, 88, 23);
+		btnBuscar.setBounds(473, 237, 88, 23);
 		panel_1_2.add(btnBuscar);
-		
-		JLabel lblLymbiSystem = new JLabel("LymbiSystem");
-		lblLymbiSystem.setFont(new Font("Kaufmann BT", Font.BOLD, 24));
-		lblLymbiSystem.setBounds(56, -1, 168, 35);
-		panel_1_2.add(lblLymbiSystem);
 		
 		JButton btnCambiar = new JButton("Cambiar");
 		btnCambiar.setEnabled(false);
@@ -224,7 +225,7 @@ public class VistaEnviarCorreos extends JFrame {
 			}
 		});
 		btnCambiar.setBackground(new Color(176, 224, 230));
-		btnCambiar.setBounds(76, 202, 88, 23);
+		btnCambiar.setBounds(130, 237, 88, 23);
 		panel_1_2.add(btnCambiar);
 		
 		textArea = new JTextArea();
@@ -241,21 +242,26 @@ public class VistaEnviarCorreos extends JFrame {
 			}
 		});
 		textArea.setBackground(new Color(175, 238, 238));
-		textArea.setBounds(10, 36, 239, 155);
+		textArea.setBounds(10, 36, 333, 190);
 		panel_1_2.add(textArea);
+		
+		JLabel lblCorreosDadosDe_1 = new JLabel("Correos dados de alta");
+		lblCorreosDadosDe_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCorreosDadosDe_1.setBounds(396, 15, 141, 14);
+		panel_1_2.add(lblCorreosDadosDe_1);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(293, 0, 66, 60);
+		lblNewLabel.setBounds(414, 0, 66, 60);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel(nombre);
-		lblNewLabel_1.setBounds(361, 11, 119, 22);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 219, 28);
+		menuBar.setBounds(0, 0, 220, 28);
 		contentPane.add(menuBar);
 
 		JMenu mnInicio = new JMenu("Inicio");

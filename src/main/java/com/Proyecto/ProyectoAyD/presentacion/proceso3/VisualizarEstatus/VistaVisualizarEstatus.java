@@ -195,18 +195,18 @@ public class VistaVisualizarEstatus extends JFrame {
 	
 public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualizarEstatus controlVisualizarEstatus) {
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 554, 355);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setBounds(100, 100, 634, 412);
+	contentPane = new JPanel();
+	contentPane.setBackground(Color.WHITE);
+	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel_fondoBlanco = new JPanel();
 		panel_fondoBlanco.setBackground(Color.WHITE);
-		panel_fondoBlanco.setBounds(10, 80, 518, 171);
+		panel_fondoBlanco.setBounds(10, 80, 598, 215);
 		contentPane.add(panel_fondoBlanco);
 		panel_fondoBlanco.setLayout(new GridLayout(0, 8, 0, 0));
 		
@@ -552,37 +552,37 @@ public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualiza
 		
 		JPanel panel_fondoVerde = new JPanel();
 		panel_fondoVerde.setBackground(new Color(0, 128, 0));
-		panel_fondoVerde.setBounds(0, 38, 538, 226);
+		panel_fondoVerde.setBounds(0, 38, 618, 282);
 		contentPane.add(panel_fondoVerde);
 		panel_fondoVerde.setLayout(null);
 		
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(395, 280, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(472, 331, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
-		
+
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(419, 283, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(495, 334, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
-		
+
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(463, 280, 75, 28);
-		lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
+		lblInstagram.setBounds(540, 334, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
-		
+
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-24, 277, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-24, 328, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(354, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
+		lblNewLabel.setBounds(412, 0, 77, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel(nombre);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
+
+		JLabel lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 
@@ -613,15 +613,6 @@ public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualiza
 
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
-		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlVisualizarEstatus.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
 		
 		this.controlVisualizarEstatus = controlVisualizarEstatus;
 		setVisible(true);
