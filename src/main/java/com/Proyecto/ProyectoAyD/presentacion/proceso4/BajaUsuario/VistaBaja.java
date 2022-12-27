@@ -308,15 +308,6 @@ public class VistaBaja extends JFrame {
 		mnAdministrador.add(btnCorreos);
 	}
 	
-	
-	
-	public void muestra(ControlBaja controlBaja,String nombre) {
-		this.controlBaja = controlBaja;
-		this.nombre=nombre;
-		setVisible(true);
-		
-	}
-	
 	public void limpiarCampos() {
 		textFieldMatricula.setText("");
 		textFieldNombre.setText("");
@@ -327,6 +318,13 @@ public class VistaBaja extends JFrame {
 		textFieldMatricula.setEditable(true);
 	}
 	
+	public void muestra(ControlBaja controlBaja,String nombre) {
+		this.controlBaja = controlBaja;
+		this.nombre=nombre;
+		setVisible(true);
+		
+	}
+
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
 	}

@@ -20,6 +20,8 @@ public class Actividad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idActividad;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long numeroActividad;
 	@Column(nullable = false, length = 900000)
 	private byte[] archivoPdf;
 	private String nombreArchivo;

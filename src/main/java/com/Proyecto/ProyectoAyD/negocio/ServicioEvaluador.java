@@ -10,10 +10,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
 import com.Proyecto.ProyectoAyD.datos.RepositoryArchivo;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
+import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
 
 
 @Service
@@ -22,11 +27,28 @@ public class ServicioEvaluador {
 	RepositoryEvaluador repositoryEvaluador;
 	@Autowired
 	RepositoryArchivo repositoryArchivo;
+
+	@Autowired
+	RepositoryNotificacion repositoryNotificacion;
+	//login
+	public boolean buscaEvaluador(String Contraseña, String Nombre) {
+		Evaluador evaluadorLocal = repositoryEvaluador.findByContraseñaEvaluador(Contraseña);
+		if(evaluadorLocal != null) {
+			if(evaluadorLocal.getNombre().equals(Nombre)) { //valida el nombre del docente obtenido con el nombre ingresado
+				return true;
+			}
+		}	
+		return false;
+	}
 	//Recuperemos 
 	public Evaluador recuperaNombre(String nombre) 
 	{//inicio de métodorecuperar
+		if(nombre == null) {
+			throw new NullPointerException("Null parameters are not allowed"); 
+		}
+		
 		Evaluador alum=new Evaluador();
-		alum=repositoryEvaluador.findBynombre(nombre);
+		alum=repositoryEvaluador.findByNombre(nombre);
 		return alum;
 	}//fin de métodorecuperar
 	public List  <Evaluador> recuperarTodo() {
@@ -45,12 +67,12 @@ public class ServicioEvaluador {
 		evaluador.add(repositoryEvaluador.findByIdEvaluador(idRevisor));
 		return evaluador;
 	}
-	public void guardaravance( String nombre, File ruta,String Evaluador) {
-        
+public void guardaravance( String nombre, File ruta,String Evaluador) {
+	    System.out.println(nombre);
         Archivo archi = new Archivo();
         List<Archivo> listarchi=new ArrayList<Archivo>();
         Evaluador eva=new Evaluador();
-        eva=repositoryEvaluador.findBynombre(Evaluador);
+        eva=repositoryEvaluador.findByNombre(Evaluador);
         System.out.println(eva+"Servicio");
         //po.setNombreArchivo(nombre);
         try {
@@ -69,5 +91,22 @@ public class ServicioEvaluador {
             //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
         }
     }
+	//UH1.4
+ public boolean enviarRetro(String retroalimentacion,String asunto,String nombre,String nombreDocente) {
+	 Notificacion retro = new   Notificacion();
+	 Evaluador eva= new Evaluador();
+	List <Notificacion> notificaciones = new ArrayList<Notificacion>();
+	 eva=repositoryEvaluador.findByNombre(nombreDocente);
+	System.out.println(eva);
+	 retro.setAsunto(asunto);
+	 retro.setMensaje(retroalimentacion);
+	 retro.setNombre(nombre);
+	 retro.setDirector(eva);
+	 notificaciones.add(retro);
+	 eva.setNotificacion(notificaciones);
+	 repositoryEvaluador.save(eva);
+	 repositoryNotificacion.save(retro);
+	 return true;
+ }
 
 }
