@@ -135,10 +135,7 @@ public class VistaSubirAvanceAlumno extends JFrame {
 			PanelAvance.add(btnNewButton_2);
 			
 			JPanel PanelHorario = new JPanel();
-			tabbedPane.addTab("Horario", null, PanelHorario, null);
-			
-			
-			
+			tabbedPane.addTab("Horario", null, PanelHorario, null);		
 			JLabel lblLogoFacebook = new JLabel("New label");
 			lblLogoFacebook.setBounds(472, 331, 58, 38);
 			lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
@@ -159,6 +156,7 @@ public class VistaSubirAvanceAlumno extends JFrame {
 			lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 			contentPane.add(lblNombreSistema);
 			
+
 			JPanel panel = new JPanel();
 			panel.setBackground(new Color(0, 128, 0));
 			panel.setBounds(0, 36, 618, 284);

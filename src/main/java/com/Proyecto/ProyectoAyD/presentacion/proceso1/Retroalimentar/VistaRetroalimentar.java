@@ -48,12 +48,11 @@ public class VistaRetroalimentar extends JFrame {
 	private ControRetroalimentar controlVistaRetroalimentar;
 	private String Revisor;
 	private JTextField textFieldNombre;
-	private JTextField textFieldCorreo;
 	private JTextField textFieldAsunto;
 	private JLabel lblAsunto;
-	private JLabel lblCorreo;
 	private JLabel lblNombre;
 	private JTextArea textArea;
+	private JLabel lblRetro;
 
 	/**
 	 * m Launch the application.
@@ -88,6 +87,7 @@ public class VistaRetroalimentar extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLogoFacebook = new JLabel("New label");
+
 		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
@@ -107,9 +107,6 @@ public class VistaRetroalimentar extends JFrame {
 		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
-
-		
-
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 219, 28);
 		contentPane.add(menuBar);
@@ -141,6 +138,7 @@ public class VistaRetroalimentar extends JFrame {
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 
+
 		/*JLabel lblNewLabel = new JLabel("New label");
 		menuBar.add(lblNewLabel);*/
 
@@ -156,8 +154,10 @@ public class VistaRetroalimentar extends JFrame {
 		tabbedPane.addTab("New tab", null, tabbedPane_2, null);
 
 		JPanel PanelAvance = new JPanel();
+		PanelAvance.setBackground(new Color(0, 128, 0));
 		PanelAvance.setLayout(null);
 		tabbedPane.addTab("Avance", null, PanelAvance, null);
+
 
 		JButton btnSeleccionar = new JButton("Subir Archivo");
 		btnSeleccionar.setBounds(47, 200, 102, 23);
@@ -167,15 +167,16 @@ public class VistaRetroalimentar extends JFrame {
 		btnEnviarArchivo.setBounds(200, 200, 175, 23);
 
 		PanelAvance.add(btnEnviarArchivo);
-
 		JButton btnEnviar = new JButton("Enviar retroalimentación");
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlVistaRetroalimentar.enviarRetro(textArea.getText(),textFieldAsunto.getText(),textFieldCorreo.getText(),textFieldNombre.getText(),Revisor);
+				controlVistaRetroalimentar.enviarRetro(textArea.getText(),textFieldAsunto.getText(),textFieldNombre.getText(),Revisor);
 			}
 		});
+
 		btnEnviar.setBounds(433, 200, 150, 23);
 		PanelAvance.add(btnEnviar);
+
 
 		JLabel lblNewLabel_1 = new JLabel("Retroalimentación");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -196,11 +197,12 @@ public class VistaRetroalimentar extends JFrame {
 		PanelAvance.add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
-		textFieldCorreo = new JTextField();
+
+		JTextField textFieldCorreo = new JTextField();
 		textFieldCorreo.setBounds(433, 106, 139, 20);
 		PanelAvance.add(textFieldCorreo);
 		textFieldCorreo.setColumns(10);
-		
+
 		textFieldAsunto = new JTextField();
 		textFieldAsunto.setBounds(433, 169, 139, 20);
 		PanelAvance.add(textFieldAsunto);
@@ -211,15 +213,17 @@ public class VistaRetroalimentar extends JFrame {
 		lblNombre.setBounds(433, 22, 81, 14);
 		PanelAvance.add(lblNombre);
 		
-		lblCorreo = new JLabel("Correo:");
+		JLabel lblCorreo = new JLabel("Correo:");
 		lblCorreo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCorreo.setBounds(433, 81, 81, 14);
 		PanelAvance.add(lblCorreo);
-		
+
 		lblAsunto = new JLabel("Asunto:");
+
 		lblAsunto.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblAsunto.setBounds(433, 144, 56, 14);
 		PanelAvance.add(lblAsunto);
+
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Avance");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -241,12 +245,13 @@ public class VistaRetroalimentar extends JFrame {
 		lblNewLabel2.setBounds(489, 11, 119, 22);
 		lblNewLabel2.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel2);
+
 	}// fin del constructor
 	/* método para poder mostrar la vista temas, junto a los temas disponibles */
 
-	public void muestra(ControRetroalimentar control, String revisor, String contraseña) {// Inicio de muestra
+	public void muestra(ControRetroalimentar control, String Revisor, String contraseña) {// Inicio de muestra
 		controlVistaRetroalimentar = control;
-		Revisor = revisor;
+		this.Revisor = Revisor;
 		setVisible(true);
 	}// fin de muestra
 

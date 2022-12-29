@@ -483,7 +483,6 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-
 		JLabel lblLogoFacebook = new JLabel("New label");
 		lblLogoFacebook.setBounds(472, 331, 58, 38);
 		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
@@ -710,7 +709,7 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		btnRegresa.setVerticalAlignment(SwingConstants.TOP);
-		btnRegresa.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
+		btnRegresa.setIcon(new ImageIcon("Imagenes\\descarga - copia2.png"));
 		btnRegresa.setBounds(0, 0, 53, 44);
 		contentPane.add(btnRegresa);
 		
@@ -757,6 +756,11 @@ public class VentanaPrincipal extends JFrame {
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 
+			JLabel lblFondoVerde = new JLabel("New label");
+			lblFondoVerde.setBounds(0, 33, 434, 198);
+			lblFondoVerde.setIcon(new ImageIcon("Imagenes\\FondoVerde.jpeg"));
+			contentPane.add(lblFondoVerde);
+
 
 			JLabel lblLogoFacebook = new JLabel("New label");
 			lblLogoFacebook.setBounds(472, 331, 58, 38);
@@ -777,6 +781,7 @@ public class VentanaPrincipal extends JFrame {
 			lblNombreSistema.setBounds(-24, 328, 184, 44);
 			lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 			contentPane.add(lblNombreSistema);
+
 
 
 			JMenuBar menuBar = new JMenuBar();
@@ -843,7 +848,7 @@ public class VentanaPrincipal extends JFrame {
 				}
 			});
 			btnRegresa.setVerticalAlignment(SwingConstants.TOP);
-			btnRegresa.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\descarga - copia2.png"));
+			btnRegresa.setIcon(new ImageIcon("Imagenes\\descarga - copia2.png"));
 			btnRegresa.setBounds(0, 0, 53, 44);
 			contentPane.add(btnRegresa);
 			

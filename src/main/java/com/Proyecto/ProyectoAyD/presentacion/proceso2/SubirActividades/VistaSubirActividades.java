@@ -41,8 +41,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 public class VistaSubirActividades extends JFrame {
 	public VistaSubirActividades() {
 	}
-	
-	
+
 
 		private ControlSubirActividades controlSubirActividades;
 		private JPanel contentPane;

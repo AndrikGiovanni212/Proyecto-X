@@ -92,7 +92,7 @@ public void guardaravance( String nombre, File ruta,String Evaluador) {
         }
     }
 	//UH1.4
- public boolean enviarRetro(String retroalimentacion,String asunto,String correo,String nombre,String nombreDocente) {
+ public boolean enviarRetro(String retroalimentacion,String asunto,String nombre,String nombreDocente) {
 	 Notificacion retro = new   Notificacion();
 	 Evaluador eva= new Evaluador();
 	List <Notificacion> notificaciones = new ArrayList<Notificacion>();

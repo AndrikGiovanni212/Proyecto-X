@@ -130,6 +130,7 @@ public class VistaElegirTema extends JFrame
 	
 	JPanel PanelHorario = new JPanel();
 	tabbedPane.addTab("Horario", null, PanelHorario, null);
+
 	
 	JLabel lblLogoFacebook = new JLabel("New label");
 	lblLogoFacebook.setBounds(472, 331, 58, 38);
