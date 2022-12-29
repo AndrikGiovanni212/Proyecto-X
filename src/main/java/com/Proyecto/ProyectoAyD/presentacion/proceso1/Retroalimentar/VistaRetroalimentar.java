@@ -154,7 +154,6 @@ public class VistaRetroalimentar extends JFrame {
 		tabbedPane.addTab("New tab", null, tabbedPane_2, null);
 
 		JPanel PanelAvance = new JPanel();
-		PanelAvance.setBackground(new Color(0, 128, 0));
 		PanelAvance.setLayout(null);
 		tabbedPane.addTab("Avance", null, PanelAvance, null);
 
