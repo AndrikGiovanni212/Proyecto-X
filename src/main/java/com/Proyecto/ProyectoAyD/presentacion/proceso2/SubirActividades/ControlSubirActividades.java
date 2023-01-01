@@ -41,10 +41,7 @@ public class ControlSubirActividades {
 	public void guardaPdf(String nombre, byte[] pdf ,String contraseña,String fecha) {
 		String sDate1=fecha; 
 		try {
-			Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
-			System.out.println(pdf);
-			System.out.println(date1);
-			
+			Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);		
 			if(servicioDocente.AgregarActividades(nombre, pdf, contraseña, date1)) {
 				vistaSubirActividades.llenaTabla(servicioDocente.recuperaListaPDF(contraseña));
 			}

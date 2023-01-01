@@ -28,7 +28,7 @@ public class ControSeleccionHorario {
 	private String nombreAlumno;
 	public void inicia(String nombreAlumno) {
 		this.nombreAlumno= nombreAlumno;
-		vistaSeleccionHorario.muestra(this, nombreAlumno);
+		vistaSeleccionHorario.vistaSeleccionHorario(this, nombreAlumno);
 	}
 	
 	public boolean agendarHorario(String dia, String mes , String hora, String año, String modo , String alumno){

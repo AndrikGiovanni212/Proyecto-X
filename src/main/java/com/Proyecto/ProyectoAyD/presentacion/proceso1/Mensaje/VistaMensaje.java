@@ -25,7 +25,10 @@ import javax.swing.table.DefaultTableModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
+import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirActividades.RenderizaTabla;
 
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
@@ -57,7 +60,9 @@ public class VistaMensaje extends JFrame {
 	private JTextField textField;
 	private JTable tablaNotificacion;
 	private DefaultTableModel model;
-
+	private DefaultTableModel model1;
+	private List<Alumno> listAlumno = new ArrayList<Alumno>();
+	private List<Docente> listDocente = new ArrayList<Docente>();
 
 
 	/**
@@ -65,6 +70,7 @@ public class VistaMensaje extends JFrame {
 	 */
 	
 	ControlMensaje controlMensaje;
+	private JTable table;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -168,35 +174,35 @@ public class VistaMensaje extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("¿A quién deseas enviar el mensaje?");
 		lblNewLabel_3.setFont(new Font("Sitka Text", Font.BOLD, 14));
 		lblNewLabel_3.setForeground(SystemColor.textText);
-		lblNewLabel_3.setBounds(145, 11, 259, 14);
+		lblNewLabel_3.setBounds(282, 11, 259, 14);
 		panel_1.add(lblNewLabel_3);
 		
 		txtNombre = new JTextField();
 		txtNombre.setText("Nombre");
-		txtNombre.setBounds(134, 36, 62, 20);
+		txtNombre.setBounds(282, 36, 62, 20);
 		panel_1.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtCorreoElectronico = new JTextField();
 		txtCorreoElectronico.setText("Correo Electronico");
 		txtCorreoElectronico.setColumns(10);
-		txtCorreoElectronico.setBounds(225, 36, 114, 20);
+		txtCorreoElectronico.setBounds(427, 36, 114, 20);
 		panel_1.add(txtCorreoElectronico);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Asunto:");
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_3_1.setBounds(134, 68, 62, 14);
+		lblNewLabel_3_1.setBounds(282, 68, 62, 14);
 		panel_1.add(lblNewLabel_3_1);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(206, 67, 285, 20);
+		textField.setBounds(352, 67, 189, 20);
 		panel_1.add(textField);
 		
 		JTextPane txtpnEscribeTuMensaje = new JTextPane();
 		txtpnEscribeTuMensaje.setText("Escribe tu mensaje...");
 		txtpnEscribeTuMensaje.setBackground(new Color(245, 245, 220));
-		txtpnEscribeTuMensaje.setBounds(54, 93, 442, 74);
+		txtpnEscribeTuMensaje.setBounds(282, 93, 259, 74);
 		panel_1.add(txtpnEscribeTuMensaje);
 		
 		JButton btnNewButton_1 = new JButton("ENVIAR");
@@ -205,7 +211,10 @@ public class VistaMensaje extends JFrame {
 				if (txtNombre.getText().equals("") || txtCorreoElectronico.getText().equals("") || txtpnEscribeTuMensaje.getText().equals("") || textField.getText().equals("") ) {
 					muestraDialogoConMensaje("los campos Lugar y Dias no puedes estar vacios, por lo menos se tienen que llenar una fila ");
 				} else {
-					controlMensaje.enviarInfo(txtNombre.getText(),txtCorreoElectronico.getText(),txtpnEscribeTuMensaje.getText(),textField.getName());
+					if(controlMensaje.enviarInfo(txtNombre.getText(),txtCorreoElectronico.getText(),txtpnEscribeTuMensaje.getText(),textField.getName())) {
+						muestraDialogoConMensaje("EXITO");
+					}
+					
 				}
 				
 				
@@ -213,8 +222,30 @@ public class VistaMensaje extends JFrame {
 		});
 		
 		btnNewButton_1.setToolTipText("");
-		btnNewButton_1.setBounds(236, 169, 89, 23);
+		btnNewButton_1.setBounds(387, 178, 89, 23);
 		panel_1.add(btnNewButton_1);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(0, 0, 272, 201);
+		panel_1.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(0, 0, 272, 201);
+		panel_3.add(scrollPane_1);
+		
+		table = new JTable();
+		table.setDefaultRenderer(Object.class, new RenderizaTabla());
+		model1 = new DefaultTableModel() {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		table.setModel(model1);
+		model1.addColumn("nombre");
+		model1.addColumn("Correos Electronicos");
+		scrollPane_1.setViewportView(table);
 		
 		JLabel lblNewLabel_2 = new JLabel("MENSAJES");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -260,10 +291,14 @@ public class VistaMensaje extends JFrame {
 		panel_2.add(notifi1);
 		notifi1.setLayout(null);
 		
-		JButton btnNewButton_1_1_1 = new JButton("LIMPIAR BUZON");
-		btnNewButton_1_1_1.setBounds(93, 179, 111, 23);
-		btnNewButton_1_1_1.setToolTipText("");
-		notifi1.add(btnNewButton_1_1_1);
+//		JButton btnNewButton_1_1_1 = new JButton("LIMPIAR BUZON");
+//		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		btnNewButton_1_1_1.setBounds(93, 179, 111, 23);
+//		btnNewButton_1_1_1.setToolTipText("");
+//		notifi1.add(btnNewButton_1_1_1);
 		
 		JLabel lblNewLabel_2_1_2 = new JLabel("NOTIFICACIONES");
 		lblNewLabel_2_1_2.setBounds(220, 5, 139, 14);
@@ -277,14 +312,14 @@ public class VistaMensaje extends JFrame {
 			}
 		});
 		Notificacion.setToolTipText("");
-		Notificacion.setBounds(418, 179, 89, 23);
+		Notificacion.setBounds(247, 179, 89, 23);
 		notifi1.add(Notificacion);
 		
 		
 		
-		JPanel PanelHorario = new JPanel();
-		PanelHorario.setBackground(SystemColor.menu);
-		tabbedPane.addTab("Horario", null, PanelHorario, null);
+//		JPanel PanelHorario = new JPanel();
+//		PanelHorario.setBackground(SystemColor.menu);
+//		tabbedPane.addTab("Horario", null, PanelHorario, null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 128, 0));
@@ -322,6 +357,22 @@ public class VistaMensaje extends JFrame {
 			fila[1] = act.getMensaje();
 			model.addRow(fila);
 		}
+	}
+	
+	public void llenaTablaMensaje(List<Alumno> list) {
+		Object[] fila=new Object[2];
+		for (int i = 0; i < table.getRowCount(); i++) {
+			model1.removeRow(i);
+			i-=1;
+		}		
+		for(Alumno act: list) {
+			fila[0] = act.getNombre();
+			fila[1] = act.getCorreo();
+			model1.addRow(fila);
+		}
+//		if(numeroAltas>0 && (!(textArea.getText().equals("")))) {
+//			btnEnviar.setEnabled(true);
+//		}
 	}
 	
 	public void termina() {

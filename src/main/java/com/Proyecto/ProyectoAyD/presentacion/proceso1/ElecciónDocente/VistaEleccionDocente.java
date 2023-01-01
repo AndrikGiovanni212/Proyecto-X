@@ -43,12 +43,14 @@ public class VistaEleccionDocente extends JFrame {
 	private String nombre;
 	private DefaultTableModel modelDirector;
 	private DefaultTableModel modelRevisor;
+	private DefaultTableModel modelCoordinador;
 	private JTable tableDirector;
 	private boolean[] editable;
 	private JTable tableRevisor;
 	long idDirector;
 	long idRevisor;
-	private JTable table;
+	long idCoordinador;
+	private JTable tableCoordinador;
 	
 	
 
@@ -71,7 +73,7 @@ public class VistaEleccionDocente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VistaEleccionDocente() {
+	public void vistaEleccionDocente(ControlEleccionDocente controlEleccionDocente, String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
@@ -233,8 +235,55 @@ public class VistaEleccionDocente extends JFrame {
 		scrollPane_2.setBounds(0, 11, 583, 197);
 		panelCoordinador.add(scrollPane_2);
 		
-		table = new JTable();
-		scrollPane_2.setViewportView(table);
+		tableCoordinador = new JTable();
+		tableCoordinador.setDefaultRenderer(Object.class, new RenderizaTabla2());
+		modelCoordinador = new DefaultTableModel(new String[] {"id","nombre","elegir"},0) {
+			
+			Class[] types = new Class[]{
+	                java.lang.Object.class,java.lang.Object.class,java.lang.Boolean.class
+	        };
+			
+			public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+		
+			public boolean isCellEditable(int row, int column) {
+				return editable[column];
+			}
+			
+			
+		};
+		tableCoordinador.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				int salir = -1;
+				int column = tableCoordinador.getColumnModel().getColumnIndexAtX(evt.getX());
+				int row = evt.getY() / tableCoordinador.getRowHeight();
+				if(row < tableCoordinador.getRowCount() && row>=0  && column<tableCoordinador.getColumnCount() && (column == 2)) {
+					Boolean value = (Boolean) tableCoordinador.getValueAt(row, 2);
+					if(value == true) {	
+						editable[2]=false;
+						tableCoordinador.isCellEditable(row, 2);
+						
+					}else {
+						editable[2]=true;
+						tableCoordinador.isCellEditable(row, 2);
+						for(int i=0;i<tableCoordinador.getRowCount(); i++) {
+							if((Boolean)tableCoordinador.getValueAt(i, 2) == true) {
+								tableCoordinador.setValueAt(false, i, 2);
+							}
+						}
+						
+						
+						
+					}					
+				}
+			}
+		});
+		tableCoordinador.setModel(modelCoordinador);
+		tableCoordinador.getColumnModel().getColumn(0).setPreferredWidth(36);
+		scrollPane_2.setViewportView(tableCoordinador);	
+		
 		
 		
 		JButton btnConfirmar = new JButton("Confirmar");
@@ -259,7 +308,15 @@ public class VistaEleccionDocente extends JFrame {
 						break;
 					}
 				}
-				if(suma == 2) {
+				for(int i=0;i<tableCoordinador.getRowCount(); i++) {
+					if((Boolean)tableCoordinador.getValueAt(i, 2) == true) {
+						String val = String.valueOf( tableCoordinador.getValueAt(i, 0));
+						idCoordinador = Long.parseLong(val);
+						suma++;
+						break;
+					}
+				}
+				if(suma == 3) {
 					suma=0;
 					btnConfirmar.setEnabled(true);
 				}else {
@@ -269,7 +326,26 @@ public class VistaEleccionDocente extends JFrame {
 		});
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlEleccionDocente.guardaEvaluador(idDirector,idRevisor);
+				if(controlEleccionDocente.guardaEvaluador(idDirector,idRevisor,idCoordinador)) {
+					muestraDialogoConMensaje("exito");
+					for (int i = 0; i < tableDirector.getRowCount(); i++) {
+						modelDirector.removeRow(i);
+						i-=1;
+					}
+					for (int i = 0; i < tableRevisor.getRowCount(); i++) {
+						modelRevisor.removeRow(i);
+						i-=1;
+					}	
+					for (int i = 0; i < tableCoordinador.getRowCount(); i++) {
+						modelCoordinador.removeRow(i);
+						i-=1;
+					}
+					btnConfirmar.setEnabled(false);
+					
+				}else {
+					muestraDialogoConMensaje("fallo");
+				}
+				
 			}
 		});
 		btnConfirmar.setEnabled(false);
@@ -297,6 +373,7 @@ public class VistaEleccionDocente extends JFrame {
 		btnInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//controlEnviarCorreos.regresaInicio();
+				termina();
 			}
 		});
 		mnInicio.add(btnInicio);
@@ -319,6 +396,19 @@ public class VistaEleccionDocente extends JFrame {
 	}
 	
 	public void llenaTabla(List<Evaluador> list) {
+		for (int i = 0; i < tableDirector.getRowCount(); i++) {
+			modelDirector.removeRow(i);
+			i-=1;
+		}
+		for (int i = 0; i < tableRevisor.getRowCount(); i++) {
+			modelRevisor.removeRow(i);
+			i-=1;
+		}	
+		for (int i = 0; i < tableCoordinador.getRowCount(); i++) {
+			modelCoordinador.removeRow(i);
+			i-=1;
+		}	
+		
 		editable = new boolean[3];
 		editable[0] = false;
 		editable[1] = false;
@@ -336,17 +426,25 @@ public class VistaEleccionDocente extends JFrame {
 				fila[1] = evaluador.getNombre();
 				fila[2] = false;
 				modelRevisor.addRow(fila);
+			}if(evaluador.getTipoRevisor() == "Coordinador") {
+				Object[] fila=new Object[3];
+				fila[0] = evaluador.getIdEvaluador();
+				fila[1] = evaluador.getNombre();
+				fila[2] = false;
+				modelCoordinador.addRow(fila);
 			}
 			
-		}	
+		}
+		this.controlEleccionDocente = controlEleccionDocente;
+		setVisible(true);
 	}
 	
-	public void muestra(ControlEleccionDocente controlEleccionDocente,List <Evaluador> evaluador) {
-		this.controlEleccionDocente = controlEleccionDocente;
-		//this.nombre=nombre;
-		setVisible(true);
-		
-	}
+//	public void muestra(ControlEleccionDocente controlEleccionDocente,List <Evaluador> evaluador) {
+//		this.controlEleccionDocente = controlEleccionDocente;
+//		//this.nombre=nombre;
+//		setVisible(true);
+//		
+//	}
 	
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);

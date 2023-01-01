@@ -46,7 +46,7 @@ public class ControlEnviarCorreos {
 	
 	public void muestra(String nombre,String contraseña) {
 		contraseñaAdm = contraseña;
-		vistaEnviarCorreos.muestra(this, nombre);
+		vistaEnviarCorreos.vistaEnviarCorreos(this, nombre);
 		vistaEnviarCorreos.llenaTabla(servicioAlumno.recuperaListaAlumno(), servicioDocente.recuperaListaDocent());
 	}
 	

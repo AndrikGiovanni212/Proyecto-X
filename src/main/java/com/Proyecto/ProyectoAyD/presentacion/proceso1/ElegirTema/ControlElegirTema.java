@@ -27,16 +27,16 @@ public class ControlElegirTema
 	ServicioAlumno servicioAlumno;
 	@Autowired
 	ServicioEvaluador servicioEvaluador;
+	private String contraseñaAlumno;
 	//Método para iniciar la vista
-	public void inicia(String nombreAlumno) 
+	public void inicia(String nombreAlumno,String contraseña) 
 	{//Inicio del método inicia
 		//Recuperamos los temas
-		List <Tema> temas = servicioTema.recuperaTema();
-		System.out.println(recuperaporNombre(nombreAlumno) + " : name");
-		
+		contraseñaAlumno = contraseña;
+		List <Tema> temas = servicioTema.recuperaTema();		
 		Alumno alu = new Alumno();
 		alu=servicioAlumno.recuperaByNombre(nombreAlumno);
-		vista.muestra(this,temas,alu );
+		vista.muestra(this,temas,alu);
 	}//fin del método inicia
 	
 	public void agregarTesina(String tema,Alumno alum) {
@@ -55,10 +55,12 @@ public class ControlElegirTema
 		return servicioAlumno.recuperaByNombre(nombre);
 		
 	}
-	public void agregarAvance(String nombre,File archivo,String Evaluador) {
-		Evaluador eva= servicioEvaluador.recuperaNombre(Evaluador);
-		System.out.println(eva+"Control");
-		servicioEvaluador.guardaravance(nombre, archivo, Evaluador);
+	public boolean agregarAvance(String nombre,File archivo) {
+		//Evaluador eva= servicioEvaluador.recuperaNombre(Evaluador);
+		if(servicioAlumno.guardaravance(nombre, archivo, contraseñaAlumno)) {
+			return true;
+		}
+		return false;
 	}
 
 }

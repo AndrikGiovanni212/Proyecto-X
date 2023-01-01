@@ -70,18 +70,16 @@ public class ServicioAdministrador {
 			repositoryDocen.save(docenteLocal);
 			
 		}else{
-			if(tipo=="EVALUADOR"){
-				Evaluador evaludadorLocal = new Evaluador();
-				evaludadorLocal.setCorreo(correo);
-				evaludadorLocal.setMatricula(matricula);
-				evaludadorLocal.setEdad(edad);
-				evaludadorLocal.setIdentificación(contraseña);
-				evaludadorLocal.setNombre(nombre);
-				evaludadorLocal.setTelefono(telefono);
-				evaludadorLocal.setUsuario(usuario);
-				evaludadorLocal.setTipoRevisor(tipoRevisor);
-				repositoryEva.save(evaludadorLocal);
-			}
+			Evaluador evaludadorLocal = new Evaluador();
+			evaludadorLocal.setCorreo(correo);
+			evaludadorLocal.setMatricula(matricula);
+			evaludadorLocal.setEdad(edad);
+			evaludadorLocal.setContraseñaEvaluador(contraseña);
+			evaludadorLocal.setNombre(nombre);
+			evaludadorLocal.setTelefono(telefono);
+			evaludadorLocal.setUsuario(usuario);
+			evaludadorLocal.setTipoRevisor(tipoRevisor);
+			repositoryEva.save(evaludadorLocal);
 			
 		}
 		return true;
@@ -93,9 +91,7 @@ public class ServicioAdministrador {
 	public boolean verificaAlumno(String Contraseña, String Nombre) {
 		Alumno alumnoLocal = repositoryAlum.findByContraseñaAlumno(Contraseña);
 		if(alumnoLocal != null) {
-			if(alumnoLocal.getNombre().equals(Nombre)) { 
-				return true;
-			}
+			return true;
 		}	
 		return false;
 	}
@@ -106,9 +102,15 @@ public class ServicioAdministrador {
 	public boolean verificaDocente(String contraseña, String nombre) {
 		Docente docenteLocal = repositoryDocen.findByContraseñaDocente(contraseña);
 		if(docenteLocal != null) {
-			if(docenteLocal.getNombre().equals(nombre)) { 
-				return true;
-			}
+			return true;
+		}	
+		return false;
+	}
+	
+	public boolean verificaEvaluador(String contraseña, String nombre) {
+		Evaluador evaLocal = repositoryEva.findByContraseñaEvaluador(contraseña);
+		if(evaLocal != null) {
+			return true;
 		}	
 		return false;
 	}
@@ -135,6 +137,15 @@ public class ServicioAdministrador {
 		Docente docenteLocal = repositoryDocen.findBymatricula(matricula);
 		if(docenteLocal != null) {
 			return docenteLocal;
+		}else {
+			return null;
+		}
+	}
+	
+	public Evaluador verificaEvaluadorParaBaja(String matricula) {
+		Evaluador evaLocal = repositoryEva.findByMatricula(matricula);
+		if(evaLocal != null) {
+			return evaLocal;
 		}else {
 			return null;
 		}
@@ -175,16 +186,20 @@ public class ServicioAdministrador {
 	 * Eliminar del repositorio
 	 * @param matricula
 	 */
-	public boolean bajaPorMatricula(String matricula) {
-		Docente docenteLocal = repositoryDocen.findBymatricula(matricula);
-		Alumno alumnoLocal = repositoryAlum.findByMatricula(matricula);
-		if(docenteLocal != null) {
-			repositoryDocen.delete(docenteLocal);
-			return true;
-		}else {
-			repositoryAlum.delete(alumnoLocal);
-			return false;
-		}
+	public boolean bajaPorMatriculaD(Docente dato) {
+		repositoryDocen.delete(dato);
+		return true;
+		
+	}
+	public boolean bajaPorMatriculaA(Alumno dato) {
+		repositoryAlum.delete(dato);
+		return true;
+		
+	}
+	public boolean bajaPorMatriculaE(Evaluador dato) {
+		repositoryEva.delete(dato);
+		return true;
+		
 	}
 	
 }

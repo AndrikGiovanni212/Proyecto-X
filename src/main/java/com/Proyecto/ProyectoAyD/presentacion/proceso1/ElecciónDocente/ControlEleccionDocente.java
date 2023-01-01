@@ -20,15 +20,16 @@ public class ControlEleccionDocente {
 	@Autowired
 	ServicioAlumno servicioAlumno;
 	public void inicia(String nombre, String contraseña){
-		//Alumno alumnoLocal = new Alumno();
-//		alumnoLocal = servicioAlumno.datosAlumno();
 		List <Evaluador> evaluador= servicioEvaluador.recuperarTodo();
-		vista.muestra(this,evaluador);	
+		vista.vistaEleccionDocente(this,nombre);	
 		vista.llenaTabla(evaluador);
 	}
 	
-	public void guardaEvaluador(long idDirector, long idRevisor) {
-		servicioAlumno.guardaEvaluador(servicioEvaluador.recuperEvaluador(idDirector,idRevisor));
+	public boolean guardaEvaluador(long idDirector, long idRevisor, long idCoordinador) {
+		if(servicioAlumno.guardaEvaluador(servicioEvaluador.recuperEvaluador(idDirector,idRevisor,idCoordinador))) {
+			return true;
+		}
+		return false;
 	}
 	
 	

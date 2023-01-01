@@ -51,8 +51,14 @@ public class ControlAlta {
 	 * @param correo,usuario,edad,nombre,contraseña,matricula,telefono,tipo,tipoRevisor
 	 */
 	public boolean verificarAltaDocente(String correo,String usuario,int edad,String nombre,String contraseña,String matricula, int telefono, String tipo) {
-		return servicioAdm.verificaDocente(contraseña,nombre);	
+		if(tipo.toString() == "DOCENTE") {
+			return servicioAdm.verificaDocente(contraseña,nombre);	
+		}
+		System.out.println("eva");
+		return servicioAdm.verificaEvaluador(contraseña,nombre);	
 	}
+	
+	
 	public void regresaInicio(String nombre) {
 		controlPrincipal.inicioAdministrador(nombre, contraseñaAdm);
 	}

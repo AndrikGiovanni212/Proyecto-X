@@ -15,27 +15,28 @@ public class ControlCambiarPassword{
 	private  ServicioDocente servicioDocente;
 	@Autowired
 	private ServicioAlumno servicioAlumno;
+	@Autowired
+	private ControlPrincipal controlPrincipal;
 
 	
 	public void inicia(String nombre,String contraseña) {
-		vistaCambiarPassword.muestra(this, nombre, contraseña);
+		vistaCambiarPassword.vistaCambiarPassword(this, nombre, contraseña);
 	}
 	
-	public void cambiarContraseña(String contra,String nombre, String oldcontraseña) {
+	public boolean cambiarContraseña(String contra,String nombre, String oldcontraseña) {
 		
 		try {
 			servicioDocente.cambioContraseña(contra, nombre,oldcontraseña);
-			vistaCambiarPassword.muestraDialogoConMensaje("Contraseña cambiada exitosamente");
 		} catch(Exception ex) {
 			vistaCambiarPassword.muestraDialogoConMensaje("Error: "+ex.getMessage());
+			return false;
 		}
+		return true;
 	
 	}
-	public void regresaInicio() {
-		// TODO Auto-generated method stub
+	public void regresaInicio(String nombre,String contraseñaNueva) {
+		controlPrincipal.inicioDocente(nombre, contraseñaNueva);
 		
 	}
-//	public Docente recuperaDocente(String nombre) {
-//		return servicioDocente.recuperDocente(nombre);
-//	}
+
 }

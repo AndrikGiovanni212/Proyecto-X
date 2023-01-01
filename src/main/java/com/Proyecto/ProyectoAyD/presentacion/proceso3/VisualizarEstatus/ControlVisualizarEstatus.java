@@ -34,9 +34,12 @@ public class ControlVisualizarEstatus {
 	@Autowired
 	private ControlPrincipal controlPrincipal;
 	
+	private String nombre;
+	
 	
 	public void inicia(String nombre) {
-		vistaVisualizarEstatus.muestra(this, nombre);
+		this.nombre=nombre;
+		vistaVisualizarEstatus.vistaVisualizarEstatus(this, nombre);
 	}
 	//aqui nos quedamos
 	public ArrayList<HorarioDisponibilidad> buscaHorario( String contraseña) {
@@ -49,7 +52,7 @@ public class ControlVisualizarEstatus {
 	}
 	
 	public void muestraHorario(ArrayList<HorarioDisponibilidad> HD) {
-		vistaVisualizarEstatus.muestraHorario(HD,this);
+		vistaVisualizarEstatus.muestraHorario(HD,this,nombre);
 	}
 	
 	public void salir() {

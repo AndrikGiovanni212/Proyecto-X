@@ -28,6 +28,7 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso2.ModificarFechaEntrega.Vist
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import javax.annotation.PostConstruct;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -37,9 +38,11 @@ import java.awt.event.KeyEvent;
 public class VistaCambiarPassword extends JFrame {
 	private JPanel contentPane;
 	ControlCambiarPassword controlCambiarPassword;
-	private JTextField textField_1 = new JTextField();
+
 	private JTextField textField_2= new JTextField();
 	private String oldcontraseña;
+	String nombre;
+	private JTextField textField;
 	
 
 	/**
@@ -61,15 +64,9 @@ public class VistaCambiarPassword extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private String nombre;
-	public VistaCambiarPassword() {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(100, 100, 367, 293);
-//		contentPane = new JPanel();
-//		contentPane.setBackground(Color.WHITE);
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		//cambio de tamaño de panel
-		
+	
+	public void vistaCambiarPassword(ControlCambiarPassword control,String nombre,String oldcontraseña) {
+		System.out.println(nombre);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
@@ -113,6 +110,7 @@ public class VistaCambiarPassword extends JFrame {
 		panel_1_2.setLayout(null);
 		
 		JButton buttonActualizar = new JButton("Actualizar");
+		buttonActualizar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 	/*	buttonActualizar.setEnabled(false);
 		buttonActualizar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -125,13 +123,19 @@ public class VistaCambiarPassword extends JFrame {
 		});*/	
 		buttonActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(textField_2.getText()); 
-				controlCambiarPassword.cambiarContraseña(textField_2.getText(), nombre,oldcontraseña);
+				if(controlCambiarPassword.cambiarContraseña(textField_2.getText(), nombre,oldcontraseña)) {
+					muestraDialogoConMensaje("Contraseña cambiada exitosamente");
+					textField.setText(textField_2.getText());
+					textField_2.setText("");
+					controlCambiarPassword.regresaInicio(nombre,textField.getText());
+					termina();
+					
+				}
 				
 			}
 		});
 		buttonActualizar.setBackground(new Color(176, 224, 230));
-		buttonActualizar.setBounds(211, 211, 137, 23);
+		buttonActualizar.setBounds(211, 200, 137, 34);
 		panel_1_2.add(buttonActualizar);
 		
 		JLabel lblTitulo = new JLabel("Cambiar Contraseña");
@@ -141,14 +145,9 @@ public class VistaCambiarPassword extends JFrame {
 		
 		JLabel lblPassword = new JLabel("Contraseña Actual:");
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPassword.setBounds(10, 56, 189, 33);
+		lblPassword.setBounds(10, 56, 175, 33);
 		panel_1_2.add(lblPassword);
 		
-		
-		textField_1.setEditable(false);
-		textField_1.setBounds(195, 56, 176, 27);
-		panel_1_2.add(textField_1);
-		textField_1.setColumns(10);	
 		
 		JLabel lblNuevaFechaDe = new JLabel("Nueva Contraseña:");
 		lblNuevaFechaDe.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -165,13 +164,19 @@ public class VistaCambiarPassword extends JFrame {
 		textField_2.setColumns(10);
 		textField_2.setBounds(195, 123, 176, 31);
 		panel_1_2.add(textField_2);
+		
+		textField = new JTextField(oldcontraseña);
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBounds(189, 56, 176, 31);
+		panel_1_2.add(textField);
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(412, 0, 77, 60);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel();
+		JLabel lblNewLabel_1 = new JLabel(""+nombre);
 		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
@@ -221,22 +226,19 @@ public class VistaCambiarPassword extends JFrame {
 		mnDocente.add(btnHorarioDisponibilidad);
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
-	
 		
-	}
-
-	public void muestra(ControlCambiarPassword control,String nombre,String oldcontraseña) {
 		controlCambiarPassword=control;
-		//Docente doce=controlCambiarPassword.recuperaDocente(nombre);
-		System.out.println("a");
-		this.nombre=nombre;
-		this.oldcontraseña=oldcontraseña;
-		//String pass=doce.getIdDocente();
-		//System.out.println(pass+" Spy pass");
-//		textField_1.setText(pass);	
 		setVisible(true);
 		
 	}
+
+//	public void muestra(ControlCambiarPassword control,String nombre,String oldcontraseña) {
+//		controlCambiarPassword=control;
+//		this.nombre=nombre;
+//		this.oldcontraseña=oldcontraseña;	
+//		setVisible(true);
+//		
+//	}
 	public void termina() {
 		setVisible(false);
 	}

@@ -70,7 +70,7 @@ public class VistaSeleccionHorario extends JFrame {
 	JComboBox comboBoxModo;
 	
 	
-	public VistaSeleccionHorario() {
+	public void vistaSeleccionHorario(ControSeleccionHorario controlSeleccionHorario,String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
@@ -246,7 +246,14 @@ public class VistaSeleccionHorario extends JFrame {
 
 		JMenu mnNewMenu = new JMenu("Inicio");
 		menuBar.add(mnNewMenu);
-
+		
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				termina();
+			}
+		});
+		mnNewMenu.add(btnInicio);
 
 		JMenu mnNewMenu_1 = new JMenu("Alumno");
 		menuBar.add(mnNewMenu_1);
@@ -325,15 +332,22 @@ public class VistaSeleccionHorario extends JFrame {
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2_2.setBounds(162, 11, 99, 14);
 		//PanelMensaje.add(lblNewLabel_2_1);
+		
+		this.controlSeleccionHorario = controlSeleccionHorario;
+		setVisible(true);
 	}
 	
-	public void muestra(ControSeleccionHorario controlSeleccionHorario,String nombre) {
-		this.controlSeleccionHorario = controlSeleccionHorario;
-		this.nombre=nombre;
-		setVisible(true);
-		
-	}
+//	public void muestra(ControSeleccionHorario controlSeleccionHorario,String nombre) {
+//		this.controlSeleccionHorario = controlSeleccionHorario;
+//		this.nombre=nombre;
+//		setVisible(true);
+//		
+//	}
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
+	}
+	
+	public void termina() {
+		setVisible(false);
 	}
 }

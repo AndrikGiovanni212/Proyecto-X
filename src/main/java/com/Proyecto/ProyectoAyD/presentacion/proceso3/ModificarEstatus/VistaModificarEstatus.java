@@ -29,14 +29,7 @@ import com.Proyecto.ProyectoAyD.negocio.modelo.HorarioDisponibilidad;
 
 @SuppressWarnings("serial")
 @Component
-public class VistaModificarEstatus extends JFrame {
-	public VistaModificarEstatus() {
-	}
-	
-	
-	
-	
-	
+public class VistaModificarEstatus extends JFrame {	
 	private JRadioButton rdbtn1;
 	private JRadioButton rdbtn2;
 	private JRadioButton rdbtn3;
@@ -1276,8 +1269,8 @@ public class VistaModificarEstatus extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Archivo Modificado");
-		lblNewLabel_2.setFont(new Font("Segoe Script", Font.PLAIN, 18));
-		lblNewLabel_2.setBounds(21, 35, 209, 36);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(38, 37, 209, 36);
 		panel.add(lblNewLabel_2);
 		
 		JButton btnModificar = new JButton("Modificar");

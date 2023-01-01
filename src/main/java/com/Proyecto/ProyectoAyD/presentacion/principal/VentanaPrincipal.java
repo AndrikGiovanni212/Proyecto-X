@@ -519,7 +519,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnTesina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.ElegirTema(nombreAlumno);
+				controlPrincipal.ElegirTema(nombreAlumno,contraseña);
 			}
 		});
 			mnNewMenu_1.add(btnTesina);
@@ -562,7 +562,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnTareas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlPrincipal.SubirTareasAlumno(nombreAlumno);
+				controlPrincipal.SubirTareasAlumno(nombreAlumno,contraseña);
 			}
 		});
 			mnNewMenu_2.add(btnTareas);
@@ -756,12 +756,6 @@ public class VentanaPrincipal extends JFrame {
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 
-			JLabel lblFondoVerde = new JLabel("New label");
-			lblFondoVerde.setBounds(0, 33, 434, 198);
-			lblFondoVerde.setIcon(new ImageIcon("Imagenes\\FondoVerde.jpeg"));
-			contentPane.add(lblFondoVerde);
-
-
 			JLabel lblLogoFacebook = new JLabel("New label");
 			lblLogoFacebook.setBounds(472, 331, 58, 38);
 			lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
@@ -795,15 +789,15 @@ public class VentanaPrincipal extends JFrame {
 			JMenu mnDocente = new JMenu("Docente\r\n");
 			menuBar.add(mnDocente);
 
-			JButton btnAvance = new JButton("Avance\r\n");
-			btnAvance.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			mnDocente.add(btnAvance);
-
-			JButton btnTema = new JButton("Tema");
-			mnDocente.add(btnTema);
+//			JButton btnAvance = new JButton("Avance\r\n");
+//			btnAvance.addActionListener(new ActionListener() {
+//				public void actionPerformed(ActionEvent e) {
+//				}
+//			});
+//			mnDocente.add(btnAvance);
+//
+//			JButton btnTema = new JButton("Tema");
+//			mnDocente.add(btnTema);
 			//proceso1
 			JButton btnMensaje = new JButton("Mensaje\r\n");
 			btnMensaje.addActionListener(new ActionListener() {

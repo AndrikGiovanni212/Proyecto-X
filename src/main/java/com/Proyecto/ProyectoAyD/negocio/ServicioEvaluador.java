@@ -61,36 +61,35 @@ public class ServicioEvaluador {
 		return evaluador;
 	}
 	
-	public List<Evaluador> recuperEvaluador(long idDirector, long idRevisor){
+	public List<Evaluador> recuperEvaluador(long idDirector, long idRevisor, long idCoordinador){
 		List<Evaluador> evaluador = new ArrayList<>();
 		evaluador.add(repositoryEvaluador.findByIdEvaluador(idDirector));
 		evaluador.add(repositoryEvaluador.findByIdEvaluador(idRevisor));
+		evaluador.add(repositoryEvaluador.findByIdEvaluador(idCoordinador));
 		return evaluador;
 	}
-public void guardaravance( String nombre, File ruta,String Evaluador) {
-	    System.out.println(nombre);
-        Archivo archi = new Archivo();
-        List<Archivo> listarchi=new ArrayList<Archivo>();
-        Evaluador eva=new Evaluador();
-        eva=repositoryEvaluador.findByNombre(Evaluador);
-        System.out.println(eva+"Servicio");
-        //po.setNombreArchivo(nombre);
-        try {
-            byte[] pdf = new byte[(int) ruta.length()];
-            InputStream input = new FileInputStream(ruta);
-            input.read(pdf);
-            archi.setArchivoPdf(pdf);
-            archi.setNombreArchivo(nombre);
-            archi.setEvaluador(eva);
-            repositoryArchivo.save(archi);
-            listarchi.add(archi);
-            eva.setArchivo(listarchi);
-            repositoryEvaluador.save(eva);
-        } catch (IOException ex) {
-            archi.setArchivoPdf(null);
-            //System.out.println("Error al agregar archivo pdf "+ex.getMessage());
-        }
-    }
+//public void guardaravance( String nombre, File ruta,String Evaluador) {
+//        Archivo archi = new Archivo();
+//        List<Archivo> listarchi=new ArrayList<Archivo>();
+//        Evaluador eva=new Evaluador();
+//        eva=repositoryEvaluador.findByNombre(Evaluador);
+//        try {
+//            byte[] pdf = new byte[(int) ruta.length()];
+//            InputStream input = new FileInputStream(ruta);
+//            input.read(pdf);
+//            archi.setArchivoPdf(pdf);
+//            archi.setNombreArchivo(nombre);
+//            archi.setEvaluador(eva);
+//            repositoryArchivo.save(archi);
+//            listarchi.add(archi);
+//            eva.setArchivo(listarchi);
+//            repositoryEvaluador.save(eva);
+//        } catch (IOException ex) {
+//            archi.setArchivoPdf(null);
+//        }
+//    }
+
+	
 	//UH1.4
  public boolean enviarRetro(String retroalimentacion,String asunto,String nombre,String nombreDocente) {
 	 Notificacion retro = new   Notificacion();

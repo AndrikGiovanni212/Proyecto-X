@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,12 +28,10 @@ public class Evaluador {
 	private boolean correoEnviado = false;
 	private String nombre;
 	private String identificación;
-	private long idGrupo;
 	private String correo;
 	private int telefono;
 	private String usuario;
 	private String contraseñaEvaluador;
-	private Boolean status;
 	@ManyToOne(targetEntity = Alumno.class)
 	@JoinColumn(name="IdAlumno")
 	private Alumno alumno;
@@ -42,7 +41,7 @@ public class Evaluador {
 	@OneToMany(targetEntity = Notificacion.class,fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List <Notificacion> notificacion;
 	@LazyCollection(LazyCollectionOption.FALSE)
-	@OneToMany(targetEntity = Archivo.class)
+	@ManyToMany(targetEntity = Archivo.class)
 	private List <Archivo> archivo;
 
 

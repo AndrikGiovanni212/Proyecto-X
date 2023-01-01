@@ -59,12 +59,6 @@ public class VistaAlta extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAlta() {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(100, 100, 496, 369);
-//		contentPane = new JPanel();
-//		contentPane.setBackground(Color.WHITE);
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-// cambiar tamaño de panel
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
@@ -251,7 +245,7 @@ public class VistaAlta extends JFrame {
 		panel_1.add(comboBoxTipoRevisor);
 		
 		
-		JLabel lblTipoRevisor = new JLabel("Tipo Revisor");
+		JLabel lblTipoRevisor = new JLabel("Tipo Evaluador");
 		lblTipoRevisor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTipoRevisor.setBounds(436, 120, 113, 14);
 		panel_1.add(lblTipoRevisor);
@@ -263,16 +257,16 @@ public class VistaAlta extends JFrame {
 		
 		JButton btnButtonAgregarUsuario = new JButton("Agregar Usuario");
 		
-		btnButtonAgregarUsuario.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				if(textFieldCorreo.getText().equals("")||textFieldUsuario.getText().equals("")||textFieldEdad.getText().equals("")||textFieldNombre.getText().equals("")||textFieldContraseña.getText().equals("")||textFieldMatricula.getText().equals("")||textFieldTelefono.getText().equals("")){
-					btnButtonAgregarUsuario.setEnabled(false);
-				}else {
-					btnButtonAgregarUsuario.setEnabled(true);
-				}
-			}
-		});
+//		btnButtonAgregarUsuario.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseEntered(MouseEvent e) {
+//				if(textFieldCorreo.getText().equals("")||textFieldUsuario.getText().equals("")||textFieldEdad.getText().equals("")||textFieldNombre.getText().equals("")||textFieldContraseña.getText().equals("")||textFieldMatricula.getText().equals("")||textFieldTelefono.getText().equals("")){
+//					btnButtonAgregarUsuario.setEnabled(false);
+//				}else {
+//					btnButtonAgregarUsuario.setEnabled(true);
+//				}
+//			}
+//		});
 		btnButtonAgregarUsuario.setEnabled(false);
 		btnButtonAgregarUsuario.setBounds(373, 228, 128, 23);
 		panel_1_2.add(btnButtonAgregarUsuario);
@@ -329,7 +323,7 @@ public class VistaAlta extends JFrame {
 					
 				}else {
 					int Edad = Integer.parseInt(textFieldEdad.getText());
-					int Telefono = Integer.parseInt(textFieldTelefono.getText());
+					int Telefono = Integer.parseInt(textFieldTelefono.getText());	
 					if(controlAlta.verificarAltaDocente(textFieldCorreo.getText(),textFieldUsuario.getText(),Edad,textFieldNombre.getText(),textFieldContraseña.getText(),textFieldMatricula.getText(),Telefono,comboBoxMastros.getSelectedItem().toString())) {
 						muestraDialogoConMensaje("Usuario ya registrado");
 					}else {
@@ -343,10 +337,52 @@ public class VistaAlta extends JFrame {
 							textFieldTelefono.setText("");
 						}
 						muestraDialogoConMensaje("Registro exitoso");
+			
 					}	
 					
 				}
 				
+			}
+		});
+		
+		
+		btnButtonAgregarUsuario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				if(comboBoxAlumnoDocente.getSelectedItem().toString()=="") {
+					btnButtonAgregarUsuario.setEnabled(false);
+				}else {
+					if(comboBoxAlumnoDocente.getSelectedItem().toString()=="ALUMNO") {
+						if(textFieldCorreo.getText().equals("")||textFieldUsuario.getText().equals("")||textFieldEdad.getText().equals("")||textFieldNombre.getText().equals("")||textFieldContraseña.getText().equals("")||textFieldMatricula.getText().equals("")||textFieldTelefono.getText().equals("")){
+							btnButtonAgregarUsuario.setEnabled(false);
+						}else {
+							btnButtonAgregarUsuario.setEnabled(true);
+						}
+					}else {
+						if(comboBoxMastros.getSelectedItem().toString()=="") {
+							btnButtonAgregarUsuario.setEnabled(false);
+						}else {
+							if(comboBoxMastros.getSelectedItem().toString()=="DOCENTE") {
+								if(textFieldCorreo.getText().equals("")||textFieldUsuario.getText().equals("")||textFieldEdad.getText().equals("")||textFieldNombre.getText().equals("")||textFieldContraseña.getText().equals("")||textFieldMatricula.getText().equals("")||textFieldTelefono.getText().equals("")){
+									btnButtonAgregarUsuario.setEnabled(false);
+								}else {
+									btnButtonAgregarUsuario.setEnabled(true);
+								}
+							}else {
+								if(comboBoxTipoRevisor.getSelectedItem().toString()=="") {
+									btnButtonAgregarUsuario.setEnabled(false);
+								}else{
+									if(textFieldCorreo.getText().equals("")||textFieldUsuario.getText().equals("")||textFieldEdad.getText().equals("")||textFieldNombre.getText().equals("")||textFieldContraseña.getText().equals("")||textFieldMatricula.getText().equals("")||textFieldTelefono.getText().equals("")){
+										btnButtonAgregarUsuario.setEnabled(false);
+									}else {
+										btnButtonAgregarUsuario.setEnabled(true);
+									}
+								}
+							}
+						}
+					}
+				}
+							
 			}
 		});
 

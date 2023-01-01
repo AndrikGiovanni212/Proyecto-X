@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -46,6 +47,10 @@ public class VistaBaja extends JFrame {
 	private JTextField textFieldRolMuestra;
 	
 	private ControlBaja controlBaja;
+	
+	private Alumno alumnoLocal;
+	private Docente docenteLocal;
+	private Evaluador evaLocal;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -225,29 +230,39 @@ public class VistaBaja extends JFrame {
 		btnNewButtonBusqueda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String matriculaBuscada= textFieldMatricula.getText();
-				Alumno alumnoLocal = controlBaja.verificaAlumnoBaja(matriculaBuscada);
-				Docente docenteLocal = controlBaja.verificaDocenteBaja(matriculaBuscada);
+				alumnoLocal = controlBaja.verificaAlumnoBaja(matriculaBuscada);
+				docenteLocal = controlBaja.verificaDocenteBaja(matriculaBuscada);
+				evaLocal = controlBaja.verificaEvaluadorBaja(matriculaBuscada);
 				
 				if(textFieldMatricula.getText().equals("")){
 					muestraDialogoConMensaje("Ingrese una Matricula Valida");
 				}else {
-					if(controlBaja.verificaExistenciaBaja(matriculaBuscada)) {
-						if(alumnoLocal!= null){
-							textFieldNombre.setText(alumnoLocal.getNombre());
-							textFieldCorreo.setText(alumnoLocal.getCorreo());
-							textFieldTelefono.setText(String.valueOf(alumnoLocal.getTelefono()));
-							textFieldEdad.setText(String.valueOf(alumnoLocal.getEdad()));
-							textFieldRolMuestra.setText("ALUMNO");
-							btnEliminar.setEnabled(true);
-						}else {
-							textFieldNombre.setText(docenteLocal.getNombre());
-							textFieldCorreo.setText(docenteLocal.getCorreo());
-							textFieldTelefono.setText(String.valueOf(docenteLocal.getTelefono()));
-							textFieldEdad.setText(String.valueOf(docenteLocal.getEdad()));
-							textFieldRolMuestra.setText("DOCENTE");
-							btnEliminar.setEnabled(true);
-						}
-					}else {
+					if(alumnoLocal != null) {
+						textFieldNombre.setText(alumnoLocal.getNombre());
+						textFieldCorreo.setText(alumnoLocal.getCorreo());
+						textFieldTelefono.setText(String.valueOf(alumnoLocal.getTelefono()));
+						textFieldEdad.setText(String.valueOf(alumnoLocal.getEdad()));
+						textFieldRolMuestra.setText("ALUMNO");
+						btnEliminar.setEnabled(true);
+					}
+					else if(docenteLocal != null) {
+						textFieldNombre.setText(docenteLocal.getNombre());
+						textFieldCorreo.setText(docenteLocal.getCorreo());
+						textFieldTelefono.setText(String.valueOf(docenteLocal.getTelefono()));
+						textFieldEdad.setText(String.valueOf(docenteLocal.getEdad()));
+						textFieldRolMuestra.setText("DOCENTE");
+						btnEliminar.setEnabled(true);
+					}
+					
+					else if(evaLocal != null) {
+						textFieldNombre.setText(evaLocal.getNombre());
+						textFieldCorreo.setText(evaLocal.getCorreo());
+						textFieldTelefono.setText(String.valueOf(evaLocal.getTelefono()));
+						textFieldEdad.setText(String.valueOf(evaLocal.getEdad()));
+						textFieldRolMuestra.setText("EVALUADOR");
+						btnEliminar.setEnabled(true);
+					}
+					else {
 						muestraDialogoConMensaje("No se encontro el Usuario");
 					}
 				}
@@ -257,15 +272,24 @@ public class VistaBaja extends JFrame {
 		
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(controlBaja.darBaja(textFieldMatricula.getText())) {
-					muestraDialogoConMensaje("Docente eliminado exitosamente");
-					limpiarCampos(); 
-				}else {
-					muestraDialogoConMensaje("Alumno eliminado exitosamente");
-					limpiarCampos();
-					
+				if(docenteLocal != null) {
+					if(controlBaja.darBajaD(docenteLocal)) {
+						muestraDialogoConMensaje("Docente eliminado exitosamente");
+						limpiarCampos(); 
+					}
 				}
-				
+				if(alumnoLocal != null) {
+					if(controlBaja.darBajaA(alumnoLocal)) {
+						muestraDialogoConMensaje("Alumno eliminado exitosamente");
+						limpiarCampos(); 
+					}
+				}
+				if(evaLocal != null) {
+					if(controlBaja.darBajaE(evaLocal)) {
+						muestraDialogoConMensaje("Evaluador eliminado exitosamente");
+						limpiarCampos(); 
+					}
+				}		
 			}
 		});
 		

@@ -59,22 +59,24 @@ public class VistaVisualizarEstatus extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VistaVisualizarEstatus() {
+	public void vistaVisualizarEstatus(ControlVisualizarEstatus controlVisualizarEstatus,String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 494, 355);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel_fondoBlanco = new JPanel();
 		panel_fondoBlanco.setBackground(Color.WHITE);
-		panel_fondoBlanco.setBounds(10, 80, 458, 171);
+		panel_fondoBlanco.setBounds(10, 80, 586, 211);
 		contentPane.add(panel_fondoBlanco);
 		panel_fondoBlanco.setLayout(null);
 		
 		JButton btnIngresar = new JButton("Ingresar");
+		btnIngresar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							
@@ -92,12 +94,12 @@ public class VistaVisualizarEstatus extends JFrame {
 							
 			}
 		});
-		btnIngresar.setBounds(166, 137, 122, 23);
+		btnIngresar.setBounds(258, 166, 122, 23);
 		panel_fondoBlanco.add(btnIngresar);
 		
 		JLabel lblNewLabel_2 = new JLabel("En busca de mi docente...");
-		lblNewLabel_2.setFont(new Font("Embassy BT", Font.BOLD, 40));
-		lblNewLabel_2.setBounds(48, 21, 389, 46);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblNewLabel_2.setBounds(88, 31, 488, 46);
 		panel_fondoBlanco.add(lblNewLabel_2);
 		
 		textClave = new JTextField();
@@ -110,49 +112,50 @@ public class VistaVisualizarEstatus extends JFrame {
 				}
 			}
 		});
-		textClave.setBounds(139, 88, 192, 20);
+		textClave.setBounds(221, 107, 192, 29);
 		panel_fondoBlanco.add(textClave);
 		textClave.setColumns(10);
 		
-		JLabel lblTextClave = new JLabel("Clave");
-		lblTextClave.setBounds(83, 91, 46, 14);
+		JLabel lblTextClave = new JLabel("Clave:");
+		lblTextClave.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTextClave.setBounds(134, 114, 46, 14);
 		panel_fondoBlanco.add(lblTextClave);
 		
 		JPanel panel_fondoVerde = new JPanel();
 		panel_fondoVerde.setBackground(new Color(0, 128, 0));
-		panel_fondoVerde.setBounds(0, 38, 478, 226);
+		panel_fondoVerde.setBounds(0, 36, 608, 293);
 		contentPane.add(panel_fondoVerde);
 		panel_fondoVerde.setLayout(null);
 		
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(335, 275, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(462, 335, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
-		
+
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(359, 283, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(489, 340, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
-		
+
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(403, 280, 75, 28);
-		lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
+		lblInstagram.setBounds(530, 335, 78, 28);
+		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
-		
+
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(0, 272, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(-14, 332, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel(nombre);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
-		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
-		contentPane.add(lblNewLabel_1);
+//		JLabel lblNewLabel = new JLabel("New label");
+//		lblNewLabel.setBounds(249, 0, 77, 62);
+//		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
+//		contentPane.add(lblNewLabel);
+//		
+//		JLabel lblNewLabel_1 = new JLabel(nombre);
+//		lblNewLabel_1.setBounds(328, 11, 119, 22);
+//		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+//		contentPane.add(lblNewLabel_1);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 219, 28);
@@ -160,6 +163,14 @@ public class VistaVisualizarEstatus extends JFrame {
 
 		JMenu mnNewMenu = new JMenu("Inicio");
 		menuBar.add(mnNewMenu);
+		
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				termina();
+			}
+		});
+		mnNewMenu.add(btnInicio);
 
 
 		JMenu mnNewMenu_1 = new JMenu("Alumno");
@@ -181,19 +192,23 @@ public class VistaVisualizarEstatus extends JFrame {
 
 		JMenu mnNewMenu_2 = new JMenu("Clase");
 		menuBar.add(mnNewMenu_2);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(414, 0, 66, 60);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		contentPane.add(lblNewLabel);
 
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlVisualizarEstatus.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
+		JLabel lblNewLabel_1 = new JLabel(nombre);
+		lblNewLabel_1.setBounds(489, 11, 119, 22);
+		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
+		contentPane.add(lblNewLabel_1);
+		
+		this.controlVisualizarEstatus = controlVisualizarEstatus;
+		setVisible(true);
 		
 	}
 	
-public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualizarEstatus controlVisualizarEstatus) {
+public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualizarEstatus controlVisualizarEstatus, String nombre) {
 		
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 634, 412);
@@ -581,7 +596,7 @@ public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualiza
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel();
+		JLabel lblNewLabel_1 = new JLabel(nombre);
 		lblNewLabel_1.setBounds(489, 11, 119, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
@@ -592,6 +607,14 @@ public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualiza
 
 		JMenu mnNewMenu = new JMenu("Inicio");
 		menuBar.add(mnNewMenu);
+		
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				termina();
+			}
+		});
+		mnNewMenu.add(btnInicio);
 
 
 		JMenu mnNewMenu_1 = new JMenu("Alumno");
@@ -618,12 +641,12 @@ public void muestraHorario(ArrayList<HorarioDisponibilidad> HD, ControlVisualiza
 		setVisible(true);
 	}
 	
-	public void muestra(ControlVisualizarEstatus controlVisualizarEstatus,String nombre) {
-		this.controlVisualizarEstatus = controlVisualizarEstatus;
-		this.nombre=nombre;
-		setVisible(true);
-		
-	}
+//	public void muestra(ControlVisualizarEstatus controlVisualizarEstatus,String nombre) {
+//		this.controlVisualizarEstatus = controlVisualizarEstatus;
+//		this.nombre=nombre;
+//		setVisible(true);
+//		
+//	}
 	
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);

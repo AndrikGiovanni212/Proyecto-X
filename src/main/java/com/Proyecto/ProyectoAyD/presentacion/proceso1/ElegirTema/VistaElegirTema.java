@@ -40,6 +40,8 @@ public class VistaElegirTema extends JFrame
 	private String ruta;
 	
 	public VistaElegirTema() {
+		
+		 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
@@ -79,9 +81,6 @@ public class VistaElegirTema extends JFrame
 	btnConfirmar.setBounds(245, 163, 89, 23);
 	PanelTema.add(btnConfirmar);
 	
-	JPanel PanelMensaje = new JPanel();
-	tabbedPane.addTab("Mensaje", null, PanelMensaje, null);
-	
 	JPanel PanelAvance = new JPanel();
 	tabbedPane.addTab("Avance", null, PanelAvance, null);
 	PanelAvance.setLayout(null);
@@ -114,11 +113,12 @@ public class VistaElegirTema extends JFrame
 	
 	JButton btnNewEnviarArchivo = new JButton("Entregar envio");
 	btnNewEnviarArchivo.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-	        
+		public void actionPerformed(ActionEvent e) {    
 	        File ruta2 = new File(ruta);
 	        if (ruta.trim().length() != 0) {
-	        	controlElegirTema.agregarAvance(btnSeleccionar.getText(), ruta2, "omar");
+	        	if(controlElegirTema.agregarAvance(btnSeleccionar.getText(), ruta2)) {
+	        		muestraDialogoConMensaje("Exito");
+	        	}
 	        } else {
 	            JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
 	        }
@@ -127,9 +127,6 @@ public class VistaElegirTema extends JFrame
 	});
 	btnNewEnviarArchivo.setBounds(348, 157, 115, 23);
 	PanelAvance.add(btnNewEnviarArchivo);
-	
-	JPanel PanelHorario = new JPanel();
-	tabbedPane.addTab("Horario", null, PanelHorario, null);
 
 	
 	JLabel lblLogoFacebook = new JLabel("New label");
@@ -160,8 +157,14 @@ public class VistaElegirTema extends JFrame
 	JMenu mnNewMenu = new JMenu("Inicio");
 	menuBar.add(mnNewMenu);
 	
-	JButton btnNewButton = new JButton("");
-	mnNewMenu.add(btnNewButton);
+	JButton btnInicio = new JButton("Inicio");
+	btnInicio.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			//ControlCambiarPassword.regresaInicio();
+			termina();
+		}
+	});
+	mnNewMenu.add(btnInicio);
 	
 	JMenu mnNewMenu_1 = new JMenu("Alumno");
 	menuBar.add(mnNewMenu_1);
@@ -192,12 +195,11 @@ public class VistaElegirTema extends JFrame
 	lblNewLabel_1.setBounds(489, 11, 119, 22);
 	lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 	contentPane.add(lblNewLabel_1);
-	
-	
+
 
 }//fin del constructor 
 /*  método para poder mostrar la vista temas, junto a los temas disponibles */
-public void muestra (ControlElegirTema control, List <Tema> temas,Alumno alum) 
+public void muestra (ControlElegirTema control,List <Tema> temas,Alumno alum) 
 {//Inicio de muestra
 	controlElegirTema= control;
 	alumn=alum;
@@ -222,6 +224,10 @@ public void verificarVacia()
 
 public void muestraDialogoConMensaje(String mensaje ) {
 	JOptionPane.showMessageDialog(this , mensaje);
+}
+
+public void termina() {
+	setVisible(false);
 }
 
 }//fin de la clase vistaElegirTema

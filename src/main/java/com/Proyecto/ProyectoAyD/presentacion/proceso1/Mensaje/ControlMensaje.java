@@ -1,5 +1,7 @@
 package com.Proyecto.ProyectoAyD.presentacion.proceso1.Mensaje;
 
+
+
 import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,7 @@ public class ControlMensaje {
 		this.nombre = nombre;
 		this.contraseña = contraseña;
 		vista.muestra(this,contraseña,nombre);
+		vista.llenaTablaMensaje(servicioAlumno.recuperaListaAlumno());
 	}
 
 
@@ -50,15 +53,15 @@ public class ControlMensaje {
 	 * Método que arranca la historia de usuario "enviar mensaje"
 	 * 
 	 */
-	public void enviarInfo(String Nombre, String CorreoElectronico, String Mensaje, String Asunto) {
+	public boolean enviarInfo(String Nombre, String CorreoElectronico, String Mensaje, String Asunto) {
 		if(servicioAlumno.validaUsuario(Nombre,CorreoElectronico,Mensaje,Asunto)==true) {
 			
 			servicioNotificacion.enviarMensaje(Nombre, CorreoElectronico,Mensaje,Asunto);
 			
 			servicioEvaluador.enviarMensaje(Nombre, CorreoElectronico,Mensaje,Asunto);
-			muestraDialogoConMensaje("EXITO");
-			
+			return true;
 		}
+		return false;
 	}
 	
 	public void MostrarNotifi(String contraseña,String nombre) {
@@ -70,8 +73,6 @@ public class ControlMensaje {
 		controlPrincipal.inicioDocente(nombre, contraseña);
 	}
 	
-	public void muestraDialogoConMensaje(String mensaje ) {
-		JOptionPane.showInputDialog(this , mensaje);
-	}
+
 
 }

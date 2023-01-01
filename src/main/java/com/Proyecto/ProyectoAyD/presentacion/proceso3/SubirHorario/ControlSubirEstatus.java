@@ -35,6 +35,8 @@ public class ControlSubirEstatus {
 	private ControlSubirEstatus controlSubirEstatus;
 	@Autowired
 	private ControlSubirActividades controlSubirActividades;
+	private String nombre;
+	private String contraseña;
 	
 	/**
 	 * manda la señal para que muestre la vista de subir estatus o si ya exite alguno de poderlo modificar
@@ -43,6 +45,8 @@ public class ControlSubirEstatus {
 	 * @param idDocent, nombre
 	 */
 	public void inicia(String nombre,String idDocente) {
+		this.nombre=nombre;
+		contraseña = idDocente;
 		if(servicioDisponibilidad.verificaExistenciaHorario(idDocente) == null) {  //verfica si existen algun horario en existencia 
 			ventanaSubir.vistaSubirEstatus(this,nombre,idDocente);
 		}else {
@@ -76,6 +80,10 @@ public class ControlSubirEstatus {
 	
 	public void salir() {
 		controlPrincipal.inicia();
+	}
+	
+	public void regresaInicio() {
+		controlPrincipal.inicioDocente(nombre, contraseña);
 	}
 	
 	

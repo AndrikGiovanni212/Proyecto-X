@@ -124,7 +124,6 @@ public class ProyectoAyDApplication {
 		Revisor1.setContraseñaEvaluador("aldac");
 		Revisor1.setTelefono(34244324);
 		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
-		Revisor1.setStatus(true);
 		Revisor1.setTipoRevisor("Director");
 		
 		repositoryEvalaudor.save(Revisor1);
@@ -135,7 +134,6 @@ public class ProyectoAyDApplication {
 
 		Revisor1.setTelefono(34244324);
 		Revisor1.setCorreo("AldalcoOm34@izt.uam.mx");
-		Revisor1.setStatus(true);
 		Revisor1.setTipoRevisor("Director");
 		repositoryEvalaudor.save(Revisor1);
 		
@@ -146,7 +144,6 @@ public class ProyectoAyDApplication {
 		Revisor2.setTelefono(6453564);
 		Revisor2.setCorreo("PedroRodro674@izt.uam.mx");
 		Revisor2.setTipoRevisor("Revisor");
-		Revisor2.setStatus(true);
 		repositoryEvalaudor.save(Revisor2);
 		
 		Revisor2= new Evaluador();
@@ -156,7 +153,6 @@ public class ProyectoAyDApplication {
 		Revisor2.setTelefono(6453564);
 		Revisor2.setCorreo("PedroRodro674@izt.uam.mx");
 		Revisor2.setTipoRevisor("Coordinador");
-		Revisor2.setStatus(true);
 		Revisor2.setAlumno(alumno);
 		repositoryEvalaudor.save(Revisor2);
 		
@@ -167,7 +163,7 @@ public class ProyectoAyDApplication {
 		Notificacion1.setCorreo("gabg2116@gmail.com");
 		Notificacion1.setAsunto("Tesis");
 		Notificacion1.setMensaje("Le falta mejorar a la tesis");
-		//Notificacion1.setDocente(docente1);
+		Notificacion1.setDocente(docente1);
 		repositorioNotificacion.save(Notificacion1);
 		Tema tema1= new Tema();
 		tema1.setNombre("Inteligencia Artificial");

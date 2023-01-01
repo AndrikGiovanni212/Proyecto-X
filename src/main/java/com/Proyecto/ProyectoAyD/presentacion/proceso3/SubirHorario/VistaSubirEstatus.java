@@ -33,6 +33,7 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 @Component
 public class VistaSubirEstatus extends JFrame {
+	
 
 	private JPanel contentPane;
 	private ControlSubirEstatus controlSubir;
@@ -94,7 +95,7 @@ public class VistaSubirEstatus extends JFrame {
 	 */
 	public void vistaSubirEstatus(ControlSubirEstatus controlSubir, String nombreDocente, String contraseña) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -105,13 +106,13 @@ public class VistaSubirEstatus extends JFrame {
 		JPanel panel_fondoVerde = new JPanel();
 		panel_fondoVerde.setLayout(null);
 		panel_fondoVerde.setBackground(new Color(0, 128, 0));
-		panel_fondoVerde.setBounds(0, 39, 434, 181);
+		panel_fondoVerde.setBounds(0, 38, 618, 288);
 		contentPane.add(panel_fondoVerde);
 		
 		JPanel panel_fondoBlanco = new JPanel();
 		panel_fondoBlanco.setLayout(null);
 		panel_fondoBlanco.setBackground(Color.WHITE);
-		panel_fondoBlanco.setBounds(10, 11, 414, 159);
+		panel_fondoBlanco.setBounds(10, 11, 598, 266);
 		panel_fondoVerde.add(panel_fondoBlanco);
 		
 		JButton btnCrearFormulario = new JButton("Crear Horario");
@@ -120,46 +121,46 @@ public class VistaSubirEstatus extends JFrame {
 				controlSubir.dameHorario(nombreDocente,contraseña);  //boton activado de crea Horario
 			}
 		});
-		btnCrearFormulario.setBounds(140, 127, 122, 23);
+		btnCrearFormulario.setBounds(264, 208, 122, 23);
 		panel_fondoBlanco.add(btnCrearFormulario);
 		
 		JLabel lblNewLabel_2 = new JLabel("Lymbi System");
-		lblNewLabel_2.setFont(new Font("Embassy BT", Font.BOLD, 43));
-		lblNewLabel_2.setBounds(89, 0, 255, 63);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 43));
+		lblNewLabel_2.setBounds(182, 44, 299, 63);
 		panel_fondoBlanco.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Horario Profesor");
-		lblNewLabel_2_1.setFont(new Font("Embassy BT", Font.BOLD, 43));
-		lblNewLabel_2_1.setBounds(66, 53, 288, 63);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 43));
+		lblNewLabel_2_1.setBounds(175, 118, 316, 63);
 		panel_fondoBlanco.add(lblNewLabel_2_1);
 
 		JLabel lblLogoFacebook = new JLabel("New label");
-		lblLogoFacebook.setBounds(291, 226, 58, 38);
-		lblLogoFacebook.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\facebook.png"));
+		lblLogoFacebook.setBounds(475, 337, 58, 38);
+		lblLogoFacebook.setIcon(new ImageIcon("Imagenes\\facebook.png"));
 		contentPane.add(lblLogoFacebook);
-
+		
 		JLabel lblLogoTwitter = new JLabel("New label");
-		lblLogoTwitter.setBounds(315, 229, 77, 33);
-		lblLogoTwitter.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\twitter.png"));
+		lblLogoTwitter.setBounds(499, 340, 77, 33);
+		lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
 		contentPane.add(lblLogoTwitter);
-
+		
 		JLabel lblInstagram = new JLabel("New label");
-		lblInstagram.setBounds(356, 231, 78, 28);
-		lblInstagram.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\instagram.png"));
+		lblInstagram.setBounds(543, 337, 75, 28);
+		lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
 		contentPane.add(lblInstagram);
-
+		
 		JLabel lblNombreSistema = new JLabel("New label");
-		lblNombreSistema.setBounds(-24, 223, 184, 44);
-		lblNombreSistema.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\NombreSistema.png"));
+		lblNombreSistema.setBounds(0, 329, 184, 44);
+		lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
 		contentPane.add(lblNombreSistema);
-
+		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(249, 0, 77, 62);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
+		lblNewLabel.setBounds(396, 0, 77, 62);
+		lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
 		contentPane.add(lblNewLabel);
-
+		
 		JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-		lblNewLabel_1.setBounds(328, 11, 119, 22);
+		lblNewLabel_1.setBounds(475, 11, 77, 22);
 		lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 		contentPane.add(lblNewLabel_1);
 
@@ -167,8 +168,16 @@ public class VistaSubirEstatus extends JFrame {
 		menuBar.setBounds(0, 0, 219, 28);
 		contentPane.add(menuBar);
 
-		JMenu mnInicio = new JMenu("Inicio");
-		menuBar.add(mnInicio);
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlSubir.regresaInicio();
+				termina();
+			}
+		});
+		mnNewMenu.add(btnInicio);
 
 		JMenu mnDocente = new JMenu("Docente\r\n");
 		menuBar.add(mnDocente);
@@ -206,15 +215,6 @@ public class VistaSubirEstatus extends JFrame {
 		
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
-		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlSubir.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
 		
 		this.controlSubir = controlSubir;
 		setVisible(true);
@@ -616,8 +616,16 @@ public void muestraHorario(ControlSubirEstatus controlSubir,String nombreDocente
 		menuBar.setBounds(0, 0, 219, 28);
 		contentPane.add(menuBar);
 
-		JMenu mnInicio = new JMenu("Inicio");
-		menuBar.add(mnInicio);
+		JMenu mnNewMenu = new JMenu("Inicio");
+		menuBar.add(mnNewMenu);
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlSubir.regresaInicio();
+				termina();
+			}
+		});
+		mnNewMenu.add(btnInicio);
 
 
 		JMenu mnDocente = new JMenu("Docente\r\n");
@@ -657,22 +665,13 @@ public void muestraHorario(ControlSubirEstatus controlSubir,String nombreDocente
 		JMenu mnInformacion = new JMenu("Informacion");
 		menuBar.add(mnInformacion);
 		
-		JButton btnSalir = new JButton("Salir");
-		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controlSubir.salir();
-				termina();
-			}
-		});
-		menuBar.add(btnSalir);
-		
 		this.controlSubir = controlSubir;
 		setVisible(true);
 	}
 
 public void muestraMensajeExito(ControlSubirEstatus controlSubir,String nombreDocente,String idDocente) {
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setBounds(100, 100, 494, 355);
+	setBounds(100, 100, 634, 412);
 	contentPane = new JPanel();
 	contentPane.setBackground(Color.WHITE);
 	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -682,19 +681,19 @@ public void muestraMensajeExito(ControlSubirEstatus controlSubir,String nombreDo
 	
 	JPanel panel_fondoBlanco = new JPanel();
 	panel_fondoBlanco.setBackground(Color.WHITE);
-	panel_fondoBlanco.setBounds(10, 80, 447, 171);
+	panel_fondoBlanco.setBounds(10, 61, 598, 241);
 	contentPane.add(panel_fondoBlanco);
 	panel_fondoBlanco.setLayout(null);
 	
 	JPanel panel = new JPanel();
 	panel.setBackground(new Color(154, 205, 50));
-	panel.setBounds(116, 11, 227, 100);
+	panel.setBounds(158, 25, 298, 142);
 	panel_fondoBlanco.add(panel);
 	panel.setLayout(null);
 	
 	JLabel lblNewLabel_2 = new JLabel("Archivo Subido");
-	lblNewLabel_2.setFont(new Font("Segoe Script", Font.PLAIN, 18));
-	lblNewLabel_2.setBounds(38, 37, 160, 36);
+	lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 23));
+	lblNewLabel_2.setBounds(82, 52, 160, 36);
 	panel.add(lblNewLabel_2);
 	
 	JButton btnModificar = new JButton("Modificar");
@@ -704,42 +703,42 @@ public void muestraMensajeExito(ControlSubirEstatus controlSubir,String nombreDo
 				termina();
 		}
 	});
-	btnModificar.setBounds(177, 125, 89, 23);
+	btnModificar.setBounds(263, 194, 89, 23);
 	panel_fondoBlanco.add(btnModificar);
 	
 	JPanel panel_fondoVerde = new JPanel();
 	panel_fondoVerde.setBackground(new Color(0, 128, 0));
-	panel_fondoVerde.setBounds(0, 38, 478, 226);
+	panel_fondoVerde.setBounds(0, 38, 618, 288);
 	contentPane.add(panel_fondoVerde);
 	panel_fondoVerde.setLayout(null);
 	
 	JLabel lblLogoFacebook = new JLabel("New label");
-	lblLogoFacebook.setBounds(335, 275, 58, 38);
+	lblLogoFacebook.setBounds(475, 337, 58, 38);
 	lblLogoFacebook.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\facebook.png"));
 	contentPane.add(lblLogoFacebook);
 	
 	JLabel lblLogoTwitter = new JLabel("New label");
-	lblLogoTwitter.setBounds(359, 283, 77, 33);
+	lblLogoTwitter.setBounds(499, 340, 77, 33);
 	lblLogoTwitter.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\twitter.png"));
 	contentPane.add(lblLogoTwitter);
 	
 	JLabel lblInstagram = new JLabel("New label");
-	lblInstagram.setBounds(403, 280, 75, 28);
+	lblInstagram.setBounds(543, 337, 75, 28);
 	lblInstagram.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\instagram.png"));
 	contentPane.add(lblInstagram);
 	
 	JLabel lblNombreSistema = new JLabel("New label");
-	lblNombreSistema.setBounds(0, 272, 184, 44);
+	lblNombreSistema.setBounds(0, 329, 184, 44);
 	lblNombreSistema.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\NombreSistema.png"));
 	contentPane.add(lblNombreSistema);
 	
 	JLabel lblNewLabel = new JLabel("New label");
-	lblNewLabel.setBounds(301, 0, 77, 62);
+	lblNewLabel.setBounds(396, 0, 77, 62);
 	lblNewLabel.setIcon(new ImageIcon("D:\\sts\\codigos\\ProyectoAyD_PowerBusiness\\Imagenes\\usuario.png"));
 	contentPane.add(lblNewLabel);
 	
 	JLabel lblNewLabel_1 = new JLabel(nombreDocente);
-	lblNewLabel_1.setBounds(388, 11, 69, 22);
+	lblNewLabel_1.setBounds(475, 11, 77, 22);
 	lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 	contentPane.add(lblNewLabel_1);
 
@@ -747,8 +746,16 @@ public void muestraMensajeExito(ControlSubirEstatus controlSubir,String nombreDo
 	menuBar.setBounds(0, 0, 219, 28);
 	contentPane.add(menuBar);
 
-	JMenu mnInicio = new JMenu("Inicio");
-	menuBar.add(mnInicio);
+	JMenu mnNewMenu = new JMenu("Inicio");
+	menuBar.add(mnNewMenu);
+	JButton btnInicio = new JButton("Inicio");
+	btnInicio.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			controlSubir.regresaInicio();
+			termina();
+		}
+	});
+	mnNewMenu.add(btnInicio);
 
 
 	JMenu mnDocente = new JMenu("Docente\r\n");
@@ -787,15 +794,7 @@ public void muestraMensajeExito(ControlSubirEstatus controlSubir,String nombreDo
 
 	JMenu mnInformacion = new JMenu("Informacion");
 	menuBar.add(mnInformacion);
-	
-	JButton btnSalir = new JButton("Salir");
-	btnSalir.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			controlSubir.salir();
-			termina();
-		}
-	});
-	menuBar.add(btnSalir);
+
 	
 	this.controlSubir = controlSubir;
 	setVisible(true);	

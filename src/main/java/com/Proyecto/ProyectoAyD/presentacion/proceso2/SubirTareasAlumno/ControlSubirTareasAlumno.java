@@ -34,17 +34,19 @@ public class ControlSubirTareasAlumno {
 	
 	private String nombre;
 	
-	public void inicia(String nombre)
+	public void inicia(String nombre,String contraseña)
 	{
 		this.nombre = nombre;
 		
-		vistaTareas.muestra(this,nombre);
+		vistaTareas.vistaSubirTareasAlumno(this,nombre,contraseña);
 	}
 	
-	public void agregarAvance(String nombre,File archivo,String Evaluador) {
-		Evaluador eva= servicioEvaluador.recuperaNombre(Evaluador);
-		System.out.println(eva+"Control");
-		servicioEvaluador.guardaravance(nombre, archivo, Evaluador);
+	public boolean agregarAvance(String nombre,File archivo,String contraseña) {
+		//Evaluador eva= servicioEvaluador.recuperaNombre(Evaluador);
+		if(servicioAlumno.guardaravance(nombre, archivo, contraseña)) {
+			return true;
+		}	
+		return false;
 	}
 	
 	

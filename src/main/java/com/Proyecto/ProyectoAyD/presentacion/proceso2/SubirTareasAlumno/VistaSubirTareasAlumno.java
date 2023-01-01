@@ -30,10 +30,14 @@ import com.Proyecto.ProyectoAyD.presentacion.proceso1.ElegirTema.ControlElegirTe
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirTareasAlumno.ControlSubirTareasAlumno;
 import com.Proyecto.ProyectoAyD.presentacion.proceso2.SubirTareasAlumno.VistaSubirTareasAlumno;
 import com.Proyecto.ProyectoAyD.presentacion.proceso1.SubirAvanceAlumno.VistaSubirAvanceAlumno;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 @Component
 public class VistaSubirTareasAlumno extends JFrame {
 	
+	
 	private JPanel contentPane;
+	
 
 	/**
 	 * Launch the application.
@@ -65,12 +69,8 @@ public class VistaSubirTareasAlumno extends JFrame {
 		private String Nombre;
 		private ControlSubirTareasAlumno controlSubirTareasAlumno;
 		
-		public VistaSubirTareasAlumno() 	 
-		{//Inicio de Constructor VistaSubirTareasAlumno
-//			setBounds(100, 100, 450, 300);
-//			contentPane = new JPanel();
-//			contentPane.setBackground(new Color(0, 128, 0));
-//			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		public void vistaSubirTareasAlumno(ControlSubirTareasAlumno controlSubirTareasAlumno, String Nombre,String contraseña) 	 
+		{
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 634, 412);
 			contentPane = new JPanel();
@@ -106,7 +106,7 @@ public class VistaSubirTareasAlumno extends JFrame {
 			lbMsj.setBounds(157, 136, 278, 14);
 			PanelAvance.add(lbMsj);
 			
-			JButton btnSeleccionar = new JButton("Seleccionar Archivo");
+			btnSeleccionar = new JButton("Seleccionar Archivo");
 			btnSeleccionar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					JFileChooser j = new JFileChooser();
@@ -119,34 +119,40 @@ public class VistaSubirTareasAlumno extends JFrame {
 			        }
 				}
 			});
-			btnSeleccionar.setBounds(62, 189, 125, 23);
+			btnSeleccionar.setBounds(136, 189, 125, 23);
 			PanelAvance.add(btnSeleccionar);
 			
 			JButton btnNewEnviarArchivo = new JButton("Subir Tarea");
+			btnNewEnviarArchivo.setEnabled(false);
+			btnNewEnviarArchivo.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					if(btnSeleccionar.getText().toString() == "Seleccionar Archivo") {
+						btnNewEnviarArchivo.setEnabled(false);
+					}else {
+						btnNewEnviarArchivo.setEnabled(true);
+					}
+				}
+			});
 			btnNewEnviarArchivo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 			        
 			        File ruta2 = new File(ruta);
 			        if (ruta.trim().length() != 0) {
-			        	controlSubirTareasAlumno.agregarAvance(btnSeleccionar.getText(), ruta2, "omar");
+			        	if(controlSubirTareasAlumno.agregarAvance(btnSeleccionar.getText(), ruta2,contraseña)) {
+			        		muestraDialogoConMensaje("tarea subida");
+			        		btnSeleccionar.setText("Seleccionar Archivo");
+			        	}
 			        } else {
 			            JOptionPane.showMessageDialog(null, "Rellenar todo los campos");
 			        }
 					
 				}
 			});
-			btnNewEnviarArchivo.setBounds(239, 189, 115, 23);
+			btnNewEnviarArchivo.setBounds(352, 189, 115, 23);
 			PanelAvance.add(btnNewEnviarArchivo);
 			
-			
-			
-			JButton btnNewButton_2 = new JButton("Reportar problema");
-			btnNewButton_2.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			btnNewButton_2.setBounds(387, 189, 133, 23);
-			PanelAvance.add(btnNewButton_2);
+
 			
 			JLabel lblLogoFacebook = new JLabel("New label");
 			lblLogoFacebook.setBounds(472, 331, 58, 38);
@@ -181,8 +187,13 @@ public class VistaSubirTareasAlumno extends JFrame {
 			JMenu mnNewMenu = new JMenu("Inicio");
 			menuBar.add(mnNewMenu);
 			
-			JButton btnNewButton = new JButton("");
-			mnNewMenu.add(btnNewButton);
+			JButton btnInicio = new JButton("Inicio");
+			btnInicio.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					termina();
+				}
+			});
+			mnNewMenu.add(btnInicio);
 			
 			JMenu mnNewMenu_1 = new JMenu("Alumno");
 			menuBar.add(mnNewMenu_1);
@@ -203,40 +214,35 @@ public class VistaSubirTareasAlumno extends JFrame {
 			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Edgar\\Desktop\\Lymbix\\ProyectoAyD\\Imagenes\\usuario.png"));
 			contentPane.add(lblNewLabel);
 
-			JLabel lblNewLabel_1 = new JLabel();
+			JLabel lblNewLabel_1 = new JLabel(Nombre);
 			lblNewLabel_1.setBounds(489, 11, 119, 22);
 			lblNewLabel_1.setFont(new Font("Sylfaen", Font.BOLD, 13));
 			contentPane.add(lblNewLabel_1);
 			
-			
+			this.controlSubirTareasAlumno = controlSubirTareasAlumno;
+			setVisible(true);
 		
 		}//fin del constructor 
 		
 		
-		
-		
-		
-		
 		//Método para verificar si el combobox está vacio
-		public void verificarVacia() 
-		{//inicio de método verificarVacia
-			if( comboBoxTema.getSelectedItem().toString().isEmpty() )
-			{//Inicio de if 
+		public void verificarVacia(){
+			if( comboBoxTema.getSelectedItem().toString().isEmpty() ){ 
 				 JOptionPane.showMessageDialog(null, "Vacio");
-			}//fin de if
-		}//fin del metodo
+			}
+		}
 
 		public void muestraDialogoConMensaje(String mensaje ) {
 			JOptionPane.showMessageDialog(this , mensaje);
 		}
 		
-		public void muestra(ControlSubirTareasAlumno controlSubirTareasAlumno, String Nombre) {
-	
-			
-			this.controlSubirTareasAlumno = controlSubirTareasAlumno;
-			this.Nombre=Nombre;
-			setVisible(true);
-		}
+//		public void muestra(ControlSubirTareasAlumno controlSubirTareasAlumno, String Nombre) {
+//	
+//			
+//			this.controlSubirTareasAlumno = controlSubirTareasAlumno;
+//			this.Nombre=Nombre;
+//			setVisible(true);
+//		}
 		
 		 public void seleccionar_pdf() {
 		        JFileChooser File = new JFileChooser();
@@ -249,5 +255,8 @@ public class VistaSubirTareasAlumno extends JFrame {
 
 		        } else {
 		        }
-		    }
+		 }
+		 public void termina() {
+				setVisible(false);
+		}
 	}//fin de la clase vistaSubir TareasAlumno

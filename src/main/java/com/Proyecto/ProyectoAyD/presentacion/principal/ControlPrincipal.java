@@ -76,6 +76,9 @@ public class ControlPrincipal {
 	//proceso1.3
 	@Autowired
 	ControlElegirTema controlElegirTema;
+	
+	private String contraseñaDocente;
+	private String contraseñaAlumno;
 
 	public void inicia() {
 		ventanaPrincipal.login(this);
@@ -105,10 +108,10 @@ public class ControlPrincipal {
 	public boolean buscaEvaluador(String Contraseña, String Nombre) {
 		return servicioEvaluador.buscaEvaluador(Contraseña, Nombre);
 	}
-	public void ElegirTema(String Nombre) 
+	public void ElegirTema(String Nombre, String contraseña) 
 
 	{
-		controlElegirTema.inicia( Nombre);
+		controlElegirTema.inicia( Nombre, contraseña);
 	}//fin de ElegirTema
 	public boolean buscaAlumno(String Contraseña, String Nombre) {	
 		return servicioAlumno.buscaAlumno(Contraseña, Nombre);
@@ -155,8 +158,8 @@ public class ControlPrincipal {
 	//Proceso2-2 SubirTareaAlumno
 	@Autowired
 	private ControlSubirTareasAlumno controlSubirTareasAlumno;
-	public void SubirTareasAlumno(String Nombre) {
-		controlSubirTareasAlumno.inicia(Nombre);
+	public void SubirTareasAlumno(String Nombre,String contraseña) {
+		controlSubirTareasAlumno.inicia(Nombre,contraseña);
 	}
 
 	//procesos 4 
@@ -193,9 +196,11 @@ public class ControlPrincipal {
 	public void cambiarContraseña( String nombre,String contraseña) {
 		controlPassword.inicia(nombre,contraseña);
 	}
-	
+
 	//proceso 2.3 Cambio de Fecha de entrega
 	public void cambioFechaEntrega(String nombreAlumno,String contraseña) {
 		controlCambioFecha.inicia(nombreAlumno,contraseña);
 	}
+	
+
 }

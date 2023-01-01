@@ -84,8 +84,8 @@ public class VistaEnviarCorreos extends JFrame {
 	private String altas[]= new String[100];
 	@Autowired
 	private JavaMailSender emailSende;
-	private List<Alumno> listAlumno;
-	private List<Docente> listDocente;
+	private List<Alumno> listAlumno = new ArrayList<Alumno>();
+	private List<Docente> listDocente = new ArrayList<Docente>();
 	
 	
 
@@ -108,13 +108,7 @@ public class VistaEnviarCorreos extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VistaEnviarCorreos() {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(100, 100, 496, 369);
-//		contentPane = new JPanel();
-//		contentPane.setBackground(Color.WHITE);
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		//cambio de tamaño de panel
+	public void vistaEnviarCorreos(ControlEnviarCorreos controlEnviarCorreos,String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 412);
 		contentPane = new JPanel();
@@ -294,6 +288,10 @@ public class VistaEnviarCorreos extends JFrame {
 	
 	public void llenaTabla(List<Alumno> list, List<Docente> lista2) {
 		Object[] fila=new Object[1];
+		for (int i = 0; i < tableCorreos.getRowCount(); i++) {
+			model.removeRow(i);
+			i-=1;
+		}		
 		listAlumno = list;
 		listDocente=lista2;
 		for(Docente act: lista2) {
@@ -311,14 +309,17 @@ public class VistaEnviarCorreos extends JFrame {
 		if(numeroAltas>0 && (!(textArea.getText().equals("")))) {
 			btnEnviar.setEnabled(true);
 		}
-	}
-	
-	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {
 		this.controlEnviarCorreos = controlEnviarCorreos;
-		this.nombre=nombre;
 		setVisible(true);
 		
 	}
+	
+//	public void muestra(ControlEnviarCorreos controlEnviarCorreos,String nombre) {
+//		this.controlEnviarCorreos = controlEnviarCorreos;
+//		this.nombre=nombre;
+//		setVisible(true);
+//		
+//	}
 	
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);

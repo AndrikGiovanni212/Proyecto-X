@@ -58,9 +58,9 @@ public class Alumno {
 	@OneToMany(targetEntity = Evaluador.class, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evaluador> evaluador;
 
-//	@LazyCollection(LazyCollectionOption.FALSE)
-//	@ManyToMany(targetEntity = Archivo.class, cascade = CascadeType.ALL)
-//	private List <Archivo> archivo;
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(targetEntity = Archivo.class, cascade = CascadeType.ALL)
+	private List <Archivo> archivo;
 
 
 

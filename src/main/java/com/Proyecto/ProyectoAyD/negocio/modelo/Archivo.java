@@ -30,9 +30,21 @@ public class Archivo {
 	private byte[] archivoPdf;
 	private String nombreArchivo;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(nullable = false, updatable = false)
-    private Evaluador evaluador;
-
+//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn(nullable = false, updatable = false)
+//    private Evaluador evaluador;
+//	
+	@ManyToOne(targetEntity = Alumno.class, fetch = FetchType.EAGER)
+    private Alumno alumno;
 	
+	
+	
+	
+	
+	
+	
+//
+//	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn(nullable = false, updatable = false)
+//    private Alumno alumno;
 }

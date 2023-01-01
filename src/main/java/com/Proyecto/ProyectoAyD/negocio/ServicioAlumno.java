@@ -1,5 +1,9 @@
 package com.Proyecto.ProyectoAyD.negocio;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,10 +14,12 @@ import org.springframework.stereotype.Service;
 
 import com.Proyecto.ProyectoAyD.datos.ActividadesRepository;
 import com.Proyecto.ProyectoAyD.datos.RepositoryAlumno;
+import com.Proyecto.ProyectoAyD.datos.RepositoryArchivo;
 import com.Proyecto.ProyectoAyD.datos.RepositoryEvaluador;
 import com.Proyecto.ProyectoAyD.datos.RepositoryNotificacion;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Actividad;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Archivo;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Notificacion;
@@ -32,8 +38,10 @@ public class ServicioAlumno
 	RepositoryNotificacion repositoryNotificacion;
 	Alumno alumnoLocal;
 	int numero = 1;
-	
+	@Autowired
+	RepositoryArchivo repositoryArchivo;
 	List<Notificacion> list=new ArrayList<Notificacion>();
+	List<Archivo> listArchivo=new ArrayList<Archivo>();
 	//pro3
 	public boolean buscaAlumno(String contraseña, String nombre) {
 		alumnoLocal = repositoryAlumno.findByContraseñaAlumno(contraseña);
@@ -88,9 +96,14 @@ public class ServicioAlumno
 	
 	
 	//proceso 1 EleccionDocente
-	public void guardaEvaluador(List<Evaluador> evaluadores) {
+	public boolean guardaEvaluador(List<Evaluador> evaluadores) {
+		if(evaluadores.isEmpty()) {
+			return false;
+		}
 		alumnoLocal.setEvaluador(evaluadores);
 		repositoryAlumno.save(alumnoLocal);
+		return true;
+		
 	}
 
 	
@@ -126,9 +139,7 @@ public class ServicioAlumno
 		
 		if(NombreDestinatario == null) {
 			throw new NullPointerException("Null parameters are not allowed"); 
-		}
-		
-		
+		}		
 		Notificacion notifi=new Notificacion();
 		if(repositoryNotificacion.findByAlumnoContraseñaAlumno(contraseña).size() == 0) {
 			this.list = new ArrayList<>();
@@ -145,7 +156,38 @@ public class ServicioAlumno
 		repositoryNotificacion.save(notifi);
 		this.list.add(notifi);
 		alum.setNotificacicion(list);
-		repositoryAlumno.save(alum);
+		repositoryAlumno.save(alum);	
+	}
+	
+	public boolean guardaravance( String nombre, File ruta,String contraseña) {
+		if(nombre.equals("") && contraseña.equals("")) {
+			return false;
+		}else {
+			Archivo archi = new Archivo();
+			if(repositoryArchivo.findByAlumnoContraseñaAlumno(contraseña).size() == 0) {
+				this.listArchivo = new ArrayList<>();
+				this.numero = 1;
+			}
+			try {
+	          byte[] pdf = new byte[(int) ruta.length()];
+	          InputStream input = new FileInputStream(ruta);
+	          input.read(pdf);
+	          archi.setArchivoPdf(pdf);
+	          archi.setNombreArchivo(nombre);
+	          Alumno alum = new Alumno();
+	  		  alum =repositoryAlumno.findByContraseñaAlumno(contraseña);
+	  	 	  archi.setAlumno(alum);
+	  		  repositoryArchivo.save(archi);
+	  		  this.listArchivo.add(archi);
+	  		  alum.setArchivo(listArchivo);
+	  		  repositoryAlumno.save(alum);
+	          
+	      } catch (IOException ex) {
+	          archi.setArchivoPdf(null);
+	      }
+			return true;
+		}
+		
 		
 	}
 

@@ -1,11 +1,14 @@
 package com.Proyecto.ProyectoAyD.presentacion.proceso4.BajaUsuario;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.Proyecto.ProyectoAyD.negocio.ServicioAdministrador;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Alumno;
 import com.Proyecto.ProyectoAyD.negocio.modelo.Docente;
+import com.Proyecto.ProyectoAyD.negocio.modelo.Evaluador;
 import com.Proyecto.ProyectoAyD.presentacion.principal.ControlPrincipal;
 import com.Proyecto.ProyectoAyD.presentacion.principal.VentanaPrincipal;
 
@@ -71,6 +74,10 @@ public class ControlBaja {
 		return servicioAdm.verificaDocenteParaBaja(matricula);
 	}
 	
+	public Evaluador verificaEvaluadorBaja(String matricula){
+		return servicioAdm.verificaEvaluadorParaBaja(matricula);
+	}
+	
 	/**
 	 * Se contacta con el servicio para saber si existe el Usuario buscado
 	 * @param matricula
@@ -89,8 +96,14 @@ public class ControlBaja {
 	 * Se contacta con el servicio para dar de baja a un usuario con el dato de la matricula
 	 * @param matricula
 	 */
-	public boolean darBaja(String matricula){
-		return servicioAdm.bajaPorMatricula(matricula);
+	public boolean darBajaD(Docente dato){
+		return servicioAdm.bajaPorMatriculaD(dato);
+	}
+	public boolean darBajaA(Alumno dato){
+		return servicioAdm.bajaPorMatriculaA(dato);
+	}
+	public boolean darBajaE(Evaluador dato){
+		return servicioAdm.bajaPorMatriculaE(dato);
 	}
 
 }
